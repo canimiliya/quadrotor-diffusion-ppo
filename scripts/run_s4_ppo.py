@@ -360,7 +360,8 @@ def main() -> None:
         "current_blocker": None if val_gate else final_label,
     }
     (ARTIFACTS / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"S4 training complete; best VAL={best_record['summary']['success']}/54 at {best_record['env_steps']}; TEST={test_summary['success']}/54", flush=True)
+    test_text = "NOT_EXECUTED" if test_summary is None else f"{test_summary['success']}/54"
+    print(f"S4-R1 training complete; best VAL={best_record['summary']['success']}/54 at {best_record['env_steps']}; TEST={test_text}", flush=True)
 
 
 def smoke_main() -> None:

@@ -1,0 +1,38 @@
+{
+  "audit_pass": false,
+  "protocol_audit_pass": true,
+  "usability_gate_pass": false,
+  "val_family_success": {
+    "OPEN": 18,
+    "BLOCK": 0,
+    "SBEND": 0
+  },
+  "checks": {
+    "canonical_main": true,
+    "r0_head": true,
+    "main_fast_forward": true,
+    "split_counts": true,
+    "exact_training_budget": true,
+    "evaluation_schedule": true,
+    "val_rows": true,
+    "test_rows": true,
+    "model_frozen": true,
+    "finite": true,
+    "shape_contract": true,
+    "no_vec_normalize": true,
+    "no_privileged_dependencies": true,
+    "checkpoint_pair": true,
+    "unit_ball_distribution": true,
+    "unit_ball_oracles": true,
+    "reward_hash": true,
+    "policy_action_support": true,
+    "environment_action_clip": true,
+    "forbidden_runtime_tokens": true
+  },
+  "forbidden_runtime_tokens": [],
+  "artifact_hashes": {
+    "summary.json": "d9ab18c248d193148de9fc70eb8243dd090e94bce954be9acbbefdc91169925e",
+    "learning_curve.csv": "a0ed77851fd0e6b2524debfc2fcc1fc5578b655f8a9b2d789309bcc15953bf1f",
+    "val_best_rollout.csv": "4d61c7281355c991e65bcb66af8eb85926df479ecbcac73c13d97e666eccdda4"
+  }
+}
