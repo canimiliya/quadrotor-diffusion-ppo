@@ -3,6 +3,8 @@
   "final_label": "PASS_S2_EXPERT_DATASET_360_V1",
   "start_head": "8a315379c018f9ae617ca7801b96653a73a70432",
   "branch": "agent/s2-expert-dataset-v1",
+  "end_head": "1a05975cf0bf8018683f123f4a77ebea2bf39b22",
+  "remote_branch_head": "1a05975cf0bf8018683f123f4a77ebea2bf39b22",
   "m0_baseline_head": "8a315379c018f9ae617ca7801b96653a73a70432",
   "m0_contract_changed": false,
   "task_generation_seed": 20260808,
