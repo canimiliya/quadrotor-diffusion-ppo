@@ -66,6 +66,12 @@ artifacts/s4r1/*
 !artifacts/s4r1/test_rollout.csv
 !artifacts/s4r1/independent_verification.json
 
+!artifacts/s4d0/
+artifacts/s4d0/*
+!artifacts/s4d0/summary.json
+!artifacts/s4d0/per_episode.csv
+!artifacts/s4d0/reward_audit.csv
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

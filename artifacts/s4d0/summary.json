@@ -1,0 +1,1533 @@
+{
+  "task": "S4-D0-PURE-PPO-OBSTACLE-LEARNING-ROOT-CAUSE-AUDIT-V1",
+  "final_label": "PASS_S4D0_PPO_OBSTACLE_ROOT_CAUSE_AUDIT",
+  "start_head": "845353c0a83651464279711328a3b168c1a6a065",
+  "r1_head": "845353c0a83651464279711328a3b168c1a6a065",
+  "branch": "agent/s4d0-ppo-obstacle-audit-v1",
+  "end_head": null,
+  "remote_branch_head": null,
+  "checkpoint_sha256": "3dea0fc92274bb34a542a5f2077dd233475a49cc05171dd4ffa661f0eb0c224b",
+  "checkpoint_identity": "UnitBallSquashedGaussian=true",
+  "test_accessed": false,
+  "test_run_count": 0,
+  "r1_val_reproduction": {
+    "tasks": 54,
+    "success": 18,
+    "collision": 36,
+    "ground": 0,
+    "timeout": 0,
+    "mean_return": -1.8288931297673432,
+    "mean_discounted_return": -1.2892188557908766,
+    "mean_steps": 177.2037037037037,
+    "action_clip_fraction": 0.0,
+    "support_violation_fraction": 0.0,
+    "by_family": {
+      "OPEN": {
+        "tasks": 18,
+        "success": 18,
+        "collision": 0,
+        "ground": 0,
+        "timeout": 0,
+        "mean_return": 26.389473268372424,
+        "mean_discounted_return": 4.282327784642749,
+        "mean_steps": 239.11111111111111,
+        "action_clip_fraction": 0.0,
+        "support_violation_fraction": 0.0
+      },
+      "BLOCK": {
+        "tasks": 18,
+        "success": 0,
+        "collision": 18,
+        "ground": 0,
+        "timeout": 0,
+        "mean_return": -17.299524197640455,
+        "mean_discounted_return": -5.898493410833821,
+        "mean_steps": 100.33333333333333,
+        "action_clip_fraction": 0.0,
+        "support_violation_fraction": 0.0
+      },
+      "SBEND": {
+        "tasks": 18,
+        "success": 0,
+        "collision": 18,
+        "ground": 0,
+        "timeout": 0,
+        "mean_return": -14.576628460034003,
+        "mean_discounted_return": -2.25149094118156,
+        "mean_steps": 192.16666666666666,
+        "action_clip_fraction": 0.0,
+        "support_violation_fraction": 0.0
+      }
+    },
+    "match": true
+  },
+  "ray_intervention": {
+    "observation_count": 9569,
+    "all_states": {
+      "true_vs_clear_action_delta_mean": 0.012213719077408314,
+      "true_vs_near_action_delta_mean": 0.08448547124862671,
+      "true_vs_clear_cosine_mean": 0.9997621501405617,
+      "true_vs_near_cosine_mean": 0.9946245561961167
+    },
+    "near_obstacle_by_family_window": {
+      "BLOCK": {
+        "1.00s": {
+          "samples": 882,
+          "minimum_ray": 0.020215507596731186,
+          "true_vs_clear_action_delta": 0.03937501460313797,
+          "true_vs_near_action_delta": 0.07651960104703903,
+          "true_vs_clear_cosine": 0.9990420292918722,
+          "true_vs_near_cosine": 0.996706049950132
+        },
+        "0.50s": {
+          "samples": 450,
+          "minimum_ray": 0.020215507596731186,
+          "true_vs_clear_action_delta": 0.050850797444581985,
+          "true_vs_near_action_delta": 0.06298741698265076,
+          "true_vs_clear_cosine": 0.9985861389679314,
+          "true_vs_near_cosine": 0.9978337089558726
+        },
+        "0.25s": {
+          "samples": 234,
+          "minimum_ray": 0.020215507596731186,
+          "true_vs_clear_action_delta": 0.05446227267384529,
+          "true_vs_near_action_delta": 0.05727284029126167,
+          "true_vs_clear_cosine": 0.9983931173409851,
+          "true_vs_near_cosine": 0.9982148992069647
+        }
+      },
+      "SBEND": {
+        "1.00s": {
+          "samples": 882,
+          "minimum_ray": 0.020187176764011383,
+          "true_vs_clear_action_delta": 0.021864796057343483,
+          "true_vs_near_action_delta": 0.05807258561253548,
+          "true_vs_clear_cosine": 0.9996916482967954,
+          "true_vs_near_cosine": 0.9980259381209562
+        },
+        "0.50s": {
+          "samples": 450,
+          "minimum_ray": 0.020187176764011383,
+          "true_vs_clear_action_delta": 0.028667060658335686,
+          "true_vs_near_action_delta": 0.04785051941871643,
+          "true_vs_clear_cosine": 0.9995183786873028,
+          "true_vs_near_cosine": 0.9985692974979962
+        },
+        "0.25s": {
+          "samples": 234,
+          "minimum_ray": 0.020187176764011383,
+          "true_vs_clear_action_delta": 0.03209695965051651,
+          "true_vs_near_action_delta": 0.04283589497208595,
+          "true_vs_clear_cosine": 0.9993991656651449,
+          "true_vs_near_cosine": 0.9988219460618277
+        }
+      }
+    },
+    "near_obstacle_1s_all_blocked": {
+      "samples": 1764,
+      "true_vs_clear_action_delta_mean": 0.0306199062615633,
+      "true_vs_near_action_delta_mean": 0.0672960877418518
+    }
+  },
+  "normalized_policy_sensitivity": {
+    "sample_count": 4096,
+    "features": {
+      "position_x": {
+        "mean": 0.0614292211830616,
+        "median": 0.051984772086143494,
+        "p95": 0.1247582696378231
+      },
+      "position_y": {
+        "mean": 0.04016047716140747,
+        "median": 0.020295090973377228,
+        "p95": 0.10923592187464237
+      },
+      "position_z": {
+        "mean": 0.016766274347901344,
+        "median": 0.013310868293046951,
+        "p95": 0.03494074568152428
+      },
+      "goal_delta_x": {
+        "mean": 0.315528929233551,
+        "median": 0.13801851868629456,
+        "p95": 0.9752278923988342
+      },
+      "goal_delta_y": {
+        "mean": 0.09713566303253174,
+        "median": 0.0704641193151474,
+        "p95": 0.2021784372627735
+      },
+      "goal_delta_z": {
+        "mean": 0.07120492309331894,
+        "median": 0.05394837260246277,
+        "p95": 0.14777713641524315
+      },
+      "linear_velocity_x": {
+        "mean": 0.016688935458660126,
+        "median": 0.010351890698075294,
+        "p95": 0.041678556241095066
+      },
+      "linear_velocity_y": {
+        "mean": 0.011491616256535053,
+        "median": 0.00548327574506402,
+        "p95": 0.03287800122052431
+      },
+      "linear_velocity_z": {
+        "mean": 0.02528734691441059,
+        "median": 0.018643338233232498,
+        "p95": 0.05113558378070593
+      },
+      "quaternion_x": {
+        "mean": 0.0016250546323135495,
+        "median": 0.001134761143475771,
+        "p95": 0.0036266304668970406
+      },
+      "quaternion_y": {
+        "mean": 0.0020110311452299356,
+        "median": 0.0013113829772919416,
+        "p95": 0.004989279666915536
+      },
+      "quaternion_z": {
+        "mean": 0.0009979027090594172,
+        "median": 0.0005592415691353381,
+        "p95": 0.002458762435708195
+      },
+      "quaternion_w": {
+        "mean": 5.6684330047573894e-05,
+        "median": 3.466330235823989e-05,
+        "p95": 0.00015049528883537278
+      },
+      "angular_velocity_x": {
+        "mean": 0.01655184105038643,
+        "median": 0.01241685263812542,
+        "p95": 0.03536275960505009
+      },
+      "angular_velocity_y": {
+        "mean": 0.029255732893943787,
+        "median": 0.025068115442991257,
+        "p95": 0.061223686672747135
+      },
+      "angular_velocity_z": {
+        "mean": 0.016119861975312233,
+        "median": 0.012584904208779335,
+        "p95": 0.03745725192129612
+      },
+      "ray_00": {
+        "mean": 0.002312217839062214,
+        "median": 0.0014226047787815332,
+        "p95": 0.005512788658961654
+      },
+      "ray_01": {
+        "mean": 0.0019465353107079864,
+        "median": 0.0013679515104740858,
+        "p95": 0.004828177974559367
+      },
+      "ray_02": {
+        "mean": 0.0022161139640957117,
+        "median": 0.001885176170617342,
+        "p95": 0.003997949650511146
+      },
+      "ray_03": {
+        "mean": 0.0023749317042529583,
+        "median": 0.001762561034411192,
+        "p95": 0.005291638080962002
+      },
+      "ray_04": {
+        "mean": 0.0,
+        "median": 0.0,
+        "p95": 0.0
+      },
+      "ray_05": {
+        "mean": 0.0011610062792897224,
+        "median": 0.000643345934804529,
+        "p95": 0.0032500755041837692
+      },
+      "ray_06": {
+        "mean": 0.0011186518240720034,
+        "median": 0.0010392697295174003,
+        "p95": 0.002469835977535695
+      },
+      "ray_07": {
+        "mean": 0.001330300234258175,
+        "median": 0.001012108288705349,
+        "p95": 0.00336496188538149
+      },
+      "ray_08": {
+        "mean": 0.0017051229951903224,
+        "median": 0.0012480877339839935,
+        "p95": 0.003581835248041898
+      },
+      "ray_09": {
+        "mean": 0.0020517525263130665,
+        "median": 0.0015332333277910948,
+        "p95": 0.004382188199087977
+      },
+      "ray_10": {
+        "mean": 0.002794999396428466,
+        "median": 0.002296802122145891,
+        "p95": 0.005821089027449489
+      },
+      "ray_11": {
+        "mean": 0.0018628020770847797,
+        "median": 0.0015235894825309515,
+        "p95": 0.003789962036535144
+      },
+      "ray_12": {
+        "mean": 0.001325942575931549,
+        "median": 0.0007512597367167473,
+        "p95": 0.0033072259975597262
+      },
+      "ray_13": {
+        "mean": 0.0009852963266894221,
+        "median": 0.0008583542658016086,
+        "p95": 0.001982938847504556
+      },
+      "ray_14": {
+        "mean": 0.001366674667224288,
+        "median": 0.001471824012696743,
+        "p95": 0.0021938561112619936
+      },
+      "ray_15": {
+        "mean": 0.002459408948197961,
+        "median": 0.0018040461000055075,
+        "p95": 0.005291839363053441
+      },
+      "ray_16": {
+        "mean": 0.0011912576155737042,
+        "median": 0.0007209709146991372,
+        "p95": 0.0034446825738996267
+      },
+      "ray_17": {
+        "mean": 0.0019428131636232138,
+        "median": 0.000866926449816674,
+        "p95": 0.005909013329073787
+      }
+    },
+    "groups": {
+      "position": {
+        "mean": 0.0394519908974568,
+        "median": 0.028530243784189224,
+        "p95": 0.08964497906466325
+      },
+      "goal_delta": {
+        "mean": 0.1612898384531339,
+        "median": 0.0874770035346349,
+        "p95": 0.44172782202561695
+      },
+      "linear_velocity": {
+        "mean": 0.017822632876535256,
+        "median": 0.011492834892123938,
+        "p95": 0.04189738041410843
+      },
+      "quaternion": {
+        "mean": 0.001172668204162619,
+        "median": 0.0007600122480653226,
+        "p95": 0.002806291964589036
+      },
+      "angular_velocity": {
+        "mean": 0.020642478639880817,
+        "median": 0.016689957429965336,
+        "p95": 0.044681232733031116
+      },
+      "rays": {
+        "mean": 0.001674768191555308,
+        "median": 0.0012337839774166544,
+        "p95": 0.0038011143591979313
+      }
+    },
+    "goal_delta_to_rays_mean_ratio": 0.010383593954940604
+  },
+  "observation_scale": {
+    "features": {
+      "position_x": {
+        "mean": 3.685841506999154,
+        "std": 2.0981630948693017,
+        "p01": 0.37345238745212556,
+        "p50": 3.631502389907837,
+        "p99": 8.076925563812257
+      },
+      "position_y": {
+        "mean": 0.04296430872825097,
+        "std": 0.49034821800196593,
+        "p01": -0.9947957015037536,
+        "p50": 0.0021631496492773294,
+        "p99": 1.2272317934036248
+      },
+      "position_z": {
+        "mean": 1.2589218252438594,
+        "std": 0.39467090128179,
+        "p01": 0.6402000564336777,
+        "p50": 1.163043200969696,
+        "p99": 2.3775072169303892
+      },
+      "goal_delta_x": {
+        "mean": 2.2325985497050977,
+        "std": 2.0744449143193084,
+        "p01": -0.010498276446014643,
+        "p50": 1.8537470698356628,
+        "p99": 7.2899393272399875
+      },
+      "goal_delta_y": {
+        "mean": 0.034906397950792825,
+        "std": 0.5382189667699008,
+        "p01": -1.2617410838603973,
+        "p50": 0.0022689709439873695,
+        "p99": 1.6523008918762208
+      },
+      "goal_delta_z": {
+        "mean": 0.144597755842192,
+        "std": 0.3814092052954534,
+        "p01": -1.051996420621872,
+        "p50": 0.002246650750748813,
+        "p99": 1.1439257764816282
+      },
+      "linear_velocity_x": {
+        "mean": 0.4460315994999918,
+        "std": 0.3002407152427223,
+        "p01": -0.0260687873326242,
+        "p50": 0.5763253271579742,
+        "p99": 0.801624641418457
+      },
+      "linear_velocity_y": {
+        "mean": 0.01677648129870306,
+        "std": 0.2616593216103615,
+        "p01": -0.5855619877576828,
+        "p50": 0.0012073281686753035,
+        "p99": 0.5942362302541732
+      },
+      "linear_velocity_z": {
+        "mean": 0.04391275926012543,
+        "std": 0.15059339055399484,
+        "p01": -0.5227941572666168,
+        "p50": 0.0053063316736370325,
+        "p99": 0.6550642818212501
+      },
+      "quaternion_x": {
+        "mean": -7.761342872573406e-05,
+        "std": 0.013390129845468071,
+        "p01": -0.032298369221389296,
+        "p50": 0.0,
+        "p99": 0.03249690357595679
+      },
+      "quaternion_y": {
+        "mean": 0.0015756917610564268,
+        "std": 0.015933967372168432,
+        "p01": -0.041507738530635836,
+        "p50": 0.0016390386153943837,
+        "p99": 0.043583896197378603
+      },
+      "quaternion_z": {
+        "mean": 0.004691072591600136,
+        "std": 0.03150313052843104,
+        "p01": -0.0805237389355898,
+        "p50": 0.00017580492567503825,
+        "p99": 0.11387164719402759
+      },
+      "quaternion_w": {
+        "mean": 0.9992736132156825,
+        "std": 0.001454852482276701,
+        "p01": 0.9925895559787751,
+        "p50": 0.9997299313545227,
+        "p99": 0.9999997019767761
+      },
+      "angular_velocity_x": {
+        "mean": -0.00011529693718454553,
+        "std": 0.44364204409717395,
+        "p01": -0.8513705605268479,
+        "p50": 0.0,
+        "p99": 0.8502036428451524
+      },
+      "angular_velocity_y": {
+        "mean": -0.0001573048442676318,
+        "std": 0.4420959757332586,
+        "p01": -0.8575567388534546,
+        "p50": 0.007258798461407423,
+        "p99": 0.8483007967472076
+      },
+      "angular_velocity_z": {
+        "mean": 0.0014040720033214095,
+        "std": 0.4129092473292399,
+        "p01": -0.7878984999656677,
+        "p50": 8.945799709181301e-05,
+        "p99": 0.792808393239975
+      },
+      "ray_00": {
+        "mean": 0.9028627271913687,
+        "std": 0.21689187134656618,
+        "p01": 0.1587105818092823,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_01": {
+        "mean": 0.8417075733261998,
+        "std": 0.26214218313484206,
+        "p01": 0.15621200561523438,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_02": {
+        "mean": 0.9537301532567698,
+        "std": 0.189047533503928,
+        "p01": 0.11641731530427933,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_03": {
+        "mean": 0.9561127409672523,
+        "std": 0.17945048688339107,
+        "p01": 0.1509416829049587,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_04": {
+        "mean": 1.0,
+        "std": 0.0,
+        "p01": 1.0,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_05": {
+        "mean": 0.988717937578912,
+        "std": 0.09665256962654294,
+        "p01": 0.17391182780265807,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_06": {
+        "mean": 0.9304387698378452,
+        "std": 0.2141338306135004,
+        "p01": 0.15066183283925055,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_07": {
+        "mean": 0.9346894374105659,
+        "std": 0.20337162946647735,
+        "p01": 0.18443147465586662,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_08": {
+        "mean": 0.9237373546126441,
+        "std": 0.22605774200765907,
+        "p01": 0.14330976769328116,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_09": {
+        "mean": 0.9293473891820772,
+        "std": 0.2136337866789724,
+        "p01": 0.17286283120512963,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_10": {
+        "mean": 0.9453109812504416,
+        "std": 0.18683156904502068,
+        "p01": 0.17790603056550025,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_11": {
+        "mean": 0.9327975143825172,
+        "std": 0.20801525045194327,
+        "p01": 0.16622003078460693,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_12": {
+        "mean": 0.953027228117148,
+        "std": 0.16866229705483582,
+        "p01": 0.22760587379336356,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_13": {
+        "mean": 0.9417705988571672,
+        "std": 0.1917839889172819,
+        "p01": 0.19370201259851455,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_14": {
+        "mean": 0.9461149973093977,
+        "std": 0.1922462075861978,
+        "p01": 0.1697822131216526,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_15": {
+        "mean": 0.9225168309962035,
+        "std": 0.22194796821974225,
+        "p01": 0.15502444118261335,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_16": {
+        "mean": 0.9521528389237253,
+        "std": 0.1765933564974768,
+        "p01": 0.21250396490097045,
+        "p50": 1.0,
+        "p99": 1.0
+      },
+      "ray_17": {
+        "mean": 0.9301871006927398,
+        "std": 0.20693776274696116,
+        "p01": 0.17679698646068573,
+        "p50": 1.0,
+        "p99": 1.0
+      }
+    },
+    "groups": {
+      "position": {
+        "mean_abs": 1.7752931118011475,
+        "mean_std": 0.9943814873695374,
+        "p01": -0.8532167440652847,
+        "p99": 7.7657407808303835
+      },
+      "goal_delta": {
+        "mean_abs": 0.9452430009841919,
+        "mean_std": 0.9980168342590332,
+        "p01": -1.1182715106010437,
+        "p99": 6.805954356193543
+      },
+      "linear_velocity": {
+        "mean_abs": 0.2376152127981186,
+        "mean_std": 0.2374926060438156,
+        "p01": -0.5291242480278016,
+        "p99": 0.7882970941066743
+      },
+      "quaternion": {
+        "mean_abs": 0.2598688006401062,
+        "mean_std": 0.015580719336867332,
+        "p01": -0.04906312238425016,
+        "p99": 0.9999871850013733
+      },
+      "angular_velocity": {
+        "mean_abs": 0.3406209945678711,
+        "mean_std": 0.43287256360054016,
+        "p01": -0.8307961356639862,
+        "p99": 0.8264254838228232
+      },
+      "rays": {
+        "mean_abs": 0.9380678534507751,
+        "mean_std": 0.18633933365345,
+        "p01": 0.16383101791143417,
+        "p99": 1.0
+      }
+    },
+    "train_observation_count": 129458
+  },
+  "policy_exploration": {
+    "log_std": [
+      -0.2187143862247467,
+      -0.1332813799381256,
+      -0.3104768991470337
+    ],
+    "action_std": [
+      0.8035512566566467,
+      0.8752188086509705,
+      0.73309725522995
+    ],
+    "groups": {
+      "OPEN_normal": {
+        "states": 512,
+        "samples_per_state": 256,
+        "mean_action": [
+          0.7024351358413696,
+          0.08423823118209839,
+          0.08711911737918854
+        ],
+        "mean_action_covariance": [
+          [
+            0.06352119766603972,
+            -0.007770853007322717,
+            -0.006969524626360342
+          ],
+          [
+            -0.007770853007322717,
+            0.14312642302132753,
+            -0.0021496165778235503
+          ],
+          [
+            -0.006969524626360342,
+            -0.0021496165778235503,
+            0.1078007644315738
+          ]
+        ],
+        "mean_norm": 0.9332455992698669,
+        "horizontal_direction_valid_fraction": 1.0,
+        "fraction_direction_diff_gt_30deg": 0.318206787109375,
+        "fraction_direction_diff_gt_60deg": 0.079010009765625,
+        "fraction_direction_diff_gt_90deg": 0.0273284912109375,
+        "deterministic_mean_norm": 0.9257647395133972
+      },
+      "BLOCK_near": {
+        "states": 512,
+        "samples_per_state": 256,
+        "mean_action": [
+          0.8050172924995422,
+          -0.07491954416036606,
+          -0.04611467942595482
+        ],
+        "mean_action_covariance": [
+          [
+            0.03466957022107671,
+            0.007618576815228842,
+            0.004099655649835118
+          ],
+          [
+            0.007618576815228842,
+            0.12429415167168757,
+            -0.0005236518214266229
+          ],
+          [
+            0.004099655649835118,
+            -0.0005236518214266229,
+            0.09317407335579442
+          ]
+        ],
+        "mean_norm": 0.9560181498527527,
+        "horizontal_direction_valid_fraction": 1.0,
+        "fraction_direction_diff_gt_30deg": 0.2323150634765625,
+        "fraction_direction_diff_gt_60deg": 0.03063201904296875,
+        "fraction_direction_diff_gt_90deg": 0.0058746337890625,
+        "deterministic_mean_norm": 0.9671522378921509
+      },
+      "SBEND_near": {
+        "states": 512,
+        "samples_per_state": 256,
+        "mean_action": [
+          0.827042281627655,
+          -0.06499829143285751,
+          0.016059841960668564
+        ],
+        "mean_action_covariance": [
+          [
+            0.028484153445015713,
+            0.006324429198546022,
+            -0.0010202687368281208
+          ],
+          [
+            0.006324429198546022,
+            0.11754010358127252,
+            -0.0003286761167608244
+          ],
+          [
+            -0.0010202687368281208,
+            -0.0003286761167608244,
+            0.08764694321626132
+          ]
+        ],
+        "mean_norm": 0.9624254703521729,
+        "horizontal_direction_valid_fraction": 1.0,
+        "fraction_direction_diff_gt_30deg": 0.20935821533203125,
+        "fraction_direction_diff_gt_60deg": 0.02227020263671875,
+        "fraction_direction_diff_gt_90deg": 0.00382232666015625,
+        "deterministic_mean_norm": 0.9738136529922485
+      }
+    }
+  },
+  "collision_direction": {
+    "counts": {
+      "toward_obstacle": 36,
+      "away_from_obstacle": 0,
+      "mixed": 0
+    },
+    "episodes": [
+      {
+        "task_id": "BLOCK_00_TASK_003",
+        "window_mean_dot_1s": 0.9612671905747363,
+        "window_mean_dot_0.5s": 0.9592764365069502,
+        "window_mean_dot_0.25s": 0.9575416013107454,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_00_TASK_006",
+        "window_mean_dot_1s": 0.9486215261871171,
+        "window_mean_dot_0.5s": 0.9530284755383789,
+        "window_mean_dot_0.25s": 0.9555412865528223,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_00_TASK_011",
+        "window_mean_dot_1s": 0.9274337990552102,
+        "window_mean_dot_0.5s": 0.9322546731723103,
+        "window_mean_dot_0.25s": 0.9324572450831341,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_00_TASK_026",
+        "window_mean_dot_1s": 0.9442569421456398,
+        "window_mean_dot_0.5s": 0.9456507720651852,
+        "window_mean_dot_0.25s": 0.946173528979356,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_00_TASK_035",
+        "window_mean_dot_1s": 0.9656691695983638,
+        "window_mean_dot_0.5s": 0.964423995856338,
+        "window_mean_dot_0.25s": 0.9647073655988392,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_00_TASK_036",
+        "window_mean_dot_1s": 0.9200672982457446,
+        "window_mean_dot_0.5s": 0.92417959958162,
+        "window_mean_dot_0.25s": 0.9256228159806599,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_01_TASK_009",
+        "window_mean_dot_1s": 0.9478037095647565,
+        "window_mean_dot_0.5s": 0.9572401399018909,
+        "window_mean_dot_0.25s": 0.9578391184925945,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_01_TASK_018",
+        "window_mean_dot_1s": 0.9529025553444385,
+        "window_mean_dot_0.5s": 0.9519514790513581,
+        "window_mean_dot_0.25s": 0.9502092475950318,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_01_TASK_021",
+        "window_mean_dot_1s": 0.9331816941918195,
+        "window_mean_dot_0.5s": 0.9369882805071499,
+        "window_mean_dot_0.25s": 0.9377714404733181,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_01_TASK_030",
+        "window_mean_dot_1s": 0.9588113081009737,
+        "window_mean_dot_0.5s": 0.9586578736050957,
+        "window_mean_dot_0.25s": 0.9581609974370211,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_01_TASK_035",
+        "window_mean_dot_1s": 0.9526127291105961,
+        "window_mean_dot_0.5s": 0.9530209142324013,
+        "window_mean_dot_0.25s": 0.951711318219544,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_01_TASK_038",
+        "window_mean_dot_1s": 0.9100992141496286,
+        "window_mean_dot_0.5s": 0.913976994611318,
+        "window_mean_dot_0.25s": 0.9184185496834357,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_02_TASK_009",
+        "window_mean_dot_1s": 0.9487052710856732,
+        "window_mean_dot_0.5s": 0.9442740943888911,
+        "window_mean_dot_0.25s": 0.9421716364651661,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_02_TASK_015",
+        "window_mean_dot_1s": 0.9434348888899043,
+        "window_mean_dot_0.5s": 0.9441453683205533,
+        "window_mean_dot_0.25s": 0.9435316795166773,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_02_TASK_020",
+        "window_mean_dot_1s": 0.9347920534163924,
+        "window_mean_dot_0.5s": 0.9334516403770831,
+        "window_mean_dot_0.25s": 0.9336236253379755,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_02_TASK_021",
+        "window_mean_dot_1s": 0.9551029624434231,
+        "window_mean_dot_0.5s": 0.9564190703147339,
+        "window_mean_dot_0.25s": 0.9566514460835372,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_02_TASK_024",
+        "window_mean_dot_1s": 0.9655363713494325,
+        "window_mean_dot_0.5s": 0.9635201830445312,
+        "window_mean_dot_0.25s": 0.9617863506628891,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "BLOCK_02_TASK_039",
+        "window_mean_dot_1s": 0.9565890336642506,
+        "window_mean_dot_0.5s": 0.9536468878189508,
+        "window_mean_dot_0.25s": 0.9521014056220842,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_00_TASK_016",
+        "window_mean_dot_1s": 0.9594704148301612,
+        "window_mean_dot_0.5s": 0.9567658572809171,
+        "window_mean_dot_0.25s": 0.9566719876921581,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_00_TASK_018",
+        "window_mean_dot_1s": 0.9580247846047336,
+        "window_mean_dot_0.5s": 0.9540801663060425,
+        "window_mean_dot_0.25s": 0.9532906932625592,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_00_TASK_033",
+        "window_mean_dot_1s": 0.9660318121294558,
+        "window_mean_dot_0.5s": 0.9633154108108397,
+        "window_mean_dot_0.25s": 0.9618953813858334,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_00_TASK_037",
+        "window_mean_dot_1s": 0.9463957371569818,
+        "window_mean_dot_0.5s": 0.9444364481497987,
+        "window_mean_dot_0.25s": 0.9442981807396967,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_00_TASK_038",
+        "window_mean_dot_1s": 0.9534712184434241,
+        "window_mean_dot_0.5s": 0.9514044059363819,
+        "window_mean_dot_0.25s": 0.9516225269681857,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_00_TASK_039",
+        "window_mean_dot_1s": 0.9624059846689339,
+        "window_mean_dot_0.5s": 0.9589073673125277,
+        "window_mean_dot_0.25s": 0.956568032420875,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_01_TASK_003",
+        "window_mean_dot_1s": 0.9688142284382603,
+        "window_mean_dot_0.5s": 0.9683143866126239,
+        "window_mean_dot_0.25s": 0.9679747998262331,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_01_TASK_012",
+        "window_mean_dot_1s": 0.9629253962734939,
+        "window_mean_dot_0.5s": 0.9620643714658541,
+        "window_mean_dot_0.25s": 0.9605797641112714,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_01_TASK_020",
+        "window_mean_dot_1s": 0.9703508928088109,
+        "window_mean_dot_0.5s": 0.9689913814015754,
+        "window_mean_dot_0.25s": 0.9679074445796438,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_01_TASK_022",
+        "window_mean_dot_1s": 0.4464679640569857,
+        "window_mean_dot_0.5s": 0.1842091981059279,
+        "window_mean_dot_0.25s": 0.1847431086974042,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_01_TASK_038",
+        "window_mean_dot_1s": 0.9665269105948202,
+        "window_mean_dot_0.5s": 0.9668868394157687,
+        "window_mean_dot_0.25s": 0.9671206397988553,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_01_TASK_044",
+        "window_mean_dot_1s": 0.9614181511229781,
+        "window_mean_dot_0.5s": 0.9614323825519733,
+        "window_mean_dot_0.25s": 0.9614949412215379,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_02_TASK_005",
+        "window_mean_dot_1s": 0.9620233511769433,
+        "window_mean_dot_0.5s": 0.9594104721538228,
+        "window_mean_dot_0.25s": 0.9587199650154239,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_02_TASK_006",
+        "window_mean_dot_1s": 0.9352194867786252,
+        "window_mean_dot_0.5s": 0.9403335187747437,
+        "window_mean_dot_0.25s": 0.9420469902080479,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_02_TASK_011",
+        "window_mean_dot_1s": 0.944904862261825,
+        "window_mean_dot_0.5s": 0.9455430383554423,
+        "window_mean_dot_0.25s": 0.9452391422733272,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_02_TASK_020",
+        "window_mean_dot_1s": 0.9542485591607011,
+        "window_mean_dot_0.5s": 0.9511201205603433,
+        "window_mean_dot_0.25s": 0.9503607496018817,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_02_TASK_025",
+        "window_mean_dot_1s": 0.9629391559004796,
+        "window_mean_dot_0.5s": 0.9618686400914465,
+        "window_mean_dot_0.25s": 0.9617345358202392,
+        "classification": "toward_obstacle"
+      },
+      {
+        "task_id": "SBEND_02_TASK_029",
+        "window_mean_dot_1s": 0.9586194515253808,
+        "window_mean_dot_0.5s": 0.9556446902323702,
+        "window_mean_dot_0.25s": 0.9535570589300999,
+        "classification": "toward_obstacle"
+      }
+    ]
+  },
+  "greedy_goal_val": {
+    "overall": {
+      "success": 18,
+      "collision": 36,
+      "ground": 0,
+      "timeout": 0,
+      "mean_return": -2.3865586039256383
+    },
+    "by_family": {
+      "OPEN": {
+        "tasks": 18,
+        "success": 18,
+        "collision": 0,
+        "ground": 0,
+        "timeout": 0,
+        "mean_return": 26.439630073139966
+      },
+      "BLOCK": {
+        "tasks": 18,
+        "success": 0,
+        "collision": 18,
+        "ground": 0,
+        "timeout": 0,
+        "mean_return": -17.265740242354774
+      },
+      "SBEND": {
+        "tasks": 18,
+        "success": 0,
+        "collision": 18,
+        "ground": 0,
+        "timeout": 0,
+        "mean_return": -16.33356564256211
+      }
+    }
+  },
+  "expert_reward_audit": {
+    "by_family": {
+      "OPEN": {
+        "family": "OPEN",
+        "tasks": 18,
+        "undiscounted_return": 26.565680170108386,
+        "gamma_1_return": 26.565680170108386,
+        "gamma_0_99_return": 1.979591100767923,
+        "negative_progress_step_fraction": 0.15061721423410054,
+        "longest_negative_progress_duration_s": 0.5752314814814814,
+        "max_distance_increase_before_recovery": 0.01090699818309083,
+        "delayed_detour_recovery_reward_gamma_1": 24.124855685256843,
+        "delayed_detour_recovery_reward_gamma_0_99": 4.206456112333327,
+        "delayed_positive_progress_gamma_1": 4.739711654106595,
+        "delayed_positive_progress_gamma_0_99": 1.121144804503083
+      },
+      "BLOCK": {
+        "family": "BLOCK",
+        "tasks": 18,
+        "undiscounted_return": 27.255026044088737,
+        "gamma_1_return": 27.255026044088737,
+        "gamma_0_99_return": 1.588920258570691,
+        "negative_progress_step_fraction": 0.11963782514048277,
+        "longest_negative_progress_duration_s": 0.7025462962962963,
+        "max_distance_increase_before_recovery": 0.011501728678057373,
+        "delayed_detour_recovery_reward_gamma_1": 24.30924747974364,
+        "delayed_detour_recovery_reward_gamma_0_99": 3.9549883768613543,
+        "delayed_positive_progress_gamma_1": 4.989387857103888,
+        "delayed_positive_progress_gamma_0_99": 0.9751622907218631
+      },
+      "SBEND": {
+        "family": "SBEND",
+        "tasks": 18,
+        "undiscounted_return": 32.49267581594193,
+        "gamma_1_return": 32.49267581594193,
+        "gamma_0_99_return": 1.5219090007820941,
+        "negative_progress_step_fraction": 0.08197081179432304,
+        "longest_negative_progress_duration_s": 0.6458333333333333,
+        "max_distance_increase_before_recovery": 0.01085786664804433,
+        "delayed_detour_recovery_reward_gamma_1": 29.684118491952997,
+        "delayed_detour_recovery_reward_gamma_0_99": 2.9336216189159305,
+        "delayed_positive_progress_gamma_1": 10.7934242689293,
+        "delayed_positive_progress_gamma_0_99": 1.3332055182356024
+      }
+    },
+    "discount_effect": {
+      "gamma_1_minus_gamma_0_99_mean": {
+        "OPEN": 24.58608906934046,
+        "BLOCK": 25.666105785518052,
+        "SBEND": 30.970766815159827
+      }
+    }
+  },
+  "detour_credit": {
+    "OPEN": {
+      "family": "OPEN",
+      "tasks": 18,
+      "undiscounted_return": 26.565680170108386,
+      "gamma_1_return": 26.565680170108386,
+      "gamma_0_99_return": 1.979591100767923,
+      "negative_progress_step_fraction": 0.15061721423410054,
+      "longest_negative_progress_duration_s": 0.5752314814814814,
+      "max_distance_increase_before_recovery": 0.01090699818309083,
+      "delayed_detour_recovery_reward_gamma_1": 24.124855685256843,
+      "delayed_detour_recovery_reward_gamma_0_99": 4.206456112333327,
+      "delayed_positive_progress_gamma_1": 4.739711654106595,
+      "delayed_positive_progress_gamma_0_99": 1.121144804503083
+    },
+    "BLOCK": {
+      "family": "BLOCK",
+      "tasks": 18,
+      "undiscounted_return": 27.255026044088737,
+      "gamma_1_return": 27.255026044088737,
+      "gamma_0_99_return": 1.588920258570691,
+      "negative_progress_step_fraction": 0.11963782514048277,
+      "longest_negative_progress_duration_s": 0.7025462962962963,
+      "max_distance_increase_before_recovery": 0.011501728678057373,
+      "delayed_detour_recovery_reward_gamma_1": 24.30924747974364,
+      "delayed_detour_recovery_reward_gamma_0_99": 3.9549883768613543,
+      "delayed_positive_progress_gamma_1": 4.989387857103888,
+      "delayed_positive_progress_gamma_0_99": 0.9751622907218631
+    },
+    "SBEND": {
+      "family": "SBEND",
+      "tasks": 18,
+      "undiscounted_return": 32.49267581594193,
+      "gamma_1_return": 32.49267581594193,
+      "gamma_0_99_return": 1.5219090007820941,
+      "negative_progress_step_fraction": 0.08197081179432304,
+      "longest_negative_progress_duration_s": 0.6458333333333333,
+      "max_distance_increase_before_recovery": 0.01085786664804433,
+      "delayed_detour_recovery_reward_gamma_1": 29.684118491952997,
+      "delayed_detour_recovery_reward_gamma_0_99": 2.9336216189159305,
+      "delayed_positive_progress_gamma_1": 10.7934242689293,
+      "delayed_positive_progress_gamma_0_99": 1.3332055182356024
+    }
+  },
+  "discount_effect": {
+    "gamma_1_minus_gamma_0_99_mean": {
+      "OPEN": 24.58608906934046,
+      "BLOCK": 25.666105785518052,
+      "SBEND": 30.970766815159827
+    }
+  },
+  "collision_return_comparison": [
+    {
+      "task_id": "BLOCK_00_TASK_003",
+      "family": "BLOCK",
+      "ppo_total_reward": -16.906029120764277,
+      "ppo_discounted_return": -4.676906762448961,
+      "ppo_pre_obstacle_reward": 0.4665196188090337,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.393622349472302,
+      "expert_gamma_0_99_return": 1.5770159033402786
+    },
+    {
+      "task_id": "BLOCK_00_TASK_006",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.602101144115625,
+      "ppo_discounted_return": -6.672221525862442,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.649248631454228,
+      "expert_gamma_0_99_return": 1.3938970083656073
+    },
+    {
+      "task_id": "BLOCK_00_TASK_011",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.454734136505742,
+      "ppo_discounted_return": -6.207979756548394,
+      "ppo_pre_obstacle_reward": 0.022972062324360557,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 26.226376146577785,
+      "expert_gamma_0_99_return": 1.4617707366815722
+    },
+    {
+      "task_id": "BLOCK_00_TASK_026",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.19080719726439,
+      "ppo_discounted_return": -5.384242531189129,
+      "ppo_pre_obstacle_reward": 0.19018964658863127,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 28.02999966619325,
+      "expert_gamma_0_99_return": 1.6388956036108184
+    },
+    {
+      "task_id": "BLOCK_00_TASK_035",
+      "family": "BLOCK",
+      "ppo_total_reward": -16.59272093256005,
+      "ppo_discounted_return": -3.913176147230333,
+      "ppo_pre_obstacle_reward": 0.7633330972837771,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 28.400229140876075,
+      "expert_gamma_0_99_return": 1.5050734667301362
+    },
+    {
+      "task_id": "BLOCK_00_TASK_036",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.485040279253624,
+      "ppo_discounted_return": -6.163036288871464,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.5670299525408,
+      "expert_gamma_0_99_return": 1.54343303156735
+    },
+    {
+      "task_id": "BLOCK_01_TASK_009",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.854642032386856,
+      "ppo_discounted_return": -7.542110061932114,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.092244905543662,
+      "expert_gamma_0_99_return": 1.7566984077126486
+    },
+    {
+      "task_id": "BLOCK_01_TASK_018",
+      "family": "BLOCK",
+      "ppo_total_reward": -16.865269027575536,
+      "ppo_discounted_return": -4.5907086320001245,
+      "ppo_pre_obstacle_reward": 0.4864981059522502,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 26.74070638461746,
+      "expert_gamma_0_99_return": 1.7128772850911702
+    },
+    {
+      "task_id": "BLOCK_01_TASK_021",
+      "family": "BLOCK",
+      "ppo_total_reward": -18.138726285056585,
+      "ppo_discounted_return": -8.625651746148918,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 26.580929272812693,
+      "expert_gamma_0_99_return": 1.8126244710598172
+    },
+    {
+      "task_id": "BLOCK_01_TASK_030",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.154899799913018,
+      "ppo_discounted_return": -5.349693748299696,
+      "ppo_pre_obstacle_reward": 0.24149580131973128,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 26.707105793580702,
+      "expert_gamma_0_99_return": 1.7670839497796025
+    },
+    {
+      "task_id": "BLOCK_01_TASK_035",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.078096954292953,
+      "ppo_discounted_return": -5.189520414866471,
+      "ppo_pre_obstacle_reward": 0.2661762712615472,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.541083579879064,
+      "expert_gamma_0_99_return": 1.759834127773664
+    },
+    {
+      "task_id": "BLOCK_01_TASK_038",
+      "family": "BLOCK",
+      "ppo_total_reward": -18.17827130767455,
+      "ppo_discounted_return": -8.742249038090488,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 25.583101924975455,
+      "expert_gamma_0_99_return": 1.7168890426116825
+    },
+    {
+      "task_id": "BLOCK_02_TASK_009",
+      "family": "BLOCK",
+      "ppo_total_reward": -16.52915022381278,
+      "ppo_discounted_return": -3.781663030985107,
+      "ppo_pre_obstacle_reward": 0.8296358686783962,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.079422452875715,
+      "expert_gamma_0_99_return": 1.5054483340019489
+    },
+    {
+      "task_id": "BLOCK_02_TASK_015",
+      "family": "BLOCK",
+      "ppo_total_reward": -16.34029763142997,
+      "ppo_discounted_return": -3.4035490453752706,
+      "ppo_pre_obstacle_reward": 0.9965267505466875,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 28.82268879645797,
+      "expert_gamma_0_99_return": 1.4826080314957608
+    },
+    {
+      "task_id": "BLOCK_02_TASK_020",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.71803610929046,
+      "ppo_discounted_return": -7.056328768663119,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 26.986289476502556,
+      "expert_gamma_0_99_return": 1.4565838689317638
+    },
+    {
+      "task_id": "BLOCK_02_TASK_021",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.909604337996264,
+      "ppo_discounted_return": -7.670622395782372,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 27.208737337746836,
+      "expert_gamma_0_99_return": 1.3087243268038304
+    },
+    {
+      "task_id": "BLOCK_02_TASK_024",
+      "family": "BLOCK",
+      "ppo_total_reward": -16.782711014779384,
+      "ppo_discounted_return": -4.445603150934511,
+      "ppo_pre_obstacle_reward": 0.5605045662141046,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 28.478876382615073,
+      "expert_gamma_0_99_return": 1.5793730360642133
+    },
+    {
+      "task_id": "BLOCK_02_TASK_039",
+      "family": "BLOCK",
+      "ppo_total_reward": -17.610298022856085,
+      "ppo_discounted_return": -6.75761834977986,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 26.502776598875716,
+      "expert_gamma_0_99_return": 1.621734022650577
+    },
+    {
+      "task_id": "SBEND_00_TASK_016",
+      "family": "SBEND",
+      "ppo_total_reward": -12.149633777116016,
+      "ppo_discounted_return": 1.1986307455625844,
+      "ppo_pre_obstacle_reward": 0.08580765917039268,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.49793892996746,
+      "expert_gamma_0_99_return": 1.8548957916826783
+    },
+    {
+      "task_id": "SBEND_00_TASK_018",
+      "family": "SBEND",
+      "ppo_total_reward": -12.178890523667171,
+      "ppo_discounted_return": 1.1954872276769364,
+      "ppo_pre_obstacle_reward": 0.8321624562727636,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 31.88207709959515,
+      "expert_gamma_0_99_return": 1.9728287460208724
+    },
+    {
+      "task_id": "SBEND_00_TASK_033",
+      "family": "SBEND",
+      "ppo_total_reward": -11.986124585344635,
+      "ppo_discounted_return": 1.2965790163484634,
+      "ppo_pre_obstacle_reward": 1.0403154511305397,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 31.78171378672107,
+      "expert_gamma_0_99_return": 1.9282196621299603
+    },
+    {
+      "task_id": "SBEND_00_TASK_037",
+      "family": "SBEND",
+      "ppo_total_reward": -12.313441400800581,
+      "ppo_discounted_return": 1.134116078476423,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.28561400514405,
+      "expert_gamma_0_99_return": 1.7509319074098755
+    },
+    {
+      "task_id": "SBEND_00_TASK_038",
+      "family": "SBEND",
+      "ppo_total_reward": -12.101104096289792,
+      "ppo_discounted_return": 1.21898130942793,
+      "ppo_pre_obstacle_reward": 0.9338977015520722,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 31.22463541346272,
+      "expert_gamma_0_99_return": 1.900615911887976
+    },
+    {
+      "task_id": "SBEND_00_TASK_039",
+      "family": "SBEND",
+      "ppo_total_reward": -12.661430795605586,
+      "ppo_discounted_return": 0.9317660951217686,
+      "ppo_pre_obstacle_reward": 0.34439048990926513,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 31.219201247744998,
+      "expert_gamma_0_99_return": 2.0311842419338775
+    },
+    {
+      "task_id": "SBEND_01_TASK_003",
+      "family": "SBEND",
+      "ppo_total_reward": -17.71113928173604,
+      "ppo_discounted_return": -6.97501587404453,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.690208964872326,
+      "expert_gamma_0_99_return": 1.276736584609393
+    },
+    {
+      "task_id": "SBEND_01_TASK_012",
+      "family": "SBEND",
+      "ppo_total_reward": -17.471859125598712,
+      "ppo_discounted_return": -6.221468880045682,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.37038108504389,
+      "expert_gamma_0_99_return": 1.245864435887598
+    },
+    {
+      "task_id": "SBEND_01_TASK_020",
+      "family": "SBEND",
+      "ppo_total_reward": -17.563288096735874,
+      "ppo_discounted_return": -6.501176165870875,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.18542090900286,
+      "expert_gamma_0_99_return": 1.1176597377383277
+    },
+    {
+      "task_id": "SBEND_01_TASK_022",
+      "family": "SBEND",
+      "ppo_total_reward": -16.418159961974695,
+      "ppo_discounted_return": -3.5337956586202948,
+      "ppo_pre_obstacle_reward": 0.7264883466153047,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 33.29532213027136,
+      "expert_gamma_0_99_return": 1.5159730234294644
+    },
+    {
+      "task_id": "SBEND_01_TASK_038",
+      "family": "SBEND",
+      "ppo_total_reward": -17.69780847604845,
+      "ppo_discounted_return": -6.970722705519893,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.91806839860693,
+      "expert_gamma_0_99_return": 1.297154805283177
+    },
+    {
+      "task_id": "SBEND_01_TASK_044",
+      "family": "SBEND",
+      "ppo_total_reward": -16.966736390326624,
+      "ppo_discounted_return": -4.828159593221733,
+      "ppo_pre_obstacle_reward": 0.3800538505055613,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.64362572858113,
+      "expert_gamma_0_99_return": 1.2256447721599542
+    },
+    {
+      "task_id": "SBEND_02_TASK_005",
+      "family": "SBEND",
+      "ppo_total_reward": -10.378257733233045,
+      "ppo_discounted_return": 1.8755780135712146,
+      "ppo_pre_obstacle_reward": 1.7282013160106713,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.97868231685856,
+      "expert_gamma_0_99_return": 1.305112126060508
+    },
+    {
+      "task_id": "SBEND_02_TASK_006",
+      "family": "SBEND",
+      "ppo_total_reward": -17.91270641863235,
+      "ppo_discounted_return": -7.5971620558630395,
+      "ppo_pre_obstacle_reward": 0.0,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.61142834927032,
+      "expert_gamma_0_99_return": 1.352730242468649
+    },
+    {
+      "task_id": "SBEND_02_TASK_011",
+      "family": "SBEND",
+      "ppo_total_reward": -17.205399636706684,
+      "ppo_discounted_return": -5.3858350855633645,
+      "ppo_pre_obstacle_reward": 0.19640325314592702,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 33.769834164793124,
+      "expert_gamma_0_99_return": 1.2426069887611497
+    },
+    {
+      "task_id": "SBEND_02_TASK_020",
+      "family": "SBEND",
+      "ppo_total_reward": -11.542235845440343,
+      "ppo_discounted_return": 1.4663357088236588,
+      "ppo_pre_obstacle_reward": 0.4105305614515993,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.69815276752097,
+      "expert_gamma_0_99_return": 1.551343237890572
+    },
+    {
+      "task_id": "SBEND_02_TASK_025",
+      "family": "SBEND",
+      "ppo_total_reward": -16.798963257018343,
+      "ppo_discounted_return": -4.395878954920453,
+      "ppo_pre_obstacle_reward": 0.5609821472457701,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 32.80672308550602,
+      "expert_gamma_0_99_return": 1.2704971376049552
+    },
+    {
+      "task_id": "SBEND_02_TASK_029",
+      "family": "SBEND",
+      "ppo_total_reward": -11.322132878337104,
+      "ppo_discounted_return": 1.5649038373928135,
+      "ppo_pre_obstacle_reward": 0.757130720716573,
+      "ppo_terminal_reward": -20.0,
+      "expert_undiscounted_return": 33.00913630399164,
+      "expert_gamma_0_99_return": 1.5543626611187062
+    }
+  ],
+  "primary_diagnosis": "OBSERVATION_SCALE_IMBALANCE",
+  "primary_diagnosis_evidence": "Ray sensitivity is low and ray/goal scale is materially imbalanced.",
+  "secondary_diagnosis": "RAY_FEATURE_IGNORED",
+  "teacher_independence": {
+    "ppo_runtime_used_expert": false,
+    "posthoc_expert_audit": true,
+    "status": "PASS"
+  },
+  "system": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "cpu": 24,
+    "pytorch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "device": "cuda",
+    "torch_num_threads": 24,
+    "platform": "Windows-10-10.0.26100-SP0"
+  },
+  "protocol": {
+    "no_training": true,
+    "no_test": true,
+    "no_reward_change": true,
+    "no_observation_normalization": true,
+    "no_entropy_change": true,
+    "no_diffusion": true,
+    "no_s5": true
+  },
+  "regression": "PASS",
+  "what_was_proven": [
+    "exact R1 VAL reproduction",
+    "frozen unit-ball checkpoint identity",
+    "all required diagnostic audits"
+  ],
+  "what_was_not_proven": [
+    "no corrective training",
+    "no TEST result",
+    "no S5 readiness"
+  ],
+  "current_blocker": "S4 remains blocked pending controller review",
+  "formal_progress": "45%",
+  "unique_next_task": "NONE - WAIT_FOR_CONTROLLER_REVIEW"
+}
