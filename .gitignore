@@ -50,6 +50,14 @@ artifacts/s3r2/*
 !artifacts/s3r2/val_rollout.csv
 !artifacts/s3r2/test_rollout.csv
 
+!artifacts/s4/
+artifacts/s4/*
+!artifacts/s4/summary.json
+!artifacts/s4/learning_curve.csv
+!artifacts/s4/val_best_rollout.csv
+!artifacts/s4/test_rollout.csv
+!artifacts/s4/independent_verification.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 
