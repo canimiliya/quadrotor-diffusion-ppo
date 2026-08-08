@@ -21,3 +21,6 @@ __all__ = [
     "compute_reward",
     "PurePPONavigationEnv",
 ]
+from .unit_ball import UnitBallActorCriticPolicy, UnitBallSquashedGaussianDistribution
+
+__all__ = ["UnitBallActorCriticPolicy", "UnitBallSquashedGaussianDistribution"]

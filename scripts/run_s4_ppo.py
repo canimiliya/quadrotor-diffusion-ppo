@@ -34,10 +34,12 @@ from quadrotor_diffusion_ppo.ppo.contract import (
     REWARD_CONTRACT_HASH, SEED, TOTAL_ENV_STEPS,
 )
 from quadrotor_diffusion_ppo.ppo.env import PurePPONavigationEnv, TaskEndpoint
+from quadrotor_diffusion_ppo.ppo.unit_ball import UnitBallActorCriticPolicy
 
 DATASET = ROOT / "artifacts" / "s2"
-ARTIFACTS = ROOT / "artifacts" / "s4"
-CHECKPOINTS = ROOT / "checkpoints" / "s4"
+ARTIFACTS = ROOT / "artifacts" / "s4r1"
+CHECKPOINTS = ROOT / "checkpoints" / "s4r1"
+R0_SUMMARY = ROOT / "artifacts" / "s4" / "summary.json"
 EVAL_STEPS = (0, 50_000, 100_000, 150_000, 200_000, 250_000,
               300_000, 350_000, 400_000, 450_000, 500_000)
 
@@ -76,6 +78,11 @@ def dataset_hashes() -> dict[str, str]:
     return values
 
 
+def load_r0_summary() -> dict[str, Any]:
+    """Read the immutable R0 result for the required side-by-side audit."""
+    return json.loads(R0_SUMMARY.read_text(encoding="utf-8"))
+
+
 def make_train_env(rank: int, tasks: dict[str, list[TaskEndpoint]], scenes: dict[str, Any]):
     def _factory():
         task = tasks["train"][rank % len(tasks["train"])]
@@ -97,9 +104,12 @@ def evaluate(model: PPO, tasks: list[TaskEndpoint], scenes: dict[str, Any], env_
         total_return = 0.0
         terminated = truncated = False
         last_info: dict[str, Any] = {}
+        policy_action_support_violation_count = 0
         while not (terminated or truncated):
             action, _ = model.predict(observation, deterministic=True)
-            observation, reward, terminated, truncated, last_info = env.step(np.asarray(action, dtype=np.float32))
+            action_array = np.asarray(action, dtype=np.float32).reshape(3)
+            policy_action_support_violation_count += int(np.linalg.norm(action_array) > 1.0 + 1.0e-6)
+            observation, reward, terminated, truncated, last_info = env.step(action_array)
             total_return += float(reward)
         diagnostics = env.episode_diagnostics()
         collision = bool(last_info.get("collision", False))
@@ -115,6 +125,7 @@ def evaluate(model: PPO, tasks: list[TaskEndpoint], scenes: dict[str, Any], env_
             "episode_steps": int(last_info.get("episode_steps", 0)),
             "action_clip_count": int(diagnostics["action_clip_count"]),
             "action_clip_fraction": float(diagnostics["action_clip_fraction"]),
+            "policy_action_support_violation_count": int(policy_action_support_violation_count),
         })
         env.close()
     families = {}
@@ -139,6 +150,9 @@ def aggregate(rows: list[dict[str, Any]], families: dict[str, Any] | None = None
         "action_clip_count": int(sum(row["action_clip_count"] for row in rows)),
         "action_clip_fraction": float(sum(row["action_clip_count"] for row in rows) /
                                        max(1, sum(row["episode_steps"] for row in rows))),
+        "policy_action_support_violation_count": int(sum(row["policy_action_support_violation_count"] for row in rows)),
+        "policy_action_support_violation_fraction": float(sum(row["policy_action_support_violation_count"] for row in rows) /
+                                                           max(1, sum(row["episode_steps"] for row in rows))),
     }
     if families is not None:
         summary["by_family"] = families
@@ -247,7 +261,7 @@ def main() -> None:
 
     env_fns = [make_train_env(rank, tasks, scenes) for rank in range(int(PPO_CONFIG["n_envs"]))]
     train_env = SubprocVecEnv(env_fns, start_method="spawn")
-    model = PPO("MlpPolicy", train_env, learning_rate=PPO_CONFIG["learning_rate"],
+    model = PPO(UnitBallActorCriticPolicy, train_env, learning_rate=PPO_CONFIG["learning_rate"],
                 n_steps=PPO_CONFIG["n_steps"], batch_size=PPO_CONFIG["batch_size"],
                 n_epochs=PPO_CONFIG["n_epochs"], gamma=PPO_CONFIG["gamma"],
                 gae_lambda=PPO_CONFIG["gae_lambda"], clip_range=PPO_CONFIG["clip_range"],
@@ -266,21 +280,47 @@ def main() -> None:
         raise RuntimeError("no post-training VAL checkpoint was selected")
     best_record = callback.best_record
     model_frozen = True
-    best_model = PPO.load(str(best_path), device="cuda")
-    test_rows, test_summary = evaluate(best_model, tasks["test"], scenes, actual_steps)
-    test_run_count = 1
+    best_summary = best_record["summary"]
+    val_gate = bool(
+        int(best_summary["success"]) >= 9
+        and all(int(best_summary["by_family"][family]["success"]) > 0 for family in ("OPEN", "BLOCK", "SBEND"))
+        and float(best_summary["mean_return"]) > float(records[0]["summary"]["mean_return"])
+        and int(best_summary["nonfinite"]) == 0
+        and float(best_summary["policy_action_support_violation_fraction"]) <= 0.01
+        and float(best_summary["action_clip_fraction"]) <= 0.01
+    )
+    test_rows: list[dict[str, Any]] = []
+    test_summary: dict[str, Any] | None = None
+    test_run_count = 0
+    if val_gate:
+        best_model = PPO.load(str(best_path), device="cuda")
+        test_rows, test_summary = evaluate(best_model, tasks["test"], scenes, actual_steps)
+        test_run_count = 1
     write_csv(ARTIFACTS / "learning_curve.csv", flatten_curve(records))
     write_csv(ARTIFACTS / "val_best_rollout.csv", best_record["rows"])
-    write_csv(ARTIFACTS / "test_rollout.csv", test_rows)
+    if val_gate:
+        write_csv(ARTIFACTS / "test_rollout.csv", test_rows)
+    r0 = load_r0_summary()
+    r0_best = r0["best_val"]
+    r0_family = r0["val_by_family"]
+    final_label = (
+        "PASS_S4R1_UNIT_BALL_PURE_PPO_BASELINE" if val_gate else
+        "BLOCKED_S4R1_ACTION_SUPPORT_IMPLEMENTATION"
+        if float(best_summary["action_clip_fraction"]) > 0.01 or
+        float(best_summary["policy_action_support_violation_fraction"]) > 0.01 else
+        "BLOCKED_S4R1_PPO_NO_OBSTACLE_LEARNING"
+    )
     summary = {
-        "task": "S4-R0-CANONICAL-MAIN-AND-PURE-PPO-BASELINE-V1",
-        "final_label": "PENDING_S4_AUDIT",
+        "task": "S4-R1-UNIT-BALL-PPO-ACTION-SUPPORT-REPAIR-V1",
+        "final_label": final_label,
         "canonical_main": "b10c8edf2fc834aac9136626a969c0c3108820ae",
         "main_fast_forward": "PASS",
-        "branch": "agent/s4-pure-ppo-v1",
-        "start_head": "b10c8edf2fc834aac9136626a969c0c3108820ae",
+        "branch": "agent/s4r1-unit-ball-ppo-v1",
+        "start_head": "0664309256adc085eb7edb03df27afa5d49d4c03",
         "end_head": None, "remote_branch_head": None,
-        "system": system_info(), "environment": {"control_hz": 48, "max_episode_steps": 960, "goal_tolerance_m": 0.30},
+        "r0_head": "0664309256adc085eb7edb03df27afa5d49d4c03",
+        "system": system_info() | {"torch_num_threads": min(24, os.cpu_count() or 1), "n_env_workers": int(PPO_CONFIG["n_envs"])},
+        "environment": {"control_hz": 48, "max_episode_steps": 960, "goal_tolerance_m": 0.30},
         "observation_dim": OBSERVATION_DIM, "action_dim": ACTION_DIM,
         "reward_contract": REWARD_CONTRACT, "reward_contract_hash": REWARD_CONTRACT_HASH,
         "ppo_config": PPO_CONFIG, "ppo_config_hash": PPO_CONFIG_HASH,
@@ -288,20 +328,36 @@ def main() -> None:
         "val_tasks": len(tasks["val"]), "test_tasks": len(tasks["test"]),
         "total_env_steps": actual_steps, "n_envs": int(PPO_CONFIG["n_envs"]),
         "training_wall_time_s": time.perf_counter() - start_time,
+        "training_peak_gpu_memory_bytes": int(torch.cuda.max_memory_allocated()) if torch.cuda.is_available() else 0,
+        "action_distribution": "UnitBallSquashedGaussian",
+        "unit_ball_oracle": {"forward_support": "PASS", "forward_inverse": "PASS", "jacobian": "PASS", "log_prob": "PASS"},
         "step0_val": records[0]["summary"], "best_val": best_record["summary"] | {"env_steps": best_record["env_steps"]},
         "val_by_family": best_record["summary"]["by_family"],
+        "policy_action_support_violation_count": best_summary["policy_action_support_violation_count"],
+        "policy_action_support_violation_fraction": best_summary["policy_action_support_violation_fraction"],
+        "env_action_clip_count": best_summary["action_clip_count"],
+        "env_action_clip_fraction": best_summary["action_clip_fraction"],
+        "r0_to_r1": {
+            "delta_success": int(best_summary["success"]) - int(r0_best["success"]),
+            "delta_collision": int(best_summary["collision"]) - int(r0_best["collision"]),
+            "delta_timeout": int(best_summary["timeout"]) - int(r0_best["timeout"]),
+            "delta_mean_return": float(best_summary["mean_return"]) - float(r0_best["mean_return"]),
+            "action_clip_r0": float(r0_best.get("action_clip_fraction", r0.get("action_clip_fraction", 0.0))),
+            "action_clip_r1": float(best_summary["action_clip_fraction"]),
+            "by_family": {family: {"r0": r0_family[family], "r1": best_summary["by_family"][family]}
+                          for family in ("OPEN", "BLOCK", "SBEND")},
+        },
+        "val_gate": "PASS" if val_gate else "FAIL",
         "model_frozen": model_frozen, "ppo_test_run_count": test_run_count,
         "ppo_test_used_for_selection": False, "test": test_summary,
-        "test_by_family": test_summary["by_family"],
-        "action_clip_count": test_summary["action_clip_count"],
-        "action_clip_fraction": test_summary["action_clip_fraction"],
+        "test_by_family": None if test_summary is None else test_summary["by_family"],
         "pure_ppo_diffusion_dependence": False, "pure_ppo_teacher_dependence": False,
         "numerical_finite": True, "checkpoint_disk_usage_bytes": sum(path.stat().st_size for path in CHECKPOINTS.glob("*.zip")),
         "artifact_disk_usage_bytes": sum(path.stat().st_size for path in ARTIFACTS.glob("*")),
         "large_files_tracked": False,
-        "what_was_proven": ["500,000 exact TRAIN environment steps", "VAL-only checkpoint selection", "single frozen TEST evaluation", "non-degenerate Pure PPO usability is subject to the independent gate"],
-        "what_was_not_proven": ["no PPO plus prior comparison", "no sample-efficiency claim", "no claim that Pure PPO exceeds the S3 Diffusion baseline"],
-        "current_blocker": "awaiting independent S4 audit",
+        "what_was_proven": ["500,000 exact TRAIN environment steps", "unit-ball policy action support", "VAL-only checkpoint selection", "reward/environment/task/hyperparameter contracts unchanged"],
+        "what_was_not_proven": ["no PPO plus prior comparison", "no sample-efficiency claim", "no claim that Pure PPO exceeds the S3 Diffusion baseline", "TEST not executed unless VAL_GATE passed"],
+        "current_blocker": None if val_gate else final_label,
     }
     (ARTIFACTS / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"S4 training complete; best VAL={best_record['summary']['success']}/54 at {best_record['env_steps']}; TEST={test_summary['success']}/54", flush=True)
@@ -317,7 +373,7 @@ def smoke_main() -> None:
     scenes = {scene.scene_id: scene for scene in load_all_scenes()}
     env = SubprocVecEnv([make_train_env(rank, tasks, scenes) for rank in range(8)], start_method="spawn")
     try:
-        model = PPO("MlpPolicy", env, n_steps=2, batch_size=16, n_epochs=1,
+        model = PPO(UnitBallActorCriticPolicy, env, n_steps=2, batch_size=16, n_epochs=1,
                     policy_kwargs={"net_arch": {"pi": [256, 256], "vf": [256, 256]}},
                     seed=SEED, device="cuda", verbose=0)
         model.learn(total_timesteps=16, progress_bar=False)

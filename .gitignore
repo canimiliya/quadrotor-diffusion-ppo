@@ -58,8 +58,18 @@ artifacts/s4/*
 !artifacts/s4/test_rollout.csv
 !artifacts/s4/independent_verification.json
 
+!artifacts/s4r1/
+artifacts/s4r1/*
+!artifacts/s4r1/summary.json
+!artifacts/s4r1/learning_curve.csv
+!artifacts/s4r1/val_best_rollout.csv
+!artifacts/s4r1/test_rollout.csv
+!artifacts/s4r1/independent_verification.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
+!checkpoints/s4r1/
+checkpoints/s4r1/*
 
 checkpoints/*
 !checkpoints/s3/
