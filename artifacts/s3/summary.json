@@ -3,8 +3,8 @@
   "final_label": "BLOCKED_S3_DIFFUSION_ACTION_SUPPORT",
   "start_head": "dd1ad5043dc83d3fc4841855318604ce3d38b069",
   "branch": "agent/s3-diffusion-sanity-v1",
-  "end_head": "a8f53dbe931960e396126d450a8a5452b6101a9a",
-  "remote_branch_head": "a8f53dbe931960e396126d450a8a5452b6101a9a",
+  "end_head": "754255746f262ed961f260ff7829af1446ac229a",
+  "remote_branch_head": "754255746f262ed961f260ff7829af1446ac229a",
   "s2_audit_head": "dd1ad5043dc83d3fc4841855318604ce3d38b069",
   "s2_implementation_head": "1a05975cf0bf8018683f123f4a77ebea2bf39b22",
   "dataset_identity": {
