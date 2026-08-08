@@ -21,7 +21,16 @@ artifacts/s2/*
 !artifacts/s2/task_manifest.csv
 !artifacts/s2/split_manifest.csv
 
+!artifacts/s3/
+artifacts/s3/*
+!artifacts/s3/summary.json
+!artifacts/s3/training_curve.csv
+!artifacts/s3/val_rollout.csv
+!artifacts/s3/test_rollout.csv
+
 checkpoints/*
+!checkpoints/s3/
+checkpoints/s3/*
 *.pt
 *.pth
 *.ckpt

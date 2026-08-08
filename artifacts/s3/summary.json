@@ -1,0 +1,558 @@
+{
+  "task": "S3-R0-CONDITIONAL-DIFFUSION-ACTION-PRIOR-SANITY-V1",
+  "final_label": "BLOCKED_S3_DIFFUSION_ACTION_SUPPORT",
+  "start_head": "dd1ad5043dc83d3fc4841855318604ce3d38b069",
+  "branch": "agent/s3-diffusion-sanity-v1",
+  "s2_audit_head": "dd1ad5043dc83d3fc4841855318604ce3d38b069",
+  "s2_implementation_head": "1a05975cf0bf8018683f123f4a77ebea2bf39b22",
+  "dataset_identity": {
+    "sha256": {
+      "train": "701a1d36b767ff41347b1dac60868922ce5033ee8db27721daf891613125db21",
+      "val": "c5687f812a958f28dce14c4a2742ae64a94bb330229747c7c64e85290134dbcc",
+      "test": "88b39f83216e5e8985505ed77b9fbd89c01100237bdd8c09972fa29b90d70e66"
+    },
+    "stats": {
+      "train": {
+        "trajectories": 252,
+        "transitions": 129458
+      },
+      "val": {
+        "trajectories": 54,
+        "transitions": 27937
+      },
+      "test": {
+        "trajectories": 54,
+        "transitions": 27476
+      }
+    },
+    "observation_dim": 34,
+    "action_dim": 3,
+    "task_overlap": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "episode_boundaries": true,
+    "all_finite": true
+  },
+  "train_windows": 125678,
+  "val_windows": 27127,
+  "test_windows": 26666,
+  "observation_normalization": "train_only",
+  "observation_mean": [
+    3.6858415603637695,
+    0.04296430945396423,
+    1.2589218616485596,
+    2.2325985431671143,
+    0.03490639850497246,
+    0.14459775388240814,
+    0.4460316002368927,
+    0.01677648164331913,
+    0.04391276091337204,
+    -7.761342567391694e-05,
+    0.0015756917418912053,
+    0.00469107273966074,
+    0.9992735981941223,
+    -0.00011529693438205868,
+    -0.00015730485029052943,
+    0.0014040720416232944,
+    0.9028627276420593,
+    0.8417075872421265,
+    0.9537301659584045,
+    0.9561127424240112,
+    1.0,
+    0.9887179136276245,
+    0.930438756942749,
+    0.934689462184906,
+    0.9237373471260071,
+    0.9293473958969116,
+    0.9453110098838806,
+    0.9327974915504456,
+    0.9530272483825684,
+    0.941770613193512,
+    0.9461150169372559,
+    0.9225168228149414,
+    0.9521528482437134,
+    0.9301871061325073
+  ],
+  "observation_std": [
+    2.09816312789917,
+    0.490348219871521,
+    0.39467090368270874,
+    2.0744450092315674,
+    0.5382189750671387,
+    0.3814091980457306,
+    0.30024072527885437,
+    0.26165932416915894,
+    0.15059338510036469,
+    0.013390129432082176,
+    0.015933968126773834,
+    0.03150312975049019,
+    0.0014548525214195251,
+    0.4436420500278473,
+    0.44209596514701843,
+    0.41290923953056335,
+    0.21689186990261078,
+    0.2621421813964844,
+    0.18904753029346466,
+    0.17945048213005066,
+    0.0,
+    0.0966525673866272,
+    0.2141338288784027,
+    0.20337162911891937,
+    0.2260577380657196,
+    0.21363379061222076,
+    0.18683156371116638,
+    0.20801524817943573,
+    0.16866229474544525,
+    0.19178399443626404,
+    0.192246213555336,
+    0.22194796800613403,
+    0.1765933632850647,
+    0.2069377601146698
+  ],
+  "model": {
+    "name": "ConditionalDiffusionMLP",
+    "parameter_count": 621360,
+    "trainable_parameter_count": 621360,
+    "horizon": 16,
+    "observation_dim": 34,
+    "action_dim": 3,
+    "architecture": "34-128-128; time64; width256; 4 residual MLP blocks"
+  },
+  "diffusion": {
+    "prediction_target": "epsilon",
+    "training_steps": 100,
+    "beta_schedule": "cosine",
+    "inference_steps": 10,
+    "eta": 0.0
+  },
+  "train_seed": 20260810,
+  "eval_base_seed": 20260811,
+  "device": "cpu",
+  "pytorch": "2.13.0+cpu",
+  "cuda": "none",
+  "gpu": "none",
+  "training": {
+    "updates": 10000,
+    "best_update": 9500,
+    "final_train_loss": "0.013001623563468456",
+    "best_val_loss": 0.016388932385638755,
+    "all_finite": true
+  },
+  "best_checkpoint_sha256": "9c5ef8d1e0f5f04ca453f8c226a4531ab505c9a040f3a7d8fb86ff754bd4f7d7",
+  "model_frozen": true,
+  "test_accessed_before_model_freeze": false,
+  "offline_val": {
+    "denoising_loss": 0.016388932385638755,
+    "sampled_first_action_MAE": 5.2365007400512695,
+    "sampled_first_action_MSE": 59.72794723510742,
+    "sampled_first_action_cosine_similarity": 0.5416975617408752,
+    "raw_action_clip_fraction": 0.993917499170568
+  },
+  "offline_test": {
+    "denoising_loss": 0.016762485088392013,
+    "sampled_first_action_MAE": 5.2494425773620605,
+    "sampled_first_action_MSE": 60.42073440551758,
+    "sampled_first_action_cosine_similarity": 0.5407333374023438,
+    "raw_action_clip_fraction": 0.9942248556213905
+  },
+  "val_closed_loop": {
+    "overall": {
+      "success": 0,
+      "success_rate": 0.0,
+      "collision": 8,
+      "collision_rate": 0.14814814814814814,
+      "ground_contact": 13,
+      "ground_contact_rate": 0.24074074074074073,
+      "timeout": 33,
+      "timeout_rate": 0.6111111111111112,
+      "nonfinite": 0
+    },
+    "by_family": {
+      "OPEN": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 7,
+        "ground_contact_rate": 0.3888888888888889,
+        "timeout": 11,
+        "timeout_rate": 0.6111111111111112,
+        "nonfinite": 0
+      },
+      "BLOCK": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 8,
+        "collision_rate": 0.4444444444444444,
+        "ground_contact": 5,
+        "ground_contact_rate": 0.2777777777777778,
+        "timeout": 5,
+        "timeout_rate": 0.2777777777777778,
+        "nonfinite": 0
+      },
+      "SBEND": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 1,
+        "ground_contact_rate": 0.05555555555555555,
+        "timeout": 17,
+        "timeout_rate": 0.9444444444444444,
+        "nonfinite": 0
+      }
+    },
+    "by_scene": {
+      "OPEN_00": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 2,
+        "ground_contact_rate": 0.3333333333333333,
+        "timeout": 4,
+        "timeout_rate": 0.6666666666666666,
+        "nonfinite": 0
+      },
+      "OPEN_01": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 2,
+        "ground_contact_rate": 0.3333333333333333,
+        "timeout": 4,
+        "timeout_rate": 0.6666666666666666,
+        "nonfinite": 0
+      },
+      "OPEN_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 3,
+        "ground_contact_rate": 0.5,
+        "timeout": 3,
+        "timeout_rate": 0.5,
+        "nonfinite": 0
+      },
+      "BLOCK_00": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 2,
+        "collision_rate": 0.3333333333333333,
+        "ground_contact": 2,
+        "ground_contact_rate": 0.3333333333333333,
+        "timeout": 2,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      },
+      "BLOCK_01": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 5,
+        "collision_rate": 0.8333333333333334,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.16666666666666666,
+        "nonfinite": 0
+      },
+      "BLOCK_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 3,
+        "ground_contact_rate": 0.5,
+        "timeout": 2,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      },
+      "SBEND_00": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 6,
+        "timeout_rate": 1.0,
+        "nonfinite": 0
+      },
+      "SBEND_01": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 6,
+        "timeout_rate": 1.0,
+        "nonfinite": 0
+      },
+      "SBEND_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 1,
+        "ground_contact_rate": 0.16666666666666666,
+        "timeout": 5,
+        "timeout_rate": 0.8333333333333334,
+        "nonfinite": 0
+      }
+    }
+  },
+  "test_closed_loop": {
+    "overall": {
+      "success": 0,
+      "success_rate": 0.0,
+      "collision": 8,
+      "collision_rate": 0.14814814814814814,
+      "ground_contact": 18,
+      "ground_contact_rate": 0.3333333333333333,
+      "timeout": 28,
+      "timeout_rate": 0.5185185185185185,
+      "nonfinite": 0
+    },
+    "by_family": {
+      "OPEN": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 12,
+        "ground_contact_rate": 0.6666666666666666,
+        "timeout": 6,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      },
+      "BLOCK": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 5,
+        "collision_rate": 0.2777777777777778,
+        "ground_contact": 6,
+        "ground_contact_rate": 0.3333333333333333,
+        "timeout": 7,
+        "timeout_rate": 0.3888888888888889,
+        "nonfinite": 0
+      },
+      "SBEND": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 3,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 15,
+        "timeout_rate": 0.8333333333333334,
+        "nonfinite": 0
+      }
+    },
+    "by_scene": {
+      "OPEN_00": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 5,
+        "ground_contact_rate": 0.8333333333333334,
+        "timeout": 1,
+        "timeout_rate": 0.16666666666666666,
+        "nonfinite": 0
+      },
+      "OPEN_01": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 4,
+        "ground_contact_rate": 0.6666666666666666,
+        "timeout": 2,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      },
+      "OPEN_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 3,
+        "ground_contact_rate": 0.5,
+        "timeout": 3,
+        "timeout_rate": 0.5,
+        "nonfinite": 0
+      },
+      "BLOCK_00": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 2,
+        "ground_contact_rate": 0.3333333333333333,
+        "timeout": 3,
+        "timeout_rate": 0.5,
+        "nonfinite": 0
+      },
+      "BLOCK_01": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 3,
+        "ground_contact_rate": 0.5,
+        "timeout": 2,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      },
+      "BLOCK_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 3,
+        "collision_rate": 0.5,
+        "ground_contact": 1,
+        "ground_contact_rate": 0.16666666666666666,
+        "timeout": 2,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      },
+      "SBEND_00": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 5,
+        "timeout_rate": 0.8333333333333334,
+        "nonfinite": 0
+      },
+      "SBEND_01": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 5,
+        "timeout_rate": 0.8333333333333334,
+        "nonfinite": 0
+      },
+      "SBEND_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 5,
+        "timeout_rate": 0.8333333333333334,
+        "nonfinite": 0
+      }
+    }
+  },
+  "raw_action_clip_count": 38509,
+  "raw_action_clip_fraction": 0.9995068521594684,
+  "max_abs_raw_action": 655992.75,
+  "privileged_information_leakage": {
+    "checked_function": "rollout_diffusion_task",
+    "forbidden_runtime_tokens": [],
+    "passed": true
+  },
+  "determinism_smoke": {
+    "OPEN": {
+      "task_id": "OPEN_00_TASK_001",
+      "hashes": [
+        "81e897ab5c3f82332e8c6b7d94fb708b237a847e9c987928ed54e4487c288032",
+        "81e897ab5c3f82332e8c6b7d94fb708b237a847e9c987928ed54e4487c288032"
+      ],
+      "match": true,
+      "status": "PASS"
+    },
+    "BLOCK": {
+      "task_id": "BLOCK_00_TASK_001",
+      "hashes": [
+        "68f00b1e51b8214d80130bb93b121b491dbb946352c4831c3f9ad8127239f93e",
+        "68f00b1e51b8214d80130bb93b121b491dbb946352c4831c3f9ad8127239f93e"
+      ],
+      "match": true,
+      "status": "PASS"
+    },
+    "SBEND": {
+      "task_id": "SBEND_00_TASK_011",
+      "hashes": [
+        "ccff1e98a764f63bd85c5578dbdb52d8c577ba612a4794d1d93dfb7075e93733",
+        "ccff1e98a764f63bd85c5578dbdb52d8c577ba612a4794d1d93dfb7075e93733"
+      ],
+      "match": true,
+      "status": "PASS"
+    }
+  },
+  "test_policy": "frozen_best_only",
+  "max_episode_steps": 960,
+  "goal_tolerance_m": 0.3,
+  "audit": {
+    "final_label": "BLOCKED_S3_DIFFUSION_ACTION_SUPPORT",
+    "dataset_hashes_match": true,
+    "dataset_checks": [
+      {
+        "path": "artifacts\\s2\\dataset\\train.npz",
+        "episodes": 252,
+        "transitions": 129458,
+        "valid": true
+      },
+      {
+        "path": "artifacts\\s2\\dataset\\val.npz",
+        "episodes": 54,
+        "transitions": 27937,
+        "valid": true
+      },
+      {
+        "path": "artifacts\\s2\\dataset\\test.npz",
+        "episodes": 54,
+        "transitions": 27476,
+        "valid": true
+      }
+    ],
+    "checkpoint_frozen": true,
+    "training_curve_valid": true,
+    "rollout_counts_valid": true,
+    "test_success": 0,
+    "test_collision": 8,
+    "test_ground_contact": 18,
+    "test_nonfinite": 0,
+    "test_clip_count": 38509,
+    "test_clip_fraction": 0.9995068521594684,
+    "test_family_success": {
+      "OPEN": 0,
+      "BLOCK": 0,
+      "SBEND": 0
+    },
+    "gates": {
+      "test_success_ge_27": false,
+      "family_success_each": false,
+      "collision_ground_le_25_percent": false,
+      "test_nonfinite_zero": true,
+      "executed_action_nonfinite_zero": true,
+      "raw_action_clip_le_1_percent": false,
+      "teacher_leakage_absent": true,
+      "test_not_accessed_before_freeze": true,
+      "determinism_smoke": true,
+      "dataset_identity": true,
+      "training_curve": true,
+      "checkpoint_frozen": true,
+      "rollout_task_counts": true
+    },
+    "determinism_smoke_pass": true,
+    "pytest": {
+      "command": "python -m pytest -q",
+      "returncode": 0,
+      "status": "PASS",
+      "output": "...................                                                      [100%]\n============================== warnings summary ===============================\n..\\..\\research_progress_management\\single_quad_ppo_diffusion\\third_party\\gym-pybullet-drones\\gym_pybullet_drones\\envs\\BaseAviary.py:7\n  D:\\Desktop\\research_progress_management\\single_quad_ppo_diffusion\\third_party\\gym-pybullet-drones\\gym_pybullet_drones\\envs\\BaseAviary.py:7: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n    import pkg_resources\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n19 passed, 1 warning in 2.47s\n"
+    }
+  }
+}
