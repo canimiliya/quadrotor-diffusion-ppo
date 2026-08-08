@@ -24,6 +24,7 @@ or S4 work was started.
 
 ```text
 START_HEAD: dd1ad5043dc83d3fc4841855318604ce3d38b069
+END_HEAD / REMOTE_BRANCH_HEAD: a8f53dbe931960e396126d450a8a5452b6101a9a
 BRANCH: agent/s3-diffusion-sanity-v1
 S2_AUDIT_HEAD: dd1ad5043dc83d3fc4841855318604ce3d38b069
 S2_IMPLEMENTATION_HEAD: 1a05975cf0bf8018683f123f4a77ebea2bf39b22
@@ -147,7 +148,7 @@ Determinism smoke: PASS
 S2 dataset identity: PASS
 Training numerical finiteness: PASS
 Checkpoint freeze and VAL-only selection: PASS
-M0/S0-S2 regression: PASS, 19 passed, 1 warning
+Full regression command: PASS, 19 passed, 1 warning (including the existing S0-S2 tests)
 ```
 
 ## Interpretation and stop boundary
