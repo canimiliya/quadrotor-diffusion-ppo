@@ -1,0 +1,186 @@
+{
+  "task": "S2-R0-GCOPTER-BALANCED-EXPERT-DATASET-360-V1",
+  "final_label": "PASS_S2_EXPERT_DATASET_360_V1",
+  "start_head": "8a315379c018f9ae617ca7801b96653a73a70432",
+  "branch": "agent/s2-expert-dataset-v1",
+  "m0_baseline_head": "8a315379c018f9ae617ca7801b96653a73a70432",
+  "m0_contract_changed": false,
+  "task_generation_seed": 20260808,
+  "split_seed": 20260809,
+  "scene_count": 9,
+  "candidate_attempts_total": 367,
+  "candidate_attempts_by_scene": {
+    "OPEN_00": 40,
+    "OPEN_01": 41,
+    "OPEN_02": 40,
+    "BLOCK_00": 40,
+    "BLOCK_01": 40,
+    "BLOCK_02": 40,
+    "SBEND_00": 40,
+    "SBEND_01": 46,
+    "SBEND_02": 40
+  },
+  "accepted_trajectories": {
+    "total": 360,
+    "by_scene": {
+      "OPEN_00": 40,
+      "OPEN_01": 40,
+      "OPEN_02": 40,
+      "BLOCK_00": 40,
+      "BLOCK_01": 40,
+      "BLOCK_02": 40,
+      "SBEND_00": 40,
+      "SBEND_01": 40,
+      "SBEND_02": 40
+    }
+  },
+  "split_counts": {
+    "train": 252,
+    "val": 54,
+    "test": 54
+  },
+  "split_by_scene": {
+    "OPEN_00": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "OPEN_01": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "OPEN_02": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "BLOCK_00": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "BLOCK_01": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "BLOCK_02": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "SBEND_00": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "SBEND_01": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    },
+    "SBEND_02": {
+      "train": 28,
+      "val": 6,
+      "test": 6
+    }
+  },
+  "task_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "total_transitions": 184871,
+  "transitions_by_split": {
+    "train": 129458,
+    "val": 27937,
+    "test": 27476
+  },
+  "observation_shape": [
+    34
+  ],
+  "action_shape": [
+    3
+  ],
+  "expert_action_clip_count": 0,
+  "expert_action_clip_fraction": 0.0,
+  "obstacle_collisions_accepted": 0,
+  "ground_contacts_accepted": 0,
+  "nonfinite_events_accepted": 0,
+  "privileged_information_leakage": false,
+  "episode_boundary_check": true,
+  "task_manifest_hash": "4498d4a115748d82c96407aec85848b67b527794359c1fcc5f555981800ece74",
+  "task_manifest_hash_rerun": "4498d4a115748d82c96407aec85848b67b527794359c1fcc5f555981800ece74",
+  "task_manifest_hash_match": true,
+  "determinism_smoke": {
+    "OPEN": {
+      "hashes": [
+        "3d4f0aaface55c59234a97a235b07bc4afe468732522921dfda422d29ed33321",
+        "3d4f0aaface55c59234a97a235b07bc4afe468732522921dfda422d29ed33321"
+      ],
+      "match": true,
+      "status": "PASS"
+    },
+    "BLOCK": {
+      "hashes": [
+        "67cfd65dd160019c05e272a3ac3faa5eca3cb538f0898f4153f07f3cd0521b08",
+        "67cfd65dd160019c05e272a3ac3faa5eca3cb538f0898f4153f07f3cd0521b08"
+      ],
+      "match": true,
+      "status": "PASS"
+    },
+    "SBEND": {
+      "hashes": [
+        "790350bb940c539e5a77e91db085442f730338bf3547694f9ffc59c422a2565f",
+        "790350bb940c539e5a77e91db085442f730338bf3547694f9ffc59c422a2565f"
+      ],
+      "match": true,
+      "status": "PASS"
+    }
+  },
+  "dataset_files": {
+    "train": "artifacts\\s2\\dataset\\train.npz",
+    "val": "artifacts\\s2\\dataset\\val.npz",
+    "test": "artifacts\\s2\\dataset\\test.npz"
+  },
+  "dataset_size_bytes": {
+    "train": 22630109,
+    "val": 4883986,
+    "test": 4807917
+  },
+  "dataset_size_total_bytes": 32322012,
+  "repository_disk_usage_bytes": 48633790,
+  "deps_disk_usage_bytes": 14284989,
+  "tests": {
+    "command": "python -m pytest -q",
+    "status": "PASS",
+    "returncode": 0
+  },
+  "m0_regression": "PASS",
+  "large_data_tracked_in_git": false,
+  "data_leakage_check": "PASS",
+  "current_blocker": "NONE",
+  "formal_stage": "S2",
+  "formal_progress": "30%",
+  "rejection_counts": {
+    "sampling_invalid": 0,
+    "planner_failed": 7,
+    "rollout_failed": 0,
+    "collision": 0,
+    "ground_contact": 0,
+    "goal_failed": 0,
+    "nonfinite": 0,
+    "action_clip": 0,
+    "other": 0
+  },
+  "committed_small_artifacts": [
+    "artifacts/s2/summary.json",
+    "artifacts/s2/task_manifest.csv",
+    "artifacts/s2/split_manifest.csv",
+    "docs/S2_DATASET_CONTRACT.md",
+    "docs/S2_REPORT.md"
+  ],
+  "dataset_schema": "PASS",
+  "split_task_isolation": "PASS"
+}

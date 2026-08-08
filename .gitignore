@@ -15,6 +15,12 @@ artifacts/m0/*
 !artifacts/m0/summary.json
 !artifacts/m0/per_scene.csv
 
+!artifacts/s2/
+artifacts/s2/*
+!artifacts/s2/summary.json
+!artifacts/s2/task_manifest.csv
+!artifacts/s2/split_manifest.csv
+
 checkpoints/*
 *.pt
 *.pth
@@ -26,4 +32,3 @@ checkpoints/*
 results/
 logs/
 recording_*/
-
