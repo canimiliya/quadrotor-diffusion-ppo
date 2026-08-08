@@ -12,7 +12,7 @@ Ray sensitivity is low and ray/goal scale is materially imbalanced.
 
 Formal progress remains **45%** and S4 remains blocked pending controller review.
 
-Branch: `agent/s4d0-ppo-obstacle-audit-v1`; final local and remote head: `0a4a1cb5152635c16e5d2a1b114b797a5dc82993`.
+Branch: `agent/s4d0-ppo-obstacle-audit-v1`; evidence-generation head: `0a4a1cb5152635c16e5d2a1b114b797a5dc82993`; provenance metadata was finalized afterward.
 
 ## Frozen R1 reproduction
 
