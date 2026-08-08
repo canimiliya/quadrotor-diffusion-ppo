@@ -1,0 +1,365 @@
+{
+  "task": "S3-R2-TRAIN-ONLY-RECOVERY-REPLAN-DIFFUSION-AUGMENTATION-V1",
+  "final_label": "PASS_S3R2_RECOVERY_AUGMENTED_DIFFUSION_SANITY",
+  "start_head": "c3b7c3376a3cf54e0047d7edd5fcb729c6f4050e",
+  "r1_policy_head": "e2f4e19f02e1b07de48617b607ceeb32340a5095",
+  "branch": "agent/s3r2-recovery-replan-v1",
+  "end_head": null,
+  "remote_branch_head": null,
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "cpu": "24 cores",
+  "pytorch": "2.7.1+cu128",
+  "cuda": "12.8",
+  "train_device": "cuda",
+  "peak_gpu_memory_bytes": 167793152,
+  "training_wall_time_s": 78.73914770000002,
+  "r1_checkpoint_identity": {
+    "sha256": "8afa677d7c8a34179c60f067209b6924170fc7854445048d7a7e9b55bbbc5fc8",
+    "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s3r1\\best.pt"
+  },
+  "original_dataset_identity": {
+    "sha256": {
+      "train": "701a1d36b767ff41347b1dac60868922ce5033ee8db27721daf891613125db21",
+      "val": "c5687f812a958f28dce14c4a2742ae64a94bb330229747c7c64e85290134dbcc",
+      "test": "88b39f83216e5e8985505ed77b9fbd89c01100237bdd8c09972fa29b90d70e66"
+    },
+    "task_counts": {
+      "train": 252,
+      "val": 54,
+      "test": 54
+    },
+    "observation_dim": 34,
+    "action_dim": 3,
+    "episodes": {
+      "train": 252,
+      "val": 54,
+      "test": 54
+    },
+    "test_values_opened": true
+  },
+  "train_task_rollouts": 252,
+  "divergent_train_tasks": 242,
+  "recovery_anchors": 242,
+  "recovery_planner_attempts": 242,
+  "recovery_planner_success": 148,
+  "accepted_recovery_trajectories": {
+    "total": 146,
+    "OPEN": 57,
+    "BLOCK": 61,
+    "SBEND": 28
+  },
+  "recovery_rejection_reasons": {
+    "planner_failed": 94,
+    "teacher_closed_loop_rejected": 2,
+    "accepted": 146
+  },
+  "original_train_windows": 125678,
+  "recovery_train_windows": 66939,
+  "total_r2_train_windows": 192617,
+  "recovery_window_fraction": 0.34752384265147934,
+  "val_recovery_samples": 0,
+  "test_recovery_samples": 0,
+  "model_changed": false,
+  "hyperparameters_changed": false,
+  "model": {
+    "architecture": "34-128-128; time64; width256; 4 residual MLP blocks",
+    "horizon": 16,
+    "action_dim": 3,
+    "prediction_target": "x0",
+    "action_support": "unit_ball_squash",
+    "diffusion_steps": 100,
+    "ddim_steps": 10,
+    "ddim_eta": 0.0
+  },
+  "hyperparameters": {
+    "train_seed": 20260810,
+    "batch_size": 512,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "max_updates": 10000,
+    "validation_interval": 500
+  },
+  "training": {
+    "updates": 10000,
+    "best_update": 10000,
+    "best_val_loss": 0.0003441537118142481,
+    "all_finite": true,
+    "best_checkpoint_sha256": "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd"
+  },
+  "val": {
+    "success": 37,
+    "success_rate": 0.6851851851851852,
+    "collision": 9,
+    "collision_rate": 0.16666666666666666,
+    "ground_contact": 0,
+    "ground_contact_rate": 0.0,
+    "timeout": 8,
+    "timeout_rate": 0.14814814814814814,
+    "nonfinite": 0,
+    "unsafe": 9,
+    "support_violation_fraction": 0.0,
+    "executed_action_clipping_fraction": 0.0,
+    "by_family": {
+      "OPEN": {
+        "success": 17,
+        "success_rate": 0.9444444444444444,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.05555555555555555,
+        "nonfinite": 0
+      },
+      "BLOCK": {
+        "success": 9,
+        "success_rate": 0.5,
+        "collision": 8,
+        "collision_rate": 0.4444444444444444,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.05555555555555555,
+        "nonfinite": 0
+      },
+      "SBEND": {
+        "success": 11,
+        "success_rate": 0.6111111111111112,
+        "collision": 1,
+        "collision_rate": 0.05555555555555555,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 6,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      }
+    }
+  },
+  "r1_to_r2_delta": {
+    "success": 8,
+    "collision": 0,
+    "ground_contact": -6,
+    "timeout": -2,
+    "unsafe": -6
+  },
+  "val_gate": "PASS",
+  "teacher_leakage": {
+    "passed": true,
+    "forbidden_runtime_tokens": [],
+    "policy_function": "evaluate_task"
+  },
+  "r2_test_executed": true,
+  "r2_test_run_count": 1,
+  "determinism": {
+    "pass": true,
+    "val_smoke": {
+      "OPEN": {
+        "task_id": "OPEN_00_TASK_008",
+        "hashes": [
+          "c95e112d223589861c67b3c530589c82c9ef1218889e40160cc94919e9d4fb5c",
+          "c95e112d223589861c67b3c530589c82c9ef1218889e40160cc94919e9d4fb5c"
+        ],
+        "match": true
+      },
+      "BLOCK": {
+        "task_id": "BLOCK_00_TASK_003",
+        "hashes": [
+          "edb42225d6c530079ad9ea0e7f0f598fd9b208bf22d5964b65f0f437918a013e",
+          "edb42225d6c530079ad9ea0e7f0f598fd9b208bf22d5964b65f0f437918a013e"
+        ],
+        "match": true
+      },
+      "SBEND": {
+        "task_id": "SBEND_00_TASK_016",
+        "hashes": [
+          "853c5c2079b8643700eea02c7dd1a81f33ba187c33497a2971f8e0d8cb276573",
+          "853c5c2079b8643700eea02c7dd1a81f33ba187c33497a2971f8e0d8cb276573"
+        ],
+        "match": true
+      }
+    },
+    "test_rerun_performed": false
+  },
+  "tests": {
+    "passed": 36,
+    "failed": 0,
+    "independent_verifier": true
+  },
+  "what_was_proven": [
+    "TRAIN-only first-divergence recovery replans were collected and used for training",
+    "VAL Gate passed before the single TEST evaluation",
+    "R2 improved VAL from 29/54 to 37/54 and reduced unsafe outcomes from 15 to 9",
+    "CUDA training was finite and used the frozen R1 architecture and hyperparameters",
+    "independent verifier and VAL determinism smoke passed"
+  ],
+  "what_was_not_proven": [
+    "No PPO/BC comparison",
+    "No cross-topology claim"
+  ],
+  "current_blocker": "none",
+  "formal_stage": "S3",
+  "formal_progress": "30%",
+  "unique_next_task": "NONE — WAIT_FOR_CONTROLLER_REVIEW",
+  "waiting_for_high_level_controller_audit": true,
+  "test_used_for_selection": false,
+  "test": {
+    "overall": {
+      "success": 38,
+      "success_rate": 0.7037037037037037,
+      "collision": 9,
+      "collision_rate": 0.16666666666666666,
+      "ground_contact": 0,
+      "ground_contact_rate": 0.0,
+      "timeout": 7,
+      "timeout_rate": 0.12962962962962962,
+      "nonfinite": 0
+    },
+    "by_family": {
+      "OPEN": {
+        "success": 18,
+        "success_rate": 1.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 0,
+        "timeout_rate": 0.0,
+        "nonfinite": 0
+      },
+      "BLOCK": {
+        "success": 8,
+        "success_rate": 0.4444444444444444,
+        "collision": 9,
+        "collision_rate": 0.5,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.05555555555555555,
+        "nonfinite": 0
+      },
+      "SBEND": {
+        "success": 12,
+        "success_rate": 0.6666666666666666,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 6,
+        "timeout_rate": 0.3333333333333333,
+        "nonfinite": 0
+      }
+    },
+    "by_scene": {
+      "OPEN_00": {
+        "success": 6,
+        "success_rate": 1.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 0,
+        "timeout_rate": 0.0,
+        "nonfinite": 0
+      },
+      "OPEN_01": {
+        "success": 6,
+        "success_rate": 1.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 0,
+        "timeout_rate": 0.0,
+        "nonfinite": 0
+      },
+      "OPEN_02": {
+        "success": 6,
+        "success_rate": 1.0,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 0,
+        "timeout_rate": 0.0,
+        "nonfinite": 0
+      },
+      "BLOCK_00": {
+        "success": 4,
+        "success_rate": 0.6666666666666666,
+        "collision": 1,
+        "collision_rate": 0.16666666666666666,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.16666666666666666,
+        "nonfinite": 0
+      },
+      "BLOCK_01": {
+        "success": 4,
+        "success_rate": 0.6666666666666666,
+        "collision": 2,
+        "collision_rate": 0.3333333333333333,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 0,
+        "timeout_rate": 0.0,
+        "nonfinite": 0
+      },
+      "BLOCK_02": {
+        "success": 0,
+        "success_rate": 0.0,
+        "collision": 6,
+        "collision_rate": 1.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 0,
+        "timeout_rate": 0.0,
+        "nonfinite": 0
+      },
+      "SBEND_00": {
+        "success": 5,
+        "success_rate": 0.8333333333333334,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.16666666666666666,
+        "nonfinite": 0
+      },
+      "SBEND_01": {
+        "success": 5,
+        "success_rate": 0.8333333333333334,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 1,
+        "timeout_rate": 0.16666666666666666,
+        "nonfinite": 0
+      },
+      "SBEND_02": {
+        "success": 2,
+        "success_rate": 0.3333333333333333,
+        "collision": 0,
+        "collision_rate": 0.0,
+        "ground_contact": 0,
+        "ground_contact_rate": 0.0,
+        "timeout": 4,
+        "timeout_rate": 0.6666666666666666,
+        "nonfinite": 0
+      }
+    },
+    "unsafe": 9,
+    "support_violation_fraction": 0.0,
+    "executed_action_clipping_fraction": 0.0
+  },
+  "regression": {
+    "command": "conda run -n dp_quad_py310 python -m pytest -q",
+    "passed": 36,
+    "failed": 0,
+    "warnings": 4
+  },
+  "test_values_opened_after_val_pass": true
+}

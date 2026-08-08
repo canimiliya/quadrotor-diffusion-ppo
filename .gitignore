@@ -42,6 +42,17 @@ artifacts/s3d0/*
 !artifacts/s3d0/per_episode.csv
 !artifacts/s3d0/failure_taxonomy.csv
 
+!artifacts/s3r2/
+artifacts/s3r2/*
+!artifacts/s3r2/summary.json
+!artifacts/s3r2/recovery_manifest.csv
+!artifacts/s3r2/training_curve.csv
+!artifacts/s3r2/val_rollout.csv
+!artifacts/s3r2/test_rollout.csv
+
+!checkpoints/s3r2/
+checkpoints/s3r2/*
+
 checkpoints/*
 !checkpoints/s3/
 checkpoints/s3/*
