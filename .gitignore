@@ -36,6 +36,12 @@ artifacts/s3r1/*
 !artifacts/s3r1/val_rollout.csv
 !artifacts/s3r1/test_rollout.csv
 
+!artifacts/s3d0/
+artifacts/s3d0/*
+!artifacts/s3d0/summary.json
+!artifacts/s3d0/per_episode.csv
+!artifacts/s3d0/failure_taxonomy.csv
+
 checkpoints/*
 !checkpoints/s3/
 checkpoints/s3/*
