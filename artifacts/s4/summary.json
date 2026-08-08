@@ -5,8 +5,8 @@
   "main_fast_forward": "PASS",
   "branch": "agent/s4-pure-ppo-v1",
   "start_head": "b10c8edf2fc834aac9136626a969c0c3108820ae",
-  "end_head": null,
-  "remote_branch_head": null,
+  "end_head": "f62272e8f2c52d1dfdfa2e4068e785e3a89df4de",
+  "remote_branch_head": "f62272e8f2c52d1dfdfa2e4068e785e3a89df4de",
   "system": {
     "gpu": "NVIDIA GeForce RTX 5060 Ti",
     "cpu": 24,
