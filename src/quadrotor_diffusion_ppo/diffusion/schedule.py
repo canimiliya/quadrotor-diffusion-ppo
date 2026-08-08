@@ -5,6 +5,8 @@ import math
 
 import torch
 
+from .model import unit_ball_squash
+
 
 def cosine_betas(steps: int = 100, s: float = 0.008) -> torch.Tensor:
     positions = torch.linspace(0, steps, steps + 1, dtype=torch.float64) / steps
@@ -56,4 +58,40 @@ class DiffusionSchedule:
                 next_t = int(schedule[index + 1].item())
                 alpha_next = self.alpha_bars[next_t]
                 sample = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * predicted_noise
+        return sample
+
+    @torch.no_grad()
+    def ddim_sample_x0(self, model, observation: torch.Tensor, *, steps: int = 10,
+                       generator: torch.Generator | None = None,
+                       return_diagnostics: bool = False):
+        """Deterministic DDIM for a model whose target is bounded clean action x0."""
+        if steps != 10:
+            raise ValueError("S3 freezes deterministic DDIM inference to 10 steps")
+        batch = observation.shape[0]
+        sample = torch.randn((batch, model.horizon, model.action_dim), device=observation.device,
+                             generator=generator)
+        schedule = torch.linspace(self.steps - 1, 0, steps, device=observation.device).round().long()
+        latent_abs = 0.0
+        latent_norm = 0.0
+        support_violations = 0
+        for index, timestep in enumerate(schedule):
+            t = int(timestep.item())
+            t_batch = torch.full((batch,), t, device=observation.device, dtype=torch.long)
+            raw = model.predict_raw(sample, observation, t_batch)
+            latent_abs = max(latent_abs, float(torch.max(torch.abs(raw)).item()))
+            latent_norm = max(latent_norm, float(torch.max(torch.linalg.vector_norm(raw, dim=-1)).item()))
+            x0 = unit_ball_squash(raw)
+            norms = torch.linalg.vector_norm(x0, dim=-1)
+            support_violations += int((norms > 1.0 + 1e-6).sum().item())
+            epsilon = (sample - self.alpha_bars[t].sqrt() * x0) / (1.0 - self.alpha_bars[t]).sqrt()
+            if index == len(schedule) - 1:
+                sample = x0
+            else:
+                next_t = int(schedule[index + 1].item())
+                alpha_next = self.alpha_bars[next_t]
+                sample = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * epsilon
+        if return_diagnostics:
+            return sample, {"latent_max_abs": latent_abs, "latent_max_norm": latent_norm,
+                            "support_violation_count": support_violations,
+                            "support_violation_fraction": support_violations / max(1, batch * model.horizon * steps)}
         return sample

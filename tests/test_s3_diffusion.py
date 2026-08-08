@@ -5,7 +5,7 @@ import inspect
 import numpy as np
 import torch
 
-from quadrotor_diffusion_ppo.diffusion.model import ConditionalDiffusionMLP
+from quadrotor_diffusion_ppo.diffusion.model import ConditionalDiffusionMLP, unit_ball_squash
 from quadrotor_diffusion_ppo.diffusion.schedule import DiffusionSchedule
 from scripts.run_s3_diffusion import (
     HORIZON, OBSERVATION_DIM, ACTION_DIM, build_windows, observation_normalization,
@@ -77,6 +77,42 @@ def test_checkpoint_metadata_contract():
     model = ConditionalDiffusionMLP()
     assert sum(parameter.numel() for parameter in model.parameters()) > 0
     assert model.horizon == 16 and model.action_dim == 3 and model.observation_dim == 34
+
+
+def test_unit_ball_squash_zero():
+    output = unit_ball_squash(torch.zeros(8, 16, 3))
+    assert torch.isfinite(output).all() and torch.equal(output, torch.zeros_like(output))
+
+
+def test_unit_ball_squash_large_input():
+    output = unit_ball_squash(torch.tensor([[[1e20, -1e20, 1e20]]]))
+    assert torch.isfinite(output).all() and torch.linalg.vector_norm(output, dim=-1).item() < 1.0
+
+
+def test_unit_ball_squash_random_norm_bound():
+    output = unit_ball_squash(torch.randn(128, 16, 3) * 100.0)
+    assert torch.isfinite(output).all()
+    assert float(torch.max(torch.linalg.vector_norm(output, dim=-1))) < 1.0
+
+
+def test_x0_sampler_oracle_reconstruction():
+    schedule = DiffusionSchedule(100)
+    x0 = torch.randn(2, 16, 3) * 0.2
+    noise = torch.randn_like(x0)
+    timesteps = torch.tensor([99, 99])
+    noisy = schedule.add_noise(x0, noise, timesteps)
+    alpha_next = schedule.alpha_bars[88]
+    epsilon = (noisy - schedule.alpha_bars[99].sqrt() * x0) / (1.0 - schedule.alpha_bars[99]).sqrt()
+    reconstructed = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * epsilon
+    expected = schedule.add_noise(x0, noise, torch.tensor([88, 88]))
+    assert torch.allclose(reconstructed, expected, atol=2e-6, rtol=2e-6)
+
+
+def test_prediction_target_is_x0():
+    model = ConditionalDiffusionMLP(bounded_output=True)
+    output = model(torch.randn(2, 16, 3), torch.randn(2, 34), torch.tensor([0, 99]))
+    assert torch.isfinite(output).all()
+    assert float(torch.max(torch.linalg.vector_norm(output, dim=-1))) < 1.0
 
 
 def test_test_split_not_used_before_freeze_and_s2_dataset_identity():

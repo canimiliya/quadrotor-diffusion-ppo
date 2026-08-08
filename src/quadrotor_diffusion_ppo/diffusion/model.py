@@ -7,6 +7,17 @@ import torch
 from torch import nn
 
 
+def unit_ball_squash(value: torch.Tensor, eps: float = 1e-8) -> torch.Tensor:
+    """Map each final action vector into the open three-dimensional unit ball."""
+    if value.shape[-1] != 3:
+        raise ValueError("unit_ball_squash expects a final action dimension of 3")
+    radius = torch.linalg.vector_norm(value, dim=-1, keepdim=True)
+    # Keep a small interior margin so float32 rounding cannot put an action on
+    # or just outside the unit-sphere boundary.
+    scale = (1.0 - 1e-6) * torch.tanh(radius) / torch.clamp(radius, min=eps)
+    return value * scale
+
+
 class SinusoidalTimeEmbedding(nn.Module):
     def __init__(self, dimension: int = 64):
         super().__init__()
@@ -36,16 +47,17 @@ class ResidualMLPBlock(nn.Module):
 
 
 class ConditionalDiffusionMLP(nn.Module):
-    """34D observation conditioned epsilon predictor for 16x3 actions."""
+    """34D observation conditioned diffusion predictor for 16x3 actions."""
 
     def __init__(self, observation_dim: int = 34, horizon: int = 16, action_dim: int = 3,
                  observation_width: int = 128, time_dim: int = 64, width: int = 256,
-                 residual_blocks: int = 4):
+                 residual_blocks: int = 4, bounded_output: bool = False):
         super().__init__()
         self.observation_dim = int(observation_dim)
         self.horizon = int(horizon)
         self.action_dim = int(action_dim)
         self.time_dim = int(time_dim)
+        self.bounded_output = bool(bounded_output)
         self.observation_encoder = nn.Sequential(
             nn.Linear(self.observation_dim, observation_width), nn.SiLU(),
             nn.Linear(observation_width, observation_width), nn.SiLU(),
@@ -57,8 +69,8 @@ class ConditionalDiffusionMLP(nn.Module):
         self.residual_core = nn.Sequential(*(ResidualMLPBlock(width) for _ in range(residual_blocks)))
         self.output_projection = nn.Linear(width, horizon * action_dim)
 
-    def forward(self, noisy_actions: torch.Tensor, observation: torch.Tensor,
-                timesteps: torch.Tensor) -> torch.Tensor:
+    def predict_raw(self, noisy_actions: torch.Tensor, observation: torch.Tensor,
+                    timesteps: torch.Tensor) -> torch.Tensor:
         if noisy_actions.ndim != 3 or noisy_actions.shape[1:] != (self.horizon, self.action_dim):
             raise ValueError(f"noisy_actions must have shape (B,{self.horizon},{self.action_dim})")
         if observation.ndim != 2 or observation.shape[1] != self.observation_dim:
@@ -69,3 +81,8 @@ class ConditionalDiffusionMLP(nn.Module):
         hidden = self.input_projection(torch.cat((condition, time, noisy), dim=1))
         hidden = self.residual_core(hidden)
         return self.output_projection(hidden).reshape(-1, self.horizon, self.action_dim)
+
+    def forward(self, noisy_actions: torch.Tensor, observation: torch.Tensor,
+                timesteps: torch.Tensor) -> torch.Tensor:
+        raw = self.predict_raw(noisy_actions, observation, timesteps)
+        return unit_ball_squash(raw) if self.bounded_output else raw

@@ -28,6 +28,14 @@ artifacts/s3/*
 !artifacts/s3/val_rollout.csv
 !artifacts/s3/test_rollout.csv
 
+!artifacts/s3r1/
+artifacts/s3r1/*
+!artifacts/s3r1/support_diagnostic.json
+!artifacts/s3r1/summary.json
+!artifacts/s3r1/training_curve.csv
+!artifacts/s3r1/val_rollout.csv
+!artifacts/s3r1/test_rollout.csv
+
 checkpoints/*
 !checkpoints/s3/
 checkpoints/s3/*
