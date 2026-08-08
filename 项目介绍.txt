@@ -1,0 +1,2 @@
+英文名：Planning-Guided Diffusion Prior for Sample-Efficient Quadrotor PPO
+中文名：面向四旋翼样本高效 PPO 的规划引导扩散动作先验

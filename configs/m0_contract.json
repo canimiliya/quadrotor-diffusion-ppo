@@ -1,0 +1,17 @@
+{
+  "scene_ids": ["OPEN_00", "OPEN_01", "OPEN_02", "BLOCK_00", "BLOCK_01", "BLOCK_02", "SBEND_00", "SBEND_01", "SBEND_02"],
+  "physics_hz": 240,
+  "control_hz": 48,
+  "speed_limit_m_per_s": 0.801,
+  "goal_tolerance_m": 0.30,
+  "ray_max_range_m": 3.0,
+  "ray_directions_local": [
+    [1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1],
+    [1, 1, 0], [1, -1, 0], [-1, 1, 0], [-1, -1, 0],
+    [1, 1, 1], [1, 1, -1], [1, -1, 1], [1, -1, -1],
+    [-1, 1, 1], [-1, 1, -1], [-1, -1, 1], [-1, -1, -1]
+  ],
+  "post_reference_settle_s": 2.0,
+  "floating_point_tolerance": 1.0e-6
+}
+
