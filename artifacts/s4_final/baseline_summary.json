@@ -1,0 +1,30 @@
+{
+  "stage": "S4",
+  "stage_result": "CLOSED_WITH_VALID_WEAK_PPO_BASELINE",
+  "experiment_result": "BLOCKED_S4R2_PPO_NO_OBSTACLE_LEARNING",
+  "formal_progress": "55%",
+  "interpretation": "Pure PPO failed to acquire obstacle-navigation behavior within the 500k interaction budget.",
+  "not_interpretation": "PPO implementation failed",
+  "source_commit": "acfabed2dd28b7f23aee7007236a2bb58cb5ffba",
+  "prior_canonical_main": "b10c8edf2fc834aac9136626a969c0c3108820ae",
+  "total_env_steps": 500000,
+  "seed": 20260812,
+  "best_val": {
+    "success": 14,
+    "tasks": 54,
+    "unsafe": 32,
+    "mean_return": -3.394123992411189,
+    "open_success": 14,
+    "block_success": 0,
+    "sbend_success": 0,
+    "policy_action_support_violation_count": 0,
+    "env_action_clip_count": 0
+  },
+  "evidence_sha256": {
+    "artifacts/s4r2/summary.json": "02e6e5002e376bac9ba962c555416032ae4b29ecc459a8a092ab120e6156f548",
+    "artifacts/s4r2/learning_curve.csv": "0583c7933bb049419b017ba78326c5d070fd44105834ecec619c0b85efb2c136",
+    "artifacts/s4r2/val_best_rollout.csv": "d7352a1e56a85dab392d86f4907129d49e11947e2b7d3e94013d5ecf19db1e23"
+  },
+  "s5_comparison_status": "AUTHORIZED_SINGLE_SEED_SANITY_ONLY",
+  "s6_status": "NOT_AUTHORIZED"
+}
