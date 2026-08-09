@@ -1,0 +1,17 @@
+{
+  "attempt": 1,
+  "valid_scientific_run": false,
+  "test_accessed": false,
+  "last_completed_evaluation_step": 200000,
+  "last_observed_val_success": 12,
+  "last_observed_val_tasks": 54,
+  "failure_class": "ENGINEERING_WORKER_CRASH",
+  "parent_exception": "BrokenPipeError WinError 109 followed by EOFError in SubprocVecEnv.step_wait",
+  "windows_event": {
+    "event_time": "2026-08-09T10:38:16+08:00",
+    "application": "D:/anaconda/envs/smd-blackwell/python.exe",
+    "fault_module": "VCRUNTIME140.dll",
+    "exception_code": "0xc0000005"
+  },
+  "disposition": "Invalid incomplete run; checkpoint excluded from selection; rerun from random initialization under the unchanged frozen scientific contract."
+}

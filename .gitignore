@@ -72,6 +72,16 @@ artifacts/s4d0/*
 !artifacts/s4d0/per_episode.csv
 !artifacts/s4d0/reward_audit.csv
 
+!artifacts/s4r2/
+artifacts/s4r2/*
+!artifacts/s4r2/normalization.json
+!artifacts/s4r2/engineering_failure_01.json
+!artifacts/s4r2/summary.json
+!artifacts/s4r2/learning_curve.csv
+!artifacts/s4r2/val_best_rollout.csv
+!artifacts/s4r2/test_rollout.csv
+!artifacts/s4r2/independent_verification.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

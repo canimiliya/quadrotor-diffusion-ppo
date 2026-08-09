@@ -1,0 +1,42 @@
+{
+  "protocol_audit_pass": true,
+  "val_gate_recomputed": "FAIL",
+  "summary_val_gate_match": true,
+  "family_success": {
+    "OPEN": 14,
+    "BLOCK": 0,
+    "SBEND": 0
+  },
+  "checks": {
+    "exact_start_head": true,
+    "split_counts": true,
+    "train_only_normalization_source": true,
+    "train_source_hash": true,
+    "normalization_frozen_in_checkpoint": true,
+    "raw_34d_unchanged": true,
+    "actor_critic_same_preprocessing": true,
+    "exact_training_budget": true,
+    "evaluation_schedule": true,
+    "best_val_recomputed": true,
+    "family_success_recomputed": true,
+    "reward_hash_unchanged": true,
+    "unit_ball_unchanged": true,
+    "support_and_clipping": true,
+    "no_privileged_runtime_dependency": true,
+    "test_untouched_after_gate_fail": true,
+    "main_not_authorized": true,
+    "checkpoint_pair": true
+  },
+  "forbidden_runtime_tokens": [],
+  "checkpoint_sha256": {
+    "best_model.zip": "df7d555048a630e9722c08cdf8c97e920d9a0bc3b95aef90017b562210344eab",
+    "last_model.zip": "df7d555048a630e9722c08cdf8c97e920d9a0bc3b95aef90017b562210344eab"
+  },
+  "artifact_sha256": {
+    "summary.json": "02e6e5002e376bac9ba962c555416032ae4b29ecc459a8a092ab120e6156f548",
+    "normalization.json": "4c6981f1ffd57ca5b06da091eb085afaefd30e38f38da7ec9ff46ba53cba3d1d",
+    "learning_curve.csv": "0583c7933bb049419b017ba78326c5d070fd44105834ecec619c0b85efb2c136",
+    "val_best_rollout.csv": "d7352a1e56a85dab392d86f4907129d49e11947e2b7d3e94013d5ecf19db1e23",
+    "engineering_failure_01.json": "d6e22edd3e6bfaae78004b5958e14293470fd32f66554fc65d168f36b8a9295a"
+  }
+}
