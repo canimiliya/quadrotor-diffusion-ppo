@@ -78,7 +78,7 @@
   "sha256": {
     "checkpoints/s5/best_model.zip": "c1d2cd6490dd0d61e49df0d8c0d86e019f4fe8b86e68b2bc58324ea00cde5583",
     "checkpoints/s5/last_model.zip": "325c3ce4df958bc58c0fdabff5e0127ef7ba3c58ea02a6b96c26481bfcdd935e",
-    "artifacts/s5/summary.json": "21fceb1aeee8983dda8bfacb80b6f89103903aa68336fcb2ce771ae70fb99ea5",
+    "artifacts/s5/summary.json": "4f8117d52fd93857a1972da449363a65c9e228d6fb9bbba232f2dfb462b616cc",
     "artifacts/s5/learning_curve.csv": "7ca899aa5b02ce85b89d2eb33a939bb1024ad6ef15cf5f9dc9fe58a4b5e71463",
     "artifacts/s5/val_best_rollout.csv": "a8038bde62605de2d6e4aed75b29772fc75fb715cb23573785f8580842f04cd1",
     "artifacts/s5/test_rollout.csv": "f36fcbc9d76081f6d4bedd9f624b747cbb1b2ad2022e8b16d7f0f0db26565603",

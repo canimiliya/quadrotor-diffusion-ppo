@@ -715,7 +715,7 @@
     "independent_verifier": true,
     "protocol_audit_pass": true,
     "regression_command": "D:\\anaconda\\envs\\dp_quad_py310\\python.exe -m pytest -q",
-    "tests_passed": 74,
+    "tests_passed": 75,
     "tests_skipped": 1,
     "tests_failed": 0,
     "warnings": 4

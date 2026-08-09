@@ -118,7 +118,7 @@ What was not proven:
 The independent verifier recomputed the selection order, VAL and TEST totals,
 family totals, action-support counts, TEST protocol, frozen-prior identity,
 normalization identity, PPO/reward contracts, and runtime dependency boundary.
-It passed every check. Full regression reported `74 passed, 1 skipped, 4
+It passed every check. Full regression reported `75 passed, 1 skipped, 4
 warnings` with zero failures.
 
 - best residual-PPO checkpoint SHA256: `c1d2cd6490dd0d61e49df0d8c0d86e019f4fe8b86e68b2bc58324ea00cde5583`
@@ -130,3 +130,142 @@ warnings` with zero failures.
 `UNIQUE_NEXT_TASK = NONE — WAIT_FOR_CONTROLLER_REVIEW`
 
 `WAITING_FOR_HIGH_LEVEL_CONTROLLER_AUDIT`
+
+## Formal controller handoff matrix
+
+This appendix spells out every field required by Task Card 012. The evidence
+freeze commit is the commit that contains the implementation, generated
+artifacts, independent verification, and regression evidence. A later
+documentation-only closeout commit does not alter the experiment.
+
+```text
+TASK = S5-R0-DIFFUSION-PRIOR-RESIDUAL-PPO-MINIMAL-INTEGRATION-V1
+FINAL_LABEL = PASS_S5_DIFFUSION_PRIOR_RESIDUAL_PPO_SANITY
+
+START_HEAD = 6eb478aa22f46d63896324e36d4d3a6dffe6de11
+EXPERIMENT_END_HEAD = 25ee5752b1a96dd221921bd7ff2fde4263cf1ab7
+REMOTE_EVIDENCE_HEAD = 25ee5752b1a96dd221921bd7ff2fde4263cf1ab7
+BRANCH = agent/s5-diffusion-residual-ppo-v1
+
+S4_CANONICAL_MAIN = 6eb478aa22f46d63896324e36d4d3a6dffe6de11
+S4_BASELINE_FROZEN = true
+S4_BASELINE_STATUS = VALID_WEAK_BASELINE
+FORMAL_PROGRESS_AT_START = 55%
+
+GPU = NVIDIA GeForce RTX 5060 Ti
+CPU = 24 logical processors
+CUDA = 12.8
+PYTORCH = 2.7.1+cu128
+SB3 = 2.6.0
+
+DIFFUSION_CHECKPOINT_SHA = 98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd
+DIFFUSION_FROZEN = true
+DIFFUSION_GRADIENT_PRESENT = false
+PRIOR_REFERENCE_RESULT = PASS, VAL 37/54, task outcome mismatches 0
+
+OBS_NORMALIZATION_IDENTITY = PASS
+NORMALIZATION_MEAN_FLOAT32_IDENTITY = true
+NORMALIZATION_STD_FLOAT32_IDENTITY = true
+OPTIMIZED_REFERENCE_MAX_ABS_ERROR = 1.1920928955078125e-07
+OPTIMIZED_REFERENCE_TOLERANCE = 2e-06
+
+RESIDUAL_COMPOSITION = EuclideanUnitBallProjection(a_prior + 0.25 * delta_a)
+RESIDUAL_SCALE = 0.25
+RESIDUAL_INIT_MEAN = 0 exactly
+RESIDUAL_INIT_LOG_STD = -2.0
+RESIDUAL_INIT_STD = 0.1353352832366127
+
+PPO_NETWORK = pi[256,256], vf[256,256]
+PPO_LEARNING_RATE = 3e-4
+PPO_N_STEPS = 1024
+PPO_BATCH_SIZE = 512
+PPO_EPOCHS = 10
+PPO_GAMMA = 0.99
+PPO_GAE_LAMBDA = 0.95
+PPO_CLIP_RANGE = 0.2
+PPO_ENT_COEF = 0
+PPO_VF_COEF = 0.5
+PPO_MAX_GRAD_NORM = 0.5
+PPO_N_ENVS = 8
+PPO_SEED = 20260812
+UNEXPECTED_PPO_CONFIG_DIFF = []
+
+TOTAL_ENV_STEPS = 500000
+TRAINING_WALL_TIME_S = 4105.2294413
+TRAINING_FINITE = true
+
+BEST_VAL_STEP = 0
+BEST_VAL = 37/54
+OPEN = 17/18
+BLOCK = 9/18
+SBEND = 11/18
+BEST_VAL_UNSAFE = 9
+BEST_VAL_RETURN = 17.90953378159614
+
+TRAIN_PRIOR_NORM_MEAN = 0.8322941676118374
+TRAIN_RESIDUAL_NORM_MEAN = 0.2301314987819195
+TRAIN_SCALED_RESIDUAL_NORM_MEAN = 0.05753287469547987
+TRAIN_FINAL_ACTION_NORM_MEAN = 0.8392914178726674
+TRAIN_PROJECTION_FRACTION = 0.27684
+TRAIN_SUPPORT_VIOLATION_FRACTION = 0
+
+BEST_VAL_PRIOR_NORM_MEAN = 0.6802847325171695
+BEST_VAL_RESIDUAL_NORM_MEAN = 0
+BEST_VAL_FINAL_ACTION_NORM_MEAN = 0.6802847325171695
+BEST_VAL_PROJECTION_FRACTION = 0
+
+TEACHER_RUNTIME_DEPENDENCE = false
+ENVIRONMENT_ACTION_CLIPPING = 0
+
+TEST_EXECUTED = true
+TEST_RUN_COUNT = 1
+TEST_USED_FOR_SELECTION = false
+TEST_RESULT = 38/54, OPEN 18/18, BLOCK 8/18, SBEND 12/18, unsafe 9, return 18.340133290485213
+
+TESTS = 75 passed, 1 skipped, 0 failed
+REGRESSION = PASS
+INDEPENDENT_PROTOCOL_AUDIT = PASS
+
+CURRENT_BLOCKER = NONE
+FORMAL_PROGRESS = 70%
+UNIQUE_NEXT_TASK = NONE — WAIT_FOR_CONTROLLER_REVIEW
+WAITING_FOR_HIGH_LEVEL_CONTROLLER_AUDIT
+```
+
+### Required Pure PPO versus integrated learning curves
+
+Collision is shown explicitly rather than folded into unsafe. Ground-contact
+and nonfinite counts were zero throughout the S5 curve, so S5 collision equals
+S5 unsafe at every point.
+
+| steps | S5 success | S5 collision | Pure PPO success | Pure PPO collision |
+|---:|---:|---:|---:|---:|
+| 0 | 37 | 9 | 0 | 0 |
+| 50k | 29 | 14 | 0 | 11 |
+| 100k | 32 | 15 | 6 | 4 |
+| 150k | 34 | 15 | 10 | 2 |
+| 200k | 35 | 15 | 12 | 11 |
+| 250k | 33 | 16 | 11 | 23 |
+| 300k | 23 | 16 | 6 | 15 |
+| 350k | 26 | 15 | 7 | 16 |
+| 400k | 18 | 20 | 7 | 32 |
+| 450k | 20 | 20 | 13 | 30 |
+| 500k | 17 | 20 | 14 | 32 |
+
+### Formal proof boundary
+
+```text
+WHAT_WAS_PROVEN:
+- the frozen S3-R2 prior was integrated with a trainable unit-ball PPO residual;
+- the full single-seed 500k interaction contract completed with finite training;
+- the selected integrated policy has OPEN, BLOCK, and SBEND successes and
+  exceeds the valid weak Pure PPO baseline;
+- action support, normalization, reward, frozen-prior gradient isolation,
+  VAL-only selection, and one-time post-Gate TEST access were enforced.
+
+WHAT_WAS_NOT_PROVEN:
+- no trained residual checkpoint improved on the step-0 frozen prior;
+- no three-seed superiority, statistical significance, or final
+  sample-efficiency claim;
+- no cross-topology, ROS 2, PX4, hardware, or real-flight claim.
+```

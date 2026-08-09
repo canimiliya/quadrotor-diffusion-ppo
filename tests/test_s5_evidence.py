@@ -62,3 +62,26 @@ def test_s5_runtime_source_has_no_teacher_or_s6_path():
     assert "gcoptertrajectory" not in source
     assert "run_s6" not in source
     assert "test_used_for_selection\": false" in source
+
+
+def test_s5_report_contains_every_controller_handoff_field():
+    report = (ROOT / "docs" / "S5_REPORT.md").read_text(encoding="utf-8")
+    required = (
+        "TASK =", "FINAL_LABEL =", "START_HEAD =", "EXPERIMENT_END_HEAD =",
+        "REMOTE_EVIDENCE_HEAD =", "BRANCH =", "S4_CANONICAL_MAIN =",
+        "S4_BASELINE_FROZEN =", "FORMAL_PROGRESS_AT_START =", "GPU =",
+        "CPU =", "CUDA =", "PYTORCH =", "SB3 =", "DIFFUSION_CHECKPOINT_SHA =",
+        "DIFFUSION_FROZEN =", "PRIOR_REFERENCE_RESULT =", "OBS_NORMALIZATION_IDENTITY =",
+        "RESIDUAL_COMPOSITION =", "RESIDUAL_SCALE =", "RESIDUAL_INIT_MEAN =",
+        "PPO_NETWORK =", "UNEXPECTED_PPO_CONFIG_DIFF =", "TOTAL_ENV_STEPS =",
+        "TRAINING_WALL_TIME_S =", "BEST_VAL =", "OPEN =", "BLOCK =", "SBEND =",
+        "TRAIN_PRIOR_NORM_MEAN =", "TRAIN_RESIDUAL_NORM_MEAN =",
+        "TRAIN_FINAL_ACTION_NORM_MEAN =", "TRAIN_PROJECTION_FRACTION =",
+        "DIFFUSION_GRADIENT_PRESENT =", "TEACHER_RUNTIME_DEPENDENCE =",
+        "TEST_EXECUTED =", "TEST_RUN_COUNT =", "TEST_RESULT =", "TESTS =",
+        "REGRESSION =", "WHAT_WAS_PROVEN:", "WHAT_WAS_NOT_PROVEN:",
+        "CURRENT_BLOCKER =", "FORMAL_PROGRESS =", "UNIQUE_NEXT_TASK =",
+        "WAITING_FOR_HIGH_LEVEL_CONTROLLER_AUDIT",
+    )
+    assert all(field in report for field in required)
+    assert report.count("| 500k |") >= 2
