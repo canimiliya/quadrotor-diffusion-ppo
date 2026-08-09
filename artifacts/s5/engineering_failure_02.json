@@ -1,0 +1,13 @@
+{
+  "task": "S5-R0-DIFFUSION-PRIOR-RESIDUAL-PPO-MINIMAL-INTEGRATION-V1",
+  "classification": "INVALID_ENGINEERING_PERFORMANCE_RUN",
+  "stage_reached": "model.learn active, before first completed 50k VAL",
+  "completed_500k": false,
+  "first_scheduled_val_reached": false,
+  "test_accessed": false,
+  "wall_time_before_termination_s_approx": 4600,
+  "reason": "default-stream batch-one evaluation plus concurrent host load could not finish the first 50k checkpoint within the foreground execution window",
+  "recovery": "retain exact batch-one S3 inference per task but overlap eight independent evaluation tasks with private CUDA streams; run the formal job detached with persistent logs",
+  "scientific_contract_changed": false,
+  "invalid_partial_checkpoint_excluded": true
+}

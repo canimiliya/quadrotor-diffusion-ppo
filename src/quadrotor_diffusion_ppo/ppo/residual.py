@@ -1,0 +1,155 @@
+"""Frozen S3-R2 diffusion prior and auditable residual-action composition."""
+from __future__ import annotations
+
+import hashlib
+from pathlib import Path
+from typing import Sequence
+
+import numpy as np
+import torch
+
+from quadrotor_diffusion_ppo.diffusion.model import ConditionalDiffusionMLP, unit_ball_squash
+from quadrotor_diffusion_ppo.diffusion.schedule import DiffusionSchedule
+
+
+EXPECTED_S3R2_SHA256 = "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd"
+EVAL_BASE_SEED = 20260811
+DDIM_STEPS = 10
+RESIDUAL_SCALE = 0.25
+RESIDUAL_LOG_STD_INIT = -2.0
+SUPPORT_TOLERANCE = 1.0e-6
+
+
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def stable_prior_seed(task_id: str) -> int:
+    """Exact S3 deployment seed for the first action of a task."""
+    digest = hashlib.sha256(task_id.encode("utf-8")).digest()
+    return int((EVAL_BASE_SEED + int.from_bytes(digest[:8], "little")) % (2**63 - 1))
+
+
+def compose_residual_action(
+    prior: np.ndarray, residual: np.ndarray, alpha: float = RESIDUAL_SCALE
+) -> tuple[np.ndarray, np.ndarray]:
+    """Compose actions and project only vectors outside the closed unit ball.
+
+    Returns the composed action and a per-row boolean projection mask.  A zero
+    residual is bit-identical to an in-support prior.
+    """
+    prior_array = np.asarray(prior, dtype=np.float32)
+    residual_array = np.asarray(residual, dtype=np.float32)
+    if prior_array.shape != residual_array.shape or prior_array.shape[-1] != 3:
+        raise ValueError("prior and residual must have matching (..., 3) shapes")
+    if not (0.0 < float(alpha) <= 0.5):
+        raise ValueError("residual scale must satisfy 0 < alpha <= 0.5")
+    z = prior_array + np.float32(alpha) * residual_array
+    norms = np.linalg.norm(z, axis=-1, keepdims=True)
+    projected = norms[..., 0] > 1.0
+    result = np.where(projected[..., None], z / np.maximum(norms, 1.0e-12), z)
+    if not np.isfinite(result).all():
+        raise FloatingPointError("nonfinite composed residual action")
+    return result.astype(np.float32, copy=False), projected
+
+
+class FrozenDiffusionPrior:
+    """Load and execute the immutable S3-R2 bounded-x0 DDIM policy."""
+
+    def __init__(self, checkpoint: Path, device: torch.device | str = "cuda"):
+        self.checkpoint = Path(checkpoint)
+        self.checkpoint_sha256 = sha256_file(self.checkpoint)
+        if self.checkpoint_sha256 != EXPECTED_S3R2_SHA256:
+            raise RuntimeError("BLOCKED_S5_DIFFUSION_CHECKPOINT_IDENTITY")
+        self.device = torch.device(device)
+        payload = torch.load(self.checkpoint, map_location=self.device, weights_only=False)
+        required = {
+            "model_frozen": True,
+            "prediction_target": "x0",
+            "action_support": "unit_ball_squash",
+            "diffusion_steps": 100,
+            "ddim_steps": 10,
+            "ddim_eta": 0.0,
+        }
+        if any(payload.get(key) != value for key, value in required.items()):
+            raise RuntimeError("BLOCKED_S5_DIFFUSION_CHECKPOINT_METADATA")
+        self.model = ConditionalDiffusionMLP(**payload["model_config"]).to(self.device)
+        self.model.load_state_dict(payload["model_state"])
+        self.model.eval()
+        self.model.requires_grad_(False)
+        self.schedule = DiffusionSchedule(int(payload["diffusion_steps"])).to(self.device)
+        self.mean = torch.as_tensor(payload["observation_mean"], dtype=torch.float32, device=self.device)
+        raw_std = torch.as_tensor(payload["observation_std"], dtype=torch.float32, device=self.device)
+        self.scale = torch.clamp(raw_std, min=1.0e-6)
+        if self.mean.shape != (34,) or self.scale.shape != (34,):
+            raise RuntimeError("BLOCKED_S5_DIFFUSION_NORMALIZATION_SHAPE")
+        self.payload = payload
+
+    def _conditions(self, observations: np.ndarray) -> torch.Tensor:
+        values = torch.as_tensor(observations, dtype=torch.float32, device=self.device)
+        if values.ndim == 1:
+            values = values.unsqueeze(0)
+        if values.ndim != 2 or values.shape[1] != 34:
+            raise ValueError("prior observations must have shape (B, 34)")
+        normalized = (values - self.mean) / self.scale
+        if not torch.isfinite(normalized).all():
+            raise FloatingPointError("nonfinite normalized diffusion observation")
+        return normalized
+
+    @torch.inference_mode()
+    def predict_reference(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
+        """Exact S3-R2 batch-one reference path, used for audits/evaluation."""
+        conditions = self._conditions(observations)
+        if len(conditions) != len(seeds):
+            raise ValueError("one seed is required per observation")
+        actions = []
+        for condition, seed in zip(conditions, seeds):
+            generator = torch.Generator(device=self.device).manual_seed(int(seed))
+            sampled = self.schedule.ddim_sample_x0(
+                self.model, condition.unsqueeze(0), steps=DDIM_STEPS, generator=generator
+            )
+            actions.append(sampled[0, 0])
+        return torch.stack(actions).cpu().numpy().astype(np.float32)
+
+    @torch.inference_mode()
+    def predict_batched(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
+        """Batched DDIM with per-item noise identical to S3-R2 reference seeds."""
+        conditions = self._conditions(observations)
+        if len(conditions) != len(seeds):
+            raise ValueError("one seed is required per observation")
+        initial = []
+        for seed in seeds:
+            generator = torch.Generator(device=self.device).manual_seed(int(seed))
+            initial.append(torch.randn((1, self.model.horizon, self.model.action_dim),
+                                       device=self.device, generator=generator))
+        sample = torch.cat(initial, dim=0)
+        ddim_schedule = torch.linspace(
+            self.schedule.steps - 1, 0, DDIM_STEPS, device=self.device
+        ).round().long()
+        for index, timestep in enumerate(ddim_schedule):
+            t = int(timestep.item())
+            t_batch = torch.full((len(sample),), t, device=self.device, dtype=torch.long)
+            raw = self.model.predict_raw(sample, conditions, t_batch)
+            x0 = unit_ball_squash(raw)
+            epsilon = (
+                sample - self.schedule.alpha_bars[t].sqrt() * x0
+            ) / (1.0 - self.schedule.alpha_bars[t]).sqrt()
+            if index == len(ddim_schedule) - 1:
+                sample = x0
+            else:
+                next_t = int(ddim_schedule[index + 1].item())
+                alpha_next = self.schedule.alpha_bars[next_t]
+                sample = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * epsilon
+        return sample[:, 0].cpu().numpy().astype(np.float32)
+
+    @property
+    def frozen(self) -> bool:
+        return not self.model.training and all(not parameter.requires_grad for parameter in self.model.parameters())
+
+    @property
+    def gradient_present(self) -> bool:
+        return any(parameter.grad is not None for parameter in self.model.parameters())

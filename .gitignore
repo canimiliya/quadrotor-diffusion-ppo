@@ -86,10 +86,23 @@ artifacts/s4r2/*
 artifacts/s4_final/*
 !artifacts/s4_final/baseline_summary.json
 
+!artifacts/s5/
+artifacts/s5/*
+!artifacts/s5/summary.json
+!artifacts/s5/learning_curve.csv
+!artifacts/s5/val_best_rollout.csv
+!artifacts/s5/test_rollout.csv
+!artifacts/s5/prior_reference.json
+!artifacts/s5/independent_verification.json
+!artifacts/s5/engineering_failure_01.json
+!artifacts/s5/engineering_failure_02.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/
 checkpoints/s4r1/*
+!checkpoints/s5/
+checkpoints/s5/*
 
 checkpoints/*
 !checkpoints/s3/

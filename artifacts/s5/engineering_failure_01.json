@@ -1,0 +1,14 @@
+{
+  "task": "S5-R0-DIFFUSION-PRIOR-RESIDUAL-PPO-MINIMAL-INTEGRATION-V1",
+  "classification": "INVALID_ENGINEERING_RUN",
+  "stage_reached": "after prior reference and initial checkpoint, before first 50k VAL",
+  "completed_500k": false,
+  "first_scheduled_val_reached": false,
+  "test_accessed": false,
+  "last_checkpoint_produced": false,
+  "observed_host_error": "Windows 0x800705AF: paging file too small",
+  "concurrent_host_pressure": "another user-owned experiment had approximately 20 Python workers; it was not modified",
+  "recovery": "retain N_ENVS=8 but replace Windows SubprocVecEnv with eight independent in-process PyBullet clients via DummyVecEnv",
+  "scientific_contract_changed": false,
+  "invalid_partial_checkpoint_excluded": true
+}

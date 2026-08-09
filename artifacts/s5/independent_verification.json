@@ -1,0 +1,87 @@
+{
+  "task": "S5-R0-DIFFUSION-PRIOR-RESIDUAL-PPO-MINIMAL-INTEGRATION-V1",
+  "protocol_audit_pass": true,
+  "final_label_recomputed": "PASS_S5_DIFFUSION_PRIOR_RESIDUAL_PPO_SANITY",
+  "checks": {
+    "diffusion_checkpoint_identity": true,
+    "diffusion_frozen": true,
+    "diffusion_gradient_absent": true,
+    "normalization_identity": true,
+    "zero_residual_identity": true,
+    "reward_identity": true,
+    "ppo_contract_identity": true,
+    "residual_scale_frozen": true,
+    "curve_schedule_exact": true,
+    "total_steps_exact": true,
+    "best_selection_recomputed": true,
+    "val_recomputed": true,
+    "test_recomputed": true,
+    "support_and_clipping_zero": true,
+    "test_protocol": true,
+    "teacher_runtime_independent": true,
+    "gate_recomputed": true,
+    "residual_did_not_improve_prior": true,
+    "pure_ppo_preserved_as_valid_weak_baseline": true
+  },
+  "best_val_recomputed": {
+    "tasks": 54,
+    "success": 37,
+    "collision": 9,
+    "ground_contact": 0,
+    "unsafe": 9,
+    "timeout": 8,
+    "nonfinite": 0,
+    "action_clip_count": 0,
+    "support_violation_count": 0,
+    "projection_count": 0,
+    "projection_fraction": 0.0,
+    "by_family": {
+      "OPEN": 17,
+      "BLOCK": 9,
+      "SBEND": 11
+    }
+  },
+  "test_recomputed": {
+    "tasks": 54,
+    "success": 38,
+    "collision": 9,
+    "ground_contact": 0,
+    "unsafe": 9,
+    "timeout": 7,
+    "nonfinite": 0,
+    "action_clip_count": 0,
+    "support_violation_count": 0,
+    "projection_count": 0,
+    "projection_fraction": 0.0,
+    "by_family": {
+      "OPEN": 18,
+      "BLOCK": 8,
+      "SBEND": 12
+    }
+  },
+  "selected_curve_row": {
+    "env_steps": "0",
+    "mean_return": "17.90953378159614",
+    "success_rate": "0.6851851851851852",
+    "success": "37",
+    "collision_rate": "0.16666666666666666",
+    "unsafe": "9",
+    "timeout_rate": "0.14814814814814814",
+    "mean_episode_steps": "454.9074074074074",
+    "prior_norm_mean": "0.6802847325171695",
+    "residual_norm_mean": "0.0",
+    "scaled_residual_norm_mean": "0.0",
+    "final_action_norm_mean": "0.6802847325171695",
+    "projection_fraction": "0.0"
+  },
+  "forbidden_runtime_tokens": [],
+  "sha256": {
+    "checkpoints/s5/best_model.zip": "c1d2cd6490dd0d61e49df0d8c0d86e019f4fe8b86e68b2bc58324ea00cde5583",
+    "checkpoints/s5/last_model.zip": "325c3ce4df958bc58c0fdabff5e0127ef7ba3c58ea02a6b96c26481bfcdd935e",
+    "artifacts/s5/summary.json": "21fceb1aeee8983dda8bfacb80b6f89103903aa68336fcb2ce771ae70fb99ea5",
+    "artifacts/s5/learning_curve.csv": "7ca899aa5b02ce85b89d2eb33a939bb1024ad6ef15cf5f9dc9fe58a4b5e71463",
+    "artifacts/s5/val_best_rollout.csv": "a8038bde62605de2d6e4aed75b29772fc75fb715cb23573785f8580842f04cd1",
+    "artifacts/s5/test_rollout.csv": "f36fcbc9d76081f6d4bedd9f624b747cbb1b2ad2022e8b16d7f0f0db26565603",
+    "artifacts/s5/prior_reference.json": "64e01b2f1152a7c463500b32815c174aed24ee3ff3b54f94a06e34816a139aab"
+  }
+}
