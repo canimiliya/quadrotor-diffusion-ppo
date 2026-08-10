@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import csv
+import argparse
 import hashlib
 import json
 import math
@@ -179,8 +180,10 @@ def evaluate_bc(prior: FrozenBCPrior, tasks, scenes) -> tuple[list[dict], dict]:
                      "collision": bool(info.get("collision")), "ground_contact": bool(info.get("ground_contact")),
                      "unsafe": bool(info.get("collision") or info.get("ground_contact")),
                      "timeout": bool(info.get("timeout")), "nonfinite": bool(info.get("nonfinite")),
-                     "return": total_return, "episode_steps": int(info.get("episode_steps", 0)),
-                     "action_clip_count": int(info.get("action_clip_count", 0))})
+                     "return": total_return, "mean_return": total_return,
+                     "episode_steps": int(info.get("episode_steps", 0)),
+                     "action_clip_count": int(info.get("action_clip_count", 0)),
+                     "policy_action_support_violation_count": 0})
         env.close()
     return rows, aggregate(rows)
 
@@ -199,7 +202,11 @@ def evaluate() -> dict:
 
 
 def main() -> None:
-    training = train(); result = evaluate()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--phase", choices=("all", "train", "evaluate"), default="all")
+    args = parser.parse_args()
+    training = train() if args.phase in ("all", "train") else None
+    result = evaluate() if args.phase in ("all", "evaluate") else None
     print(json.dumps({"training": training, "evaluation": result}, ensure_ascii=False), flush=True)
 
 
