@@ -1,0 +1,52 @@
+contract_id: S7_FRESH_TWIN_GATE_00_V1
+scene_id: FRESH_TWIN_GATE_00
+family: OFFSET_TWIN_GATE
+world_bounds:
+  x: [-0.5, 10.5]
+  y: [-2.5, 2.5]
+  z: [0.2, 2.8]
+start:
+  position: [0.0, -0.3, 1.0]
+  velocity: [0, 0, 0]
+  acceleration: [0, 0, 0]
+goal:
+  position: [10.0, 0.3, 1.1]
+  velocity: [0, 0, 0]
+  acceleration: [0, 0, 0]
+obstacles:
+  - id: O0
+    center: [3.0, -1.5, 1.1]
+    size: [1.0, 1.4, 2.2]
+  - id: O1
+    center: [3.0, 0.9, 1.1]
+    size: [1.0, 1.4, 2.2]
+  - id: O2
+    center: [7.0, -0.9, 1.1]
+    size: [1.0, 1.4, 2.2]
+  - id: O3
+    center: [7.0, 1.5, 1.1]
+    size: [1.0, 1.4, 2.2]
+vehicle_safety_radius: 0.08
+physics_hz: 240
+control_hz: 48
+reference_hz: 240
+max_reference_speed: 0.801
+max_reference_acceleration: 1.501
+max_reference_body_rate: 2.501
+yaw_reference: 0.0
+corridors:
+  - id: C0
+    min: [-0.2, -0.7, 0.7]
+    max: [2.2, 0.3, 1.4]
+  - id: C1
+    min: [1.9, -0.65, 0.7]
+    max: [4.1, 0.05, 1.5]
+  - id: C2
+    min: [3.8, -0.65, 0.7]
+    max: [6.2, 0.65, 1.5]
+  - id: C3
+    min: [5.9, -0.05, 0.7]
+    max: [8.1, 0.65, 1.5]
+  - id: C4
+    min: [7.8, -0.3, 0.8]
+    max: [10.2, 0.7, 1.6]

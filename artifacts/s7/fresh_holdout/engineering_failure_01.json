@@ -1,0 +1,11 @@
+{
+  "stage": "FRESH_FEASIBILITY_GENERATION_ATTEMPT_01",
+  "topology": "VERTICAL_OVERPASS",
+  "candidates_attempted": 30,
+  "accepted": 0,
+  "cause": "Adjacent corridor boxes had no z-axis overlap, so the GCOPTER corridor sequence was disconnected.",
+  "policy_evaluation_started": false,
+  "frozen_manifest_created": false,
+  "scientific_impact": "NONE",
+  "recovery": "Repair only corridor connectivity before manifest freeze; do not use policy results."
+}

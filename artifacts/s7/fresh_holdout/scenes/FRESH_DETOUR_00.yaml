@@ -1,0 +1,43 @@
+contract_id: S7_FRESH_DETOUR_00_V1
+scene_id: FRESH_DETOUR_00
+family: WIDE_LATERAL_DETOUR
+world_bounds:
+  x: [-0.5, 8.5]
+  y: [-3.2, 3.2]
+  z: [0.2, 2.8]
+start:
+  position: [0.0, 0.0, 1.0]
+  velocity: [0, 0, 0]
+  acceleration: [0, 0, 0]
+goal:
+  position: [8.0, 0.0, 1.0]
+  velocity: [0, 0, 0]
+  acceleration: [0, 0, 0]
+obstacles:
+  - id: O0
+    center: [4.0, 0.0, 1.15]
+    size: [1.6, 3.4, 2.3]
+vehicle_safety_radius: 0.08
+physics_hz: 240
+control_hz: 48
+reference_hz: 240
+max_reference_speed: 0.801
+max_reference_acceleration: 1.501
+max_reference_body_rate: 2.501
+yaw_reference: 0.0
+corridors:
+  - id: C0
+    min: [-0.2, -0.5, 0.7]
+    max: [2.5, 0.5, 1.4]
+  - id: C1
+    min: [2.1, 0.2, 0.7]
+    max: [3.0, 2.4, 1.5]
+  - id: C2
+    min: [2.1, 1.85, 0.7]
+    max: [5.9, 2.65, 1.5]
+  - id: C3
+    min: [5.0, 0.2, 0.7]
+    max: [6.0, 2.4, 1.5]
+  - id: C4
+    min: [5.5, -0.5, 0.7]
+    max: [8.2, 0.5, 1.4]

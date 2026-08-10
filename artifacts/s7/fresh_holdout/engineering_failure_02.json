@@ -1,0 +1,12 @@
+{
+  "stage": "FRESH_FEASIBILITY_GENERATION_ATTEMPT_02",
+  "topology": "VERTICAL_OVERPASS",
+  "candidates_attempted": 30,
+  "accepted": 0,
+  "planner_postcheck_passed_on_probe": true,
+  "reference_playback_probe": {"goal_reached": false, "collision_count": 840, "minimum_goal_distance_m": 3.2705723827537843},
+  "policy_evaluation_started": false,
+  "frozen_manifest_created": false,
+  "scientific_impact": "NONE",
+  "recovery": "Replace the infeasible vertical-tracking family before freeze using only teacher feasibility evidence; leave the other five families unchanged."
+}

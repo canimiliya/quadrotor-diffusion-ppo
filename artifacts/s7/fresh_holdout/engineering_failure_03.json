@@ -1,0 +1,10 @@
+{
+  "stage": "FRESH_FEASIBILITY_GENERATION_ATTEMPT_03",
+  "completed_topologies": {"DIAGONAL_CROSSOVER": "9/9"},
+  "failed_topology": "DOUBLE_ALTERNATING",
+  "failed_candidates": 30,
+  "cause": "Alternating upper/lower route corridors lacked a collision-free connecting polyhedron between obstacles.",
+  "policy_evaluation_started": false,
+  "frozen_manifest_created": false,
+  "recovery": "Add explicit between-obstacle transition corridors to every alternating-route topology before a policy-blind GCOPTER preflight."
+}

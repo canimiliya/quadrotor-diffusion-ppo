@@ -1,0 +1,40 @@
+contract_id: S7_FRESH_GATE_00_V1
+scene_id: FRESH_GATE_00
+family: NARROW_GATE
+world_bounds:
+  x: [-0.5, 8.5]
+  y: [-2.5, 2.5]
+  z: [0.2, 2.8]
+start:
+  position: [0.0, 0.0, 1.0]
+  velocity: [0, 0, 0]
+  acceleration: [0, 0, 0]
+goal:
+  position: [8.0, 0.0, 1.0]
+  velocity: [0, 0, 0]
+  acceleration: [0, 0, 0]
+obstacles:
+  - id: O0
+    center: [4.0, -1.35, 1.1]
+    size: [1.2, 2.0, 2.2]
+  - id: O1
+    center: [4.0, 1.35, 1.1]
+    size: [1.2, 2.0, 2.2]
+vehicle_safety_radius: 0.08
+physics_hz: 240
+control_hz: 48
+reference_hz: 240
+max_reference_speed: 0.801
+max_reference_acceleration: 1.501
+max_reference_body_rate: 2.501
+yaw_reference: 0.0
+corridors:
+  - id: C0
+    min: [-0.2, -0.5, 0.7]
+    max: [2.8, 0.5, 1.4]
+  - id: C1
+    min: [2.5, -0.25, 0.7]
+    max: [5.5, 0.25, 1.5]
+  - id: C2
+    min: [5.2, -0.5, 0.7]
+    max: [8.2, 0.5, 1.4]
