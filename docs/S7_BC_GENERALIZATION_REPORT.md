@@ -78,3 +78,10 @@ Diffusion+PPO 三个 selected checkpoint 都是 step 0；deterministic residual 
 **FORMAL_PROGRESS = 85% pending controller acceptance**
 
 **UNIQUE_NEXT_TASK = NONE — WAIT_FOR_CONTROLLER_REVIEW**
+
+## Reproducibility handoff
+
+- `START_HEAD = 0aea5782d6d6b4805e0af04eafdb052ac49ba51e`
+- `EVIDENCE_END_HEAD = 25b01cce83d47b356b33270b8e7d1a648dc8088d`
+- `BRANCH = agent/s7-bc-generalization-v1`
+- The final pushed branch head is recorded in the controller handoff message after this metadata-only commit.
