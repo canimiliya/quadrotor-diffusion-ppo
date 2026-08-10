@@ -1,5 +1,10 @@
 {
   "task": "S6-R0-THREE-SEED-CORE-SAMPLE-EFFICIENCY-VALIDATION-V2",
+  "branch": "agent/s6-three-seed-core-validation-v2",
+  "start_head": "9bfab829e697b1c862b2d2e9acd8fdb20e43cceb",
+  "end_head": "429a9c658c14f1be2006819c861a0cb92be7c903",
+  "remote_head": "429a9c658c14f1be2006819c861a0cb92be7c903",
+  "head_semantics": "end_head and remote_head identify the immutable implementation plus measured evidence commit; a later handoff-only commit adds these metadata fields",
   "final_label": "PASS_S6_ONLINE_SAMPLE_EFFICIENCY_SUPPORTED_RESIDUAL_NOT_SUPPORTED",
   "decision_level": "CONDITIONAL_GO_PRIOR_EFFECT_ONLY",
   "h1_online_sample_efficiency": "SUPPORTED",
