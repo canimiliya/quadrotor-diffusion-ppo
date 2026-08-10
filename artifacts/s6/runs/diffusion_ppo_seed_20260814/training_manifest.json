@@ -1,0 +1,222 @@
+{
+  "task": "S6-R0-THREE-SEED-CORE-SAMPLE-EFFICIENCY-VALIDATION-V2",
+  "method": "diffusion_ppo",
+  "seed": 20260814,
+  "status": "TRAINING_COMPLETE_VAL_NOT_YET_FROZEN",
+  "scientific_config": {
+    "seed": 20260814,
+    "total_env_steps": 500000,
+    "n_envs": 8,
+    "learning_rate": 0.0003,
+    "n_steps": 1024,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.0,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": true,
+    "policy": "MlpPolicy",
+    "policy_net_arch": {
+      "pi": [
+        256,
+        256
+      ],
+      "vf": [
+        256,
+        256
+      ]
+    },
+    "observation_normalization": "fixed_s2_train_standardization",
+    "device": "cuda",
+    "evaluation": "deferred_val_only_0_50k_to_500k",
+    "test_accessed": false,
+    "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+    "diffusion_checkpoint_sha256": "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd",
+    "residual_scale": 0.25,
+    "residual_log_std_init": -2.0
+  },
+  "scientific_config_sha256": "c174db6cb902bc075845e8ebde710aa43ef1d7ec71ef1daba4f27a32cf2dc869",
+  "base_ppo_config_hash": "fc7efc5c1161bba62571079a55a834e9d19e980b48b307a974bcf417dcf32111",
+  "reward_contract": {
+    "progress_scale": 2.0,
+    "time_penalty": -0.002,
+    "success_bonus": 20.0,
+    "collision_penalty": -20.0,
+    "ground_penalty": -20.0,
+    "goal_tolerance_m": 0.3,
+    "formula": "2.0*(d_prev-d_now)-0.002 plus exactly one terminal event penalty/bonus"
+  },
+  "reward_contract_hash": "92afefbf338d0ccbbcc42c12a572327413ca66f46bf1f061f637e68d125ae3ec",
+  "dataset_sha256": {
+    "train.npz": "701a1d36b767ff41347b1dac60868922ce5033ee8db27721daf891613125db21",
+    "val.npz": "c5687f812a958f28dce14c4a2742ae64a94bb330229747c7c64e85290134dbcc"
+  },
+  "test_accessed": false,
+  "n_envs": 8,
+  "vec_env_backend": "DummyVecEnv",
+  "actual_env_steps": 500000,
+  "checkpoint_schedule": [
+    {
+      "env_steps": 0,
+      "actual_model_timesteps": 0,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_000000.zip",
+      "sha256": "ea358a62331818c3aa8f8e75e5d0dc5ec7666aa8141d716858b6da80c59a22eb",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 50000,
+      "actual_model_timesteps": 50000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_050000.zip",
+      "sha256": "39e577ca25092096cd44842c2127366c0dfb556f81b17c2a586ff61410517df5",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 100000,
+      "actual_model_timesteps": 100000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_100000.zip",
+      "sha256": "7c3205fdddac57f69dc2d98d939fc4e1b03306be9637716a4691b959a0991c17",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 150000,
+      "actual_model_timesteps": 150000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_150000.zip",
+      "sha256": "2e70cdfc5c2071c19813f19208280e0692dbce9377f604f2dd924456bd8e8f5c",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 200000,
+      "actual_model_timesteps": 200000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_200000.zip",
+      "sha256": "3acbe1c5daaa62a2bc028be15ead1e72a414b3dba3cada42675637277a8af27e",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 250000,
+      "actual_model_timesteps": 250000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_250000.zip",
+      "sha256": "8d5a584a57f469fbcdd9b0ccc0d7ba926c9d0aeb798bcb716eaaf577d88c9d60",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 300000,
+      "actual_model_timesteps": 300000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_300000.zip",
+      "sha256": "9707333a1d271620bd33ffbb9935fe24aa94d292e837dc92c7133bca344d53c2",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 350000,
+      "actual_model_timesteps": 350000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_350000.zip",
+      "sha256": "8dc07a433645526faba98045c10890c959ffc1bddd5c1fc93f394d18235cad25",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 400000,
+      "actual_model_timesteps": 400000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_400000.zip",
+      "sha256": "27c119a1ff5d47a1dd840e1c1d5bc6b9f7d22bff2185a29ad9662cd1986261b1",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 450000,
+      "actual_model_timesteps": 450000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_450000.zip",
+      "sha256": "b4644f4ab9bf9b92332895b7f22b2d1d17f0b91069c526482f07a6ad3126f684",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 500000,
+      "actual_model_timesteps": 500000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\checkpoint_500000.zip",
+      "sha256": "141923819fa0a1de9182852e4ae63bf0a427f006c0221b5850698ba8f4b77116",
+      "rng_unchanged": true
+    }
+  ],
+  "checkpoint_serialization_rng_unchanged": true,
+  "training_wall_time_s": 730.8465526,
+  "env_steps_per_s": 684.1381384659212,
+  "resources": {
+    "samples": 1290,
+    "cpu_total_mean_percent": 9.795251937984496,
+    "cpu_per_logical_mean_percent": [
+      82.40147286821694,
+      49.33643410852713,
+      3.6190697674418635,
+      3.4686821705426394,
+      2.8616279069767447,
+      2.9297674418604682,
+      2.440775193798451,
+      2.3178294573643394,
+      2.402868217054265,
+      2.343410852713179,
+      6.765658914728698,
+      8.29317829457365,
+      6.12852713178297,
+      6.134961240310095,
+      4.984341085271321,
+      4.4973643410852775,
+      4.847674418604657,
+      4.465116279069772,
+      5.02821705426357,
+      5.111317829457355,
+      4.721937984496125,
+      4.888372093023257,
+      6.1754263565891625,
+      8.922015503875967
+    ],
+    "cpu_active_logical_processors_mean": 2.0,
+    "gpu_utilization_mean_percent": 46.13488372093023,
+    "gpu_utilization_max_percent": 57.0,
+    "gpu_memory_mean_mib": 2255.5813953488373,
+    "gpu_memory_max_mib": 2570.0
+  },
+  "peak_gpu_memory_bytes": 144955392,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "pytorch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "stable_baselines3": "2.6.0",
+    "logical_cpus": 24,
+    "torch_threads": 24
+  },
+  "fast_preflight": {
+    "checkpoint_sha256": "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd",
+    "checkpoint_identity": true,
+    "diffusion_frozen": true,
+    "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+    "reference_fast_max_abs_error": 0.0,
+    "reference_fast_bit_exact": true,
+    "rng_unchanged": true,
+    "historical_batched_used": false
+  },
+  "residual_initialization": {
+    "mean_weight_max_abs": 0.0,
+    "mean_bias_max_abs": 0.0,
+    "log_std": [
+      -2.0,
+      -2.0,
+      -2.0
+    ],
+    "latent_std": 0.1353352832366127
+  },
+  "train_action_diagnostics": {
+    "count": 500000,
+    "prior_norm_mean": 0.8001491166516542,
+    "prior_norm_max": 0.9999991059303284,
+    "residual_norm_mean": 0.2421550614978075,
+    "residual_norm_max": 0.7132723927497864,
+    "scaled_residual_norm_mean": 0.060538765374451874,
+    "final_action_norm_mean": 0.8058236349188089,
+    "final_action_norm_max": 1.0000001192092896,
+    "projection_count": 115314,
+    "projection_fraction": 0.230628,
+    "support_violation_count": 0,
+    "support_violation_fraction": 0.0
+  },
+  "historical_seed1_reused": false
+}

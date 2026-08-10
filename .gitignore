@@ -106,6 +106,27 @@ artifacts/s6p0/*
 !artifacts/s6p0/summary.json
 !artifacts/s6p0/independent_verification.json
 
+!artifacts/s6/
+artifacts/s6/*
+!artifacts/s6/runs/
+artifacts/s6/runs/*
+!artifacts/s6/summary.json
+!artifacts/s6/paired_metrics.csv
+!artifacts/s6/per_run_metrics.csv
+!artifacts/s6/aggregate_curves.csv
+!artifacts/s6/independent_verification.json
+!artifacts/s6/development_test_summary.json
+!artifacts/s6/storage_manifest.json
+!artifacts/s6/*.png
+!artifacts/s6/*.pdf
+!artifacts/s6/runs/*/
+!artifacts/s6/runs/*/training_manifest.json
+!artifacts/s6/runs/*/evaluation_manifest.json
+!artifacts/s6/runs/*/curve.csv
+!artifacts/s6/runs/*/val_rollouts.csv
+!artifacts/s6/runs/*/test_manifest.json
+!artifacts/s6/runs/*/test_rollouts.csv
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

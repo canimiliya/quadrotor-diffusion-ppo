@@ -1,0 +1,188 @@
+{
+  "task": "S6-R0-THREE-SEED-CORE-SAMPLE-EFFICIENCY-VALIDATION-V2",
+  "method": "pure_ppo",
+  "seed": 20260812,
+  "status": "TRAINING_COMPLETE_VAL_NOT_YET_FROZEN",
+  "scientific_config": {
+    "seed": 20260812,
+    "total_env_steps": 500000,
+    "n_envs": 8,
+    "learning_rate": 0.0003,
+    "n_steps": 1024,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.0,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": true,
+    "policy": "MlpPolicy",
+    "policy_net_arch": {
+      "pi": [
+        256,
+        256
+      ],
+      "vf": [
+        256,
+        256
+      ]
+    },
+    "observation_normalization": "fixed_s2_train_standardization",
+    "device": "cuda",
+    "evaluation": "deferred_val_only_0_50k_to_500k",
+    "test_accessed": false,
+    "diffusion_dependency": false
+  },
+  "scientific_config_sha256": "31bd69b485b4f43d481a8d28e07368b7ea5d8b38870408c0bff71d04c2da8007",
+  "base_ppo_config_hash": "fc7efc5c1161bba62571079a55a834e9d19e980b48b307a974bcf417dcf32111",
+  "reward_contract": {
+    "progress_scale": 2.0,
+    "time_penalty": -0.002,
+    "success_bonus": 20.0,
+    "collision_penalty": -20.0,
+    "ground_penalty": -20.0,
+    "goal_tolerance_m": 0.3,
+    "formula": "2.0*(d_prev-d_now)-0.002 plus exactly one terminal event penalty/bonus"
+  },
+  "reward_contract_hash": "92afefbf338d0ccbbcc42c12a572327413ca66f46bf1f061f637e68d125ae3ec",
+  "dataset_sha256": {
+    "train.npz": "701a1d36b767ff41347b1dac60868922ce5033ee8db27721daf891613125db21",
+    "val.npz": "c5687f812a958f28dce14c4a2742ae64a94bb330229747c7c64e85290134dbcc"
+  },
+  "test_accessed": false,
+  "n_envs": 8,
+  "vec_env_backend": "DummyVecEnv",
+  "actual_env_steps": 500000,
+  "checkpoint_schedule": [
+    {
+      "env_steps": 0,
+      "actual_model_timesteps": 0,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_000000.zip",
+      "sha256": "0700d8bddb2ad639ec3e60fefbd0c9d873029e6c1675faf9cbf79dfd90bd48d6",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 50000,
+      "actual_model_timesteps": 50000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_050000.zip",
+      "sha256": "ea8423dacbe1f3a676d185751a94bc36d7f8b0c3646485e74cc62db2c5396f20",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 100000,
+      "actual_model_timesteps": 100000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_100000.zip",
+      "sha256": "d43192f5db5b003f46a55cb0ab9bfbea23e88f7a3d88a05150b21c34a145112e",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 150000,
+      "actual_model_timesteps": 150000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_150000.zip",
+      "sha256": "9ebc86fbf1364c61fd8b01ff2e841c57735361f56c21592d2d07dfe9cfeadc3e",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 200000,
+      "actual_model_timesteps": 200000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_200000.zip",
+      "sha256": "ec21f723d737a4db1fcaa120fadf89015fd70aa7b115e8cd68471f73e0cd9753",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 250000,
+      "actual_model_timesteps": 250000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_250000.zip",
+      "sha256": "e6be49dd07ae94884374413c7e84987e12d524397499f565e763be3e0d51b088",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 300000,
+      "actual_model_timesteps": 300000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_300000.zip",
+      "sha256": "6eba450dc5e9181350fc2b0513a2f1a6948560f89fb145d09fba03bf3aa86147",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 350000,
+      "actual_model_timesteps": 350000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_350000.zip",
+      "sha256": "773aa674557c8b4e874d3208a52377974e16fa8729854dd6e2cb8eccf5608dde",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 400000,
+      "actual_model_timesteps": 400000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_400000.zip",
+      "sha256": "205e6582c54bb2f0409b92515fe5d637ff624f8c712800474b10eaa48b27e139",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 450000,
+      "actual_model_timesteps": 450000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_450000.zip",
+      "sha256": "325577f3b0e4e71b23500aa4251a5dc508ab4038e59445539518b26c4a0a20c0",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 500000,
+      "actual_model_timesteps": 500000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\checkpoint_500000.zip",
+      "sha256": "3dbcc72c41de5d74b4d9e9194848c7f2cee7a80531fff8ca7f8ed190012d3dd9",
+      "rng_unchanged": true
+    }
+  ],
+  "checkpoint_serialization_rng_unchanged": true,
+  "training_wall_time_s": 721.8749619,
+  "env_steps_per_s": 692.6407291977306,
+  "resources": {
+    "samples": 1071,
+    "cpu_total_mean_percent": 90.57830298786182,
+    "cpu_per_logical_mean_percent": [
+      93.88618113912231,
+      93.40905695611573,
+      81.36451914098976,
+      83.72502334267041,
+      85.55284780578891,
+      86.72240896358538,
+      93.84285714285707,
+      94.00569561157792,
+      93.83361344537809,
+      93.30756302521006,
+      86.31895424836605,
+      89.7972922502334,
+      92.4546218487394,
+      93.58104575163392,
+      86.77404295051355,
+      87.32324929971992,
+      87.73099906629317,
+      87.48141923436033,
+      93.55919701213816,
+      93.69551820728289,
+      93.25266106442568,
+      92.83081232492995,
+      93.74024276377212,
+      95.68944911297845
+    ],
+    "cpu_active_logical_processors_mean": 24.0,
+    "gpu_utilization_mean_percent": 3.223155929038282,
+    "gpu_utilization_max_percent": 17.0,
+    "gpu_memory_mean_mib": 2117.438842203548,
+    "gpu_memory_max_mib": 2253.0
+  },
+  "peak_gpu_memory_bytes": 72864768,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "pytorch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "stable_baselines3": "2.6.0",
+    "logical_cpus": 24,
+    "torch_threads": 24
+  },
+  "fast_preflight": null,
+  "residual_initialization": null,
+  "train_action_diagnostics": null,
+  "historical_seed1_reused": false
+}

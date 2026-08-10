@@ -1,0 +1,448 @@
+{
+  "cleanup_gate": "AFTER_VAL_TEST_AND_INDEPENDENT_VERIFICATION_PASS",
+  "runs": [
+    {
+      "run": "diffusion_ppo_seed_20260812",
+      "removed_intermediate_count": 11,
+      "removed_intermediate_bytes": 19059640,
+      "removed_intermediates": [
+        {
+          "name": "checkpoint_000000.zip",
+          "sha256": "327dbaec67baa214468def191c962ec8d252c1251a67988193af505155ce6e5d",
+          "bytes": 629027
+        },
+        {
+          "name": "checkpoint_050000.zip",
+          "sha256": "3ce343135392772c68005a839c7d22084e9d18f725831e184260bb05bbd666cf",
+          "bytes": 1843054
+        },
+        {
+          "name": "checkpoint_100000.zip",
+          "sha256": "8310218a918eab93129286c3fa40680f03ae5e98b159f0fe7589e3b6a5dbca89",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_150000.zip",
+          "sha256": "f737683cc4f2ec427c96c9c37eba373a545cd2c771b7aa47251ef3d2dfbe854a",
+          "bytes": 1843066
+        },
+        {
+          "name": "checkpoint_200000.zip",
+          "sha256": "b39bd1674cfabc077551f176b7e15aca8884d98c4d6ddf5a9cae916abc90fbb8",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_250000.zip",
+          "sha256": "f6a441bebed3a3eaa2ef4faf5ba2246cb9953ccda628e6a75ff0e1e81c0c0cdf",
+          "bytes": 1843055
+        },
+        {
+          "name": "checkpoint_300000.zip",
+          "sha256": "d208c33d89f8acee88ecc82fcf74e84a59c52f8525144bf1b8220c7bf31e1c00",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_350000.zip",
+          "sha256": "cd37280971c848fd212a85784ad7d75243595ddc017958b4a546339fadc43a59",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_400000.zip",
+          "sha256": "7408e32079b0b3ea3d3e9d56287d3fc01811ee08c5f8bedb8c9988742eb46e45",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_450000.zip",
+          "sha256": "90ac615cfccdc6783a1f5d68419f06f86be3c8f5815850952aa7cf071840bb83",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_500000.zip",
+          "sha256": "0c39e29ad17f358b1273fc42d3a78838c94f581adc1a161b779430295f05056f",
+          "bytes": 1843069
+        }
+      ],
+      "retained_best": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\best_model.zip",
+        "sha256": "327dbaec67baa214468def191c962ec8d252c1251a67988193af505155ce6e5d",
+        "bytes": 629027
+      },
+      "retained_last": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\last_model.zip",
+        "sha256": "0c39e29ad17f358b1273fc42d3a78838c94f581adc1a161b779430295f05056f",
+        "bytes": 1843069
+      }
+    },
+    {
+      "run": "diffusion_ppo_seed_20260813",
+      "removed_intermediate_count": 11,
+      "removed_intermediate_bytes": 19059640,
+      "removed_intermediates": [
+        {
+          "name": "checkpoint_000000.zip",
+          "sha256": "f5ae39154658a01cff571d02c8f595c0943b9c2d9165bd909e963287ab6aaea3",
+          "bytes": 629027
+        },
+        {
+          "name": "checkpoint_050000.zip",
+          "sha256": "754e7bdced7d1e7d330c7a92dbb741312e38f84f628f96e89f3bcdc70aea858d",
+          "bytes": 1843054
+        },
+        {
+          "name": "checkpoint_100000.zip",
+          "sha256": "08ad89ecae9375f004e19415e56a532bcb4606600b4a881419bcd0bd28897dbc",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_150000.zip",
+          "sha256": "f0b7eef832019aa9cdee51935f4a003337ba83f09d087cf097199b0bd34253e2",
+          "bytes": 1843066
+        },
+        {
+          "name": "checkpoint_200000.zip",
+          "sha256": "fddf4f3af01f4f793617dfe4d8cd55bf38f4e6ef9ef34fa4ca73319e803f0cf6",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_250000.zip",
+          "sha256": "55adda43a0cb5d2106a65ba11ed6943a2fb4939323d4a5b56c6a14a9357deaa6",
+          "bytes": 1843055
+        },
+        {
+          "name": "checkpoint_300000.zip",
+          "sha256": "4b624c1409ccd230398ff2eaeb171a7a9a2e6ce62a4c7e68a417b67b3874cf0a",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_350000.zip",
+          "sha256": "e041a725663b678b0a070e3e64a683e31333faa500321497ddf7001a52eeb545",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_400000.zip",
+          "sha256": "17a6e0744aeaabab86a75d223bdebe03284c51206afe0fda943e3ac8c8667b5d",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_450000.zip",
+          "sha256": "77bb366c6ef43c94238a573ec1240e5dae8ac352658d00c0d5ca92668cd252e2",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_500000.zip",
+          "sha256": "7d3dee0ae692c8ad68b0fd672a4fe34e5cca9e7334f421628c14af2f0ae7a444",
+          "bytes": 1843069
+        }
+      ],
+      "retained_best": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260813\\best_model.zip",
+        "sha256": "f5ae39154658a01cff571d02c8f595c0943b9c2d9165bd909e963287ab6aaea3",
+        "bytes": 629027
+      },
+      "retained_last": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260813\\last_model.zip",
+        "sha256": "7d3dee0ae692c8ad68b0fd672a4fe34e5cca9e7334f421628c14af2f0ae7a444",
+        "bytes": 1843069
+      }
+    },
+    {
+      "run": "diffusion_ppo_seed_20260814",
+      "removed_intermediate_count": 11,
+      "removed_intermediate_bytes": 19059640,
+      "removed_intermediates": [
+        {
+          "name": "checkpoint_000000.zip",
+          "sha256": "ea358a62331818c3aa8f8e75e5d0dc5ec7666aa8141d716858b6da80c59a22eb",
+          "bytes": 629027
+        },
+        {
+          "name": "checkpoint_050000.zip",
+          "sha256": "39e577ca25092096cd44842c2127366c0dfb556f81b17c2a586ff61410517df5",
+          "bytes": 1843054
+        },
+        {
+          "name": "checkpoint_100000.zip",
+          "sha256": "7c3205fdddac57f69dc2d98d939fc4e1b03306be9637716a4691b959a0991c17",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_150000.zip",
+          "sha256": "2e70cdfc5c2071c19813f19208280e0692dbce9377f604f2dd924456bd8e8f5c",
+          "bytes": 1843066
+        },
+        {
+          "name": "checkpoint_200000.zip",
+          "sha256": "3acbe1c5daaa62a2bc028be15ead1e72a414b3dba3cada42675637277a8af27e",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_250000.zip",
+          "sha256": "8d5a584a57f469fbcdd9b0ccc0d7ba926c9d0aeb798bcb716eaaf577d88c9d60",
+          "bytes": 1843055
+        },
+        {
+          "name": "checkpoint_300000.zip",
+          "sha256": "9707333a1d271620bd33ffbb9935fe24aa94d292e837dc92c7133bca344d53c2",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_350000.zip",
+          "sha256": "8dc07a433645526faba98045c10890c959ffc1bddd5c1fc93f394d18235cad25",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_400000.zip",
+          "sha256": "27c119a1ff5d47a1dd840e1c1d5bc6b9f7d22bff2185a29ad9662cd1986261b1",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_450000.zip",
+          "sha256": "b4644f4ab9bf9b92332895b7f22b2d1d17f0b91069c526482f07a6ad3126f684",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_500000.zip",
+          "sha256": "141923819fa0a1de9182852e4ae63bf0a427f006c0221b5850698ba8f4b77116",
+          "bytes": 1843069
+        }
+      ],
+      "retained_best": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\best_model.zip",
+        "sha256": "ea358a62331818c3aa8f8e75e5d0dc5ec7666aa8141d716858b6da80c59a22eb",
+        "bytes": 629027
+      },
+      "retained_last": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\last_model.zip",
+        "sha256": "141923819fa0a1de9182852e4ae63bf0a427f006c0221b5850698ba8f4b77116",
+        "bytes": 1843069
+      }
+    },
+    {
+      "run": "pure_ppo_seed_20260812",
+      "removed_intermediate_count": 11,
+      "removed_intermediate_bytes": 19059640,
+      "removed_intermediates": [
+        {
+          "name": "checkpoint_000000.zip",
+          "sha256": "0700d8bddb2ad639ec3e60fefbd0c9d873029e6c1675faf9cbf79dfd90bd48d6",
+          "bytes": 629027
+        },
+        {
+          "name": "checkpoint_050000.zip",
+          "sha256": "ea8423dacbe1f3a676d185751a94bc36d7f8b0c3646485e74cc62db2c5396f20",
+          "bytes": 1843054
+        },
+        {
+          "name": "checkpoint_100000.zip",
+          "sha256": "d43192f5db5b003f46a55cb0ab9bfbea23e88f7a3d88a05150b21c34a145112e",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_150000.zip",
+          "sha256": "9ebc86fbf1364c61fd8b01ff2e841c57735361f56c21592d2d07dfe9cfeadc3e",
+          "bytes": 1843066
+        },
+        {
+          "name": "checkpoint_200000.zip",
+          "sha256": "ec21f723d737a4db1fcaa120fadf89015fd70aa7b115e8cd68471f73e0cd9753",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_250000.zip",
+          "sha256": "e6be49dd07ae94884374413c7e84987e12d524397499f565e763be3e0d51b088",
+          "bytes": 1843055
+        },
+        {
+          "name": "checkpoint_300000.zip",
+          "sha256": "6eba450dc5e9181350fc2b0513a2f1a6948560f89fb145d09fba03bf3aa86147",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_350000.zip",
+          "sha256": "773aa674557c8b4e874d3208a52377974e16fa8729854dd6e2cb8eccf5608dde",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_400000.zip",
+          "sha256": "205e6582c54bb2f0409b92515fe5d637ff624f8c712800474b10eaa48b27e139",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_450000.zip",
+          "sha256": "325577f3b0e4e71b23500aa4251a5dc508ab4038e59445539518b26c4a0a20c0",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_500000.zip",
+          "sha256": "3dbcc72c41de5d74b4d9e9194848c7f2cee7a80531fff8ca7f8ed190012d3dd9",
+          "bytes": 1843069
+        }
+      ],
+      "retained_best": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\best_model.zip",
+        "sha256": "3dbcc72c41de5d74b4d9e9194848c7f2cee7a80531fff8ca7f8ed190012d3dd9",
+        "bytes": 1843069
+      },
+      "retained_last": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260812\\last_model.zip",
+        "sha256": "3dbcc72c41de5d74b4d9e9194848c7f2cee7a80531fff8ca7f8ed190012d3dd9",
+        "bytes": 1843069
+      }
+    },
+    {
+      "run": "pure_ppo_seed_20260813",
+      "removed_intermediate_count": 11,
+      "removed_intermediate_bytes": 19059640,
+      "removed_intermediates": [
+        {
+          "name": "checkpoint_000000.zip",
+          "sha256": "0ab8d9015b07c2ef976cb41645dd0f44396f47b60ecf74429f4499683e8fa0d1",
+          "bytes": 629027
+        },
+        {
+          "name": "checkpoint_050000.zip",
+          "sha256": "1a021662041c916525ca764cd975a1a70239eb9ff5318d634c055ae407dee28a",
+          "bytes": 1843054
+        },
+        {
+          "name": "checkpoint_100000.zip",
+          "sha256": "e5237a4429cba6aa90ea4d906292f057f0652157aacae1f1e265dfbf0daed872",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_150000.zip",
+          "sha256": "c8cf951969cc7c40de5306b7fd42b0e148adb741e2bfad7a8f13b8113cf46613",
+          "bytes": 1843066
+        },
+        {
+          "name": "checkpoint_200000.zip",
+          "sha256": "276a87d103d77e6abf038a7096ef6b8a5866d5f79c15a5ab39033f3c22e28593",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_250000.zip",
+          "sha256": "b80e3baaac8004483fa3f9903095b2743ddcd262faa22625012ae6b091e7334a",
+          "bytes": 1843055
+        },
+        {
+          "name": "checkpoint_300000.zip",
+          "sha256": "a0cfc74dce17dcd6cb5620348545ab8e1faa59f0eed236300670a8effede67b7",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_350000.zip",
+          "sha256": "7a2334861c20bc70339a441e076446d79653ea5b1d4fbddccacbe99717a25032",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_400000.zip",
+          "sha256": "4f307a6ab8e0506bfc66e54974e03708065d724d6cd8d5aa48c730072e82cb1f",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_450000.zip",
+          "sha256": "2b2ba4cef75bfb915fba0d9abbabf6e556de8c6aba9641781ea8cee84ff41c5f",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_500000.zip",
+          "sha256": "d8739b5abfbfe13085d65ba33589d15af351ec4fd6a5a906a883072a2692c3ff",
+          "bytes": 1843069
+        }
+      ],
+      "retained_best": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260813\\best_model.zip",
+        "sha256": "a0cfc74dce17dcd6cb5620348545ab8e1faa59f0eed236300670a8effede67b7",
+        "bytes": 1843056
+      },
+      "retained_last": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260813\\last_model.zip",
+        "sha256": "d8739b5abfbfe13085d65ba33589d15af351ec4fd6a5a906a883072a2692c3ff",
+        "bytes": 1843069
+      }
+    },
+    {
+      "run": "pure_ppo_seed_20260814",
+      "removed_intermediate_count": 11,
+      "removed_intermediate_bytes": 19059640,
+      "removed_intermediates": [
+        {
+          "name": "checkpoint_000000.zip",
+          "sha256": "76fd509911699225a0c598327e863e611f8bce98e3f7f46be4efa4496cdc3602",
+          "bytes": 629027
+        },
+        {
+          "name": "checkpoint_050000.zip",
+          "sha256": "5f8167900da233b631ed01217d0cc9b067725e2ee42b7ba19ca3491393240b10",
+          "bytes": 1843054
+        },
+        {
+          "name": "checkpoint_100000.zip",
+          "sha256": "4cea5f820060fdb5d7b55c33c922d8934fb2539e4571af026827785712f7ac47",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_150000.zip",
+          "sha256": "21c57d394acada41edd00c9e64992bcc1be884966dc357658611c5a77d86950e",
+          "bytes": 1843066
+        },
+        {
+          "name": "checkpoint_200000.zip",
+          "sha256": "040c96c8b5a28212567264dfe935daf4827947b07b94984959857f5c1462fbe7",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_250000.zip",
+          "sha256": "c314b615c7f8ce192102bd93c6d72c68243d827d6a9287dc58c2c4610ef7ee87",
+          "bytes": 1843055
+        },
+        {
+          "name": "checkpoint_300000.zip",
+          "sha256": "215e3b51e3d7a80477c28145e8545f4d94f239c7bebed8dc8501aff49522b38d",
+          "bytes": 1843056
+        },
+        {
+          "name": "checkpoint_350000.zip",
+          "sha256": "3721bf9f82515be3e4281a0e72a2cf5f16011243075e255655069c772a118be6",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_400000.zip",
+          "sha256": "a1594fcbc70d354b8841871bfdce1e751d899284f903ee5d615347cffbfbf4f3",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_450000.zip",
+          "sha256": "2e5ca5e46190958c93d79ed5098d431e5a3a4070da977eef1bf4c15742a9e254",
+          "bytes": 1843067
+        },
+        {
+          "name": "checkpoint_500000.zip",
+          "sha256": "88c39fe97222a39759ff62cd6a85fdc4c7f818333f161f94353cdff69757c02a",
+          "bytes": 1843069
+        }
+      ],
+      "retained_best": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260814\\best_model.zip",
+        "sha256": "88c39fe97222a39759ff62cd6a85fdc4c7f818333f161f94353cdff69757c02a",
+        "bytes": 1843069
+      },
+      "retained_last": {
+        "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\pure_ppo_seed_20260814\\last_model.zip",
+        "sha256": "88c39fe97222a39759ff62cd6a85fdc4c7f818333f161f94353cdff69757c02a",
+        "bytes": 1843069
+      }
+    }
+  ],
+  "total_removed_count": 66,
+  "total_removed_bytes": 114357840,
+  "retained_per_run": [
+    "best_model.zip",
+    "last_model.zip",
+    "hashes",
+    "curve",
+    "summary",
+    "raw VAL/TEST"
+  ],
+  "recovery": "intermediate weights removed locally; hashes and evaluation evidence retained"
+}

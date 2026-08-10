@@ -1,0 +1,36 @@
+{
+  "task": "S6-R0-THREE-SEED-CORE-SAMPLE-EFFICIENCY-VALIDATION-V2",
+  "final_label": "PASS_S6_ONLINE_SAMPLE_EFFICIENCY_SUPPORTED_RESIDUAL_NOT_SUPPORTED",
+  "decision_level": "CONDITIONAL_GO_PRIOR_EFFECT_ONLY",
+  "h1_online_sample_efficiency": "SUPPORTED",
+  "h1_rule": "3/3 paired deltas > 0 and mean absolute normalized SUCCESS_AUC_0_500K improvement >= 0.10",
+  "paired_success_auc_deltas": [
+    0.3388888888888889,
+    0.29166666666666674,
+    0.262037037037037
+  ],
+  "paired_delta_mean": 0.2975308641975309,
+  "paired_delta_std": 0.03876007472613401,
+  "paired_delta_bootstrap_95_ci": [
+    0.262037037037037,
+    0.33888888888888885
+  ],
+  "residual_learning": "RESIDUAL_LEARNING_DEGRADES_PRIOR",
+  "residual_rule_frozen_before_analysis": {
+    "improves": "at least 2/3 best post-warmup success > 37 and mean AUC vs constant prior > 0",
+    "degrades": "at least 2/3 final success < 37 and at least 2/3 AUC vs constant prior < 0",
+    "neutral": "otherwise"
+  },
+  "residual_seeds_positive_auc_vs_prior": 0,
+  "residual_seeds_best_post_warmup_above_prior": 0,
+  "h3_safety": "NOT_SUPPORTED",
+  "h_stability": "SUPPORTED",
+  "test_accessed": true,
+  "test_status": "DEVELOPMENT_TEST_COMPLETE_AFTER_FROZEN_VAL",
+  "historical_seed1_excluded": true,
+  "formal_runs": 6,
+  "formal_progress": "70%",
+  "unique_next_task": "NONE - WAIT_FOR_CONTROLLER_REVIEW",
+  "test_used_for_selection": false,
+  "test_used_for_method_change": false
+}

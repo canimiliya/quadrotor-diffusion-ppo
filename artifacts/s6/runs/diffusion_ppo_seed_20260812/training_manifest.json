@@ -1,0 +1,222 @@
+{
+  "task": "S6-R0-THREE-SEED-CORE-SAMPLE-EFFICIENCY-VALIDATION-V2",
+  "method": "diffusion_ppo",
+  "seed": 20260812,
+  "status": "TRAINING_COMPLETE_VAL_NOT_YET_FROZEN",
+  "scientific_config": {
+    "seed": 20260812,
+    "total_env_steps": 500000,
+    "n_envs": 8,
+    "learning_rate": 0.0003,
+    "n_steps": 1024,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.0,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "normalize_advantage": true,
+    "policy": "MlpPolicy",
+    "policy_net_arch": {
+      "pi": [
+        256,
+        256
+      ],
+      "vf": [
+        256,
+        256
+      ]
+    },
+    "observation_normalization": "fixed_s2_train_standardization",
+    "device": "cuda",
+    "evaluation": "deferred_val_only_0_50k_to_500k",
+    "test_accessed": false,
+    "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+    "diffusion_checkpoint_sha256": "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd",
+    "residual_scale": 0.25,
+    "residual_log_std_init": -2.0
+  },
+  "scientific_config_sha256": "196f1a4bea43845dae1844b5f1669d3261e2589ea7bf074c32b7a78a8ee2010a",
+  "base_ppo_config_hash": "fc7efc5c1161bba62571079a55a834e9d19e980b48b307a974bcf417dcf32111",
+  "reward_contract": {
+    "progress_scale": 2.0,
+    "time_penalty": -0.002,
+    "success_bonus": 20.0,
+    "collision_penalty": -20.0,
+    "ground_penalty": -20.0,
+    "goal_tolerance_m": 0.3,
+    "formula": "2.0*(d_prev-d_now)-0.002 plus exactly one terminal event penalty/bonus"
+  },
+  "reward_contract_hash": "92afefbf338d0ccbbcc42c12a572327413ca66f46bf1f061f637e68d125ae3ec",
+  "dataset_sha256": {
+    "train.npz": "701a1d36b767ff41347b1dac60868922ce5033ee8db27721daf891613125db21",
+    "val.npz": "c5687f812a958f28dce14c4a2742ae64a94bb330229747c7c64e85290134dbcc"
+  },
+  "test_accessed": false,
+  "n_envs": 8,
+  "vec_env_backend": "DummyVecEnv",
+  "actual_env_steps": 500000,
+  "checkpoint_schedule": [
+    {
+      "env_steps": 0,
+      "actual_model_timesteps": 0,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_000000.zip",
+      "sha256": "327dbaec67baa214468def191c962ec8d252c1251a67988193af505155ce6e5d",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 50000,
+      "actual_model_timesteps": 50000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_050000.zip",
+      "sha256": "3ce343135392772c68005a839c7d22084e9d18f725831e184260bb05bbd666cf",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 100000,
+      "actual_model_timesteps": 100000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_100000.zip",
+      "sha256": "8310218a918eab93129286c3fa40680f03ae5e98b159f0fe7589e3b6a5dbca89",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 150000,
+      "actual_model_timesteps": 150000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_150000.zip",
+      "sha256": "f737683cc4f2ec427c96c9c37eba373a545cd2c771b7aa47251ef3d2dfbe854a",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 200000,
+      "actual_model_timesteps": 200000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_200000.zip",
+      "sha256": "b39bd1674cfabc077551f176b7e15aca8884d98c4d6ddf5a9cae916abc90fbb8",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 250000,
+      "actual_model_timesteps": 250000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_250000.zip",
+      "sha256": "f6a441bebed3a3eaa2ef4faf5ba2246cb9953ccda628e6a75ff0e1e81c0c0cdf",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 300000,
+      "actual_model_timesteps": 300000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_300000.zip",
+      "sha256": "d208c33d89f8acee88ecc82fcf74e84a59c52f8525144bf1b8220c7bf31e1c00",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 350000,
+      "actual_model_timesteps": 350000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_350000.zip",
+      "sha256": "cd37280971c848fd212a85784ad7d75243595ddc017958b4a546339fadc43a59",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 400000,
+      "actual_model_timesteps": 400000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_400000.zip",
+      "sha256": "7408e32079b0b3ea3d3e9d56287d3fc01811ee08c5f8bedb8c9988742eb46e45",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 450000,
+      "actual_model_timesteps": 450000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_450000.zip",
+      "sha256": "90ac615cfccdc6783a1f5d68419f06f86be3c8f5815850952aa7cf071840bb83",
+      "rng_unchanged": true
+    },
+    {
+      "env_steps": 500000,
+      "actual_model_timesteps": 500000,
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\checkpoint_500000.zip",
+      "sha256": "0c39e29ad17f358b1273fc42d3a78838c94f581adc1a161b779430295f05056f",
+      "rng_unchanged": true
+    }
+  ],
+  "checkpoint_serialization_rng_unchanged": true,
+  "training_wall_time_s": 722.0303049,
+  "env_steps_per_s": 692.4917092908574,
+  "resources": {
+    "samples": 1275,
+    "cpu_total_mean_percent": 10.197826797385622,
+    "cpu_per_logical_mean_percent": [
+      83.63443137254893,
+      55.799215686274486,
+      6.371607843137268,
+      5.909725490196083,
+      5.415294117647076,
+      5.46729411764707,
+      4.672078431372554,
+      4.689960784313731,
+      4.348705882352943,
+      4.438823529411768,
+      6.8078431372549195,
+      9.594352941176433,
+      6.632156862745112,
+      5.96078431372551,
+      3.062588235294116,
+      2.8073725490196084,
+      2.414117647058824,
+      2.5032941176470587,
+      3.412392156862745,
+      3.08023529411765,
+      2.7561568627451005,
+      2.81066666666667,
+      4.765490196078447,
+      7.393254901960781
+    ],
+    "cpu_active_logical_processors_mean": 2.0,
+    "gpu_utilization_mean_percent": 45.104313725490194,
+    "gpu_utilization_max_percent": 56.0,
+    "gpu_memory_mean_mib": 2222.7098039215684,
+    "gpu_memory_max_mib": 2358.0
+  },
+  "peak_gpu_memory_bytes": 144955392,
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "pytorch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "stable_baselines3": "2.6.0",
+    "logical_cpus": 24,
+    "torch_threads": 24
+  },
+  "fast_preflight": {
+    "checkpoint_sha256": "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd",
+    "checkpoint_identity": true,
+    "diffusion_frozen": true,
+    "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+    "reference_fast_max_abs_error": 0.0,
+    "reference_fast_bit_exact": true,
+    "rng_unchanged": true,
+    "historical_batched_used": false
+  },
+  "residual_initialization": {
+    "mean_weight_max_abs": 0.0,
+    "mean_bias_max_abs": 0.0,
+    "log_std": [
+      -2.0,
+      -2.0,
+      -2.0
+    ],
+    "latent_std": 0.1353352832366127
+  },
+  "train_action_diagnostics": {
+    "count": 500000,
+    "prior_norm_mean": 0.7944307823884189,
+    "prior_norm_max": 0.9997079372406006,
+    "residual_norm_mean": 0.23331726954388618,
+    "residual_norm_max": 0.7235210537910461,
+    "scaled_residual_norm_mean": 0.058329317385971545,
+    "final_action_norm_mean": 0.803195068308115,
+    "final_action_norm_max": 1.0000001192092896,
+    "projection_count": 134855,
+    "projection_fraction": 0.26971,
+    "support_violation_count": 0,
+    "support_violation_fraction": 0.0
+  },
+  "historical_seed1_reused": false
+}
