@@ -23,3 +23,16 @@ def test_s7_fresh_holdout_is_frozen_and_balanced():
     assert frozen["topology_count"] == 6 and frozen["task_count"] == 54
     assert frozen["used_for_training_or_selection"] is False
     assert {family: sum(r["family"] == family for r in rows) for family in frozen["families"]} == {family: 9 for family in frozen["families"]}
+
+
+def test_s7_controller_handoff_tables_are_complete():
+    with (ROOT / "artifacts/s7/online_seed_curves.csv").open(encoding="utf-8-sig", newline="") as handle:
+        curves = list(csv.DictReader(handle))
+    with (ROOT / "artifacts/s7/current_prior_metrics.csv").open(encoding="utf-8-sig", newline="") as handle:
+        priors = list(csv.DictReader(handle))
+    with (ROOT / "artifacts/s7/fresh_metrics.csv").open(encoding="utf-8-sig", newline="") as handle:
+        fresh = list(csv.DictReader(handle))
+    assert len(curves) == 3 * 3 * 11
+    assert len(priors) == 2 * 4
+    assert len(fresh) == 12 * 7
+    assert {"collision", "ground_contact", "unsafe"}.issubset(fresh[0])

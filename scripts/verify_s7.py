@@ -27,6 +27,7 @@ def main():
     task_rows=rows(OUT/"fresh_holdout"/"task_manifest.csv")
     task_payload=[{k:r[k] if k in ("scene_id","family","task_id") else int(r[k]) if k=="candidate_seed" else float(r[k]) for k in ("scene_id","family","task_id","candidate_seed","start_x","start_y","start_z","goal_x","goal_y","goal_z")} for r in task_rows]
     raw=rows(OUT/"fresh_holdout"/"policy_rollouts.csv"); methods=sorted({r["method"] for r in raw})
+    online_seed_rows=rows(OUT/"online_seed_curves.csv"); current_prior_rows=rows(OUT/"current_prior_metrics.csv"); fresh_metric_rows=rows(OUT/"fresh_metrics.csv")
     recomputed={m:{"success":sum(int(r["success"]) for r in raw if r["method"]==m),"unsafe":sum(int(r["unsafe"]) for r in raw if r["method"]==m),"tasks":sum(r["method"]==m for r in raw)} for m in methods}
     pure=[]; bc=[]; diff=[]
     for seed in SEEDS:
@@ -34,6 +35,8 @@ def main():
     checks={
         "formal_runs_complete":all(json.loads((OUT/"runs"/f"bc_ppo_seed_{s}"/"training_manifest.json").read_text())["actual_env_steps"]==500000 for s in SEEDS),
         "eleven_val_points":all(len(rows(OUT/"runs"/f"bc_ppo_seed_{s}"/"curve.csv"))==11 for s in SEEDS),
+        "consolidated_seed_curves":len(online_seed_rows)==99 and {r["method"] for r in online_seed_rows}=={"pure_ppo","bc_ppo","diffusion_ppo"} and all(sum(r["method"]==m and int(r["seed"])==s for r in online_seed_rows)==11 for m in ("pure_ppo","bc_ppo","diffusion_ppo") for s in SEEDS),
+        "current_prior_breakdown":len(current_prior_rows)==8 and next(r for r in current_prior_rows if r["method"]=="bc_only" and r["family"]=="ALL")["success"]=="31" and next(r for r in current_prior_rows if r["method"]=="diffusion_only" and r["family"]=="ALL")["success"]=="37",
         "bc_checkpoint_identity":hashlib.sha256((ROOT/"checkpoints"/"s7"/"bc"/"best.pt").read_bytes()).hexdigest()==json.loads((OUT/"bc_training_summary.json").read_text())["best_checkpoint_sha256"],
         "topology_hash":canonical_hash(frozen["topologies"])==frozen["topology_hash"],
         "task_hash":canonical_hash(task_payload)==frozen["task_manifest_hash"],
@@ -41,6 +44,7 @@ def main():
         "fresh_raw_complete":len(raw)==648 and len(methods)==12 and all(v["tasks"]==54 for v in recomputed.values()),
         "fresh_raw_hash":hashlib.sha256((OUT/"fresh_holdout"/"policy_rollouts.csv").read_bytes()).hexdigest()==fresh["raw_rollouts_sha256"],
         "fresh_summary_recomputed":all(recomputed[m]["success"]==fresh["summaries"][m]["success"] and recomputed[m]["unsafe"]==fresh["summaries"][m]["unsafe"] for m in methods),
+        "fresh_metrics_complete":len(fresh_metric_rows)==84 and {"collision","ground_contact","unsafe"}.issubset(fresh_metric_rows[0]) and all(int(r["collision"])+int(r["ground_contact"])==int(r["unsafe"]) for r in fresh_metric_rows),
         "paired_auc_recomputed":np.allclose(np.array(diff)-np.array(bc),summary["current_distribution"]["paired_diffusion_minus_bc"],rtol=0,atol=1e-12) and np.allclose(np.array(bc)-np.array(pure),summary["current_distribution"]["paired_bc_minus_pure"],rtol=0,atol=1e-12),
         "classification_recomputed":all((np.array(diff)-np.array(bc))>0) and float(np.mean(np.array(diff)-np.array(bc)))<.05 and all((np.array(bc)-np.array(pure))>0),
         "fresh_claim_recomputed":recomputed["diffusion_only"]["success"]==10 and recomputed["bc_only"]["success"]==4 and all(recomputed[f"pure_ppo_seed_{s}"]["success"]==0 for s in SEEDS),

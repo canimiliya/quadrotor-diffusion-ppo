@@ -29,6 +29,24 @@ def auc(rows,key):
     return float(np.trapz(y,x)/(x[-1]-x[0]))
 
 
+def summarize_rollouts(rows, method):
+    """Create an auditable current-distribution table from task-level rows."""
+    out=[]
+    families=("ALL", "OPEN", "BLOCK", "SBEND")
+    for family in families:
+        selected=rows if family=="ALL" else [r for r in rows if r["family"]==family]
+        as_bool=lambda value: str(value).lower() in ("1", "true")
+        out.append({
+            "method":method,"family":family,"tasks":len(selected),
+            "success":sum(as_bool(r["success"]) for r in selected),
+            "collision":sum(as_bool(r["collision"]) for r in selected),
+            "unsafe":sum(as_bool(r["unsafe"]) for r in selected),
+            "timeout":sum(as_bool(r["timeout"]) for r in selected),
+            "mean_return":float(np.mean([float(r["mean_return"]) for r in selected])),
+        })
+    return out
+
+
 def main():
     methods=("pure_ppo","bc_ppo","diffusion_ppo"); curves={(m,s):curve(m,s) for m in methods for s in SEEDS}
     metrics=[]; paired=[]
@@ -51,12 +69,20 @@ def main():
             for key in ("success_rate","obstacle_success_rate","collision_rate","mean_return"):
                 vals=[curves[method,s][i][key] for s in SEEDS]; row[f"{key}_mean"]=float(np.mean(vals)); row[f"{key}_std"]=float(np.std(vals,ddof=1))
             aggregate.append(row)
+    online_seed_rows=[]
+    for method in methods:
+        for seed in SEEDS:
+            online_seed_rows.extend({"method":method,"seed":seed,**row} for row in curves[method,seed])
+    bc_rollouts=read_csv(OUT/"bc_only_val_rollouts.csv")
+    diffusion_rollouts=[r for r in read_csv(ROOT/"artifacts"/"s6"/"runs"/f"diffusion_ppo_seed_{SEEDS[0]}"/"val_rollouts.csv") if int(r["env_steps"])==0]
+    current_prior_rows=summarize_rollouts(bc_rollouts,"bc_only")+summarize_rollouts(diffusion_rollouts,"diffusion_only")
     write_csv(OUT/"current_distribution_metrics.csv",metrics); write_csv(OUT/"paired_metrics.csv",paired); write_csv(OUT/"aggregate_curves.csv",aggregate)
+    write_csv(OUT/"online_seed_curves.csv",online_seed_rows); write_csv(OUT/"current_prior_metrics.csv",current_prior_rows)
     fresh=json.loads((OUT/"fresh_holdout"/"evaluation_summary.json").read_text())
     fresh_rows=[]
     for method,summary in fresh["summaries"].items():
-        fresh_rows.append({"method":method,"family":"ALL","tasks":summary["tasks"],"success":summary["success"],"success_rate":summary["success_rate"],"unsafe":summary["unsafe"],"timeout":summary["timeout"],"mean_return":summary["mean_return"]})
-        for family,value in summary["by_family"].items():fresh_rows.append({"method":method,"family":family,"tasks":value["tasks"],"success":value["success"],"success_rate":value["success_rate"],"unsafe":value["unsafe"],"timeout":value["timeout"],"mean_return":value["mean_return"]})
+        fresh_rows.append({"method":method,"family":"ALL","tasks":summary["tasks"],"success":summary["success"],"success_rate":summary["success_rate"],"collision":summary["collision"],"ground_contact":summary["unsafe"]-summary["collision"],"unsafe":summary["unsafe"],"timeout":summary["timeout"],"mean_return":summary["mean_return"]})
+        for family,value in summary["by_family"].items():fresh_rows.append({"method":method,"family":family,"tasks":value["tasks"],"success":value["success"],"success_rate":value["success_rate"],"collision":value["collision"],"ground_contact":value["unsafe"]-value["collision"],"unsafe":value["unsafe"],"timeout":value["timeout"],"mean_return":value["mean_return"]})
     write_csv(OUT/"fresh_metrics.csv",fresh_rows)
     diff_bc=[r["diffusion_minus_bc_success_auc"] for r in paired]; bc_pure=[r["bc_minus_pure_success_auc"] for r in paired]
     online_specific=all(x>0 for x in diff_bc) and np.mean(diff_bc)>=.05

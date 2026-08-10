@@ -1,0 +1,9 @@
+method,family,tasks,success,collision,unsafe,timeout,mean_return
+bc_only,ALL,54,31,12,12,11,13.354353314942598
+bc_only,OPEN,18,15,0,0,3,21.92995488100903
+bc_only,BLOCK,18,8,8,8,2,4.769410346368841
+bc_only,SBEND,18,8,4,4,6,13.363694717449915
+diffusion_only,ALL,54,37,9,9,8,17.90953378159614
+diffusion_only,OPEN,18,17,0,0,1,24.95894219718271
+diffusion_only,BLOCK,18,9,8,8,1,6.038202862479409
+diffusion_only,SBEND,18,11,1,1,6,22.731456285126285
