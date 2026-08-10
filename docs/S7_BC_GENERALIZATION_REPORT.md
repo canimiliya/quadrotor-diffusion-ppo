@@ -81,7 +81,7 @@ Diffusion+PPO 三个 selected checkpoint 都是 step 0；deterministic residual 
 
 ## Reproducibility handoff
 
-- `START_HEAD = 0aea5782d6d6b4805e0af04eafdb052ac49ba51e`
+- `START_HEAD = 0aea5782b8bdd8889327da45909127d402ffd8ef`
 - `EVIDENCE_END_HEAD = 25b01cce83d47b356b33270b8e7d1a648dc8088d`
 - `BRANCH = agent/s7-bc-generalization-v1`
 - The final pushed branch head is recorded in the controller handoff message after this metadata-only commit.
