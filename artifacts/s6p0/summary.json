@@ -1,0 +1,100 @@
+{
+  "task": "S6-P0-HIGH-THROUGHPUT-EXPERIMENT-RUNTIME-OPTIMIZATION-V1",
+  "final_label": "PASS_S6P0_FAST_EXACT_CUDA_GRAPH_RUNTIME",
+  "branch": "agent/s6p0-runtime-optimization-v1",
+  "start_head": "435e9d58ba41f627195354a333b3f5051d451b4c",
+  "end_head": null,
+  "remote_head": null,
+  "formal_progress": "70%",
+  "scientific_contract_changed": false,
+  "training_n_envs": 8,
+  "runtime_modes": {
+    "reference": "optimized eager exact batch-one bounded-x0 10-step DDIM",
+    "fast": "fixed-shape CUDA Graph of the exact batch-one recurrence"
+  },
+  "fast_mode_status": "VERIFIED_EQUIVALENT",
+  "batched_ddim_status": "REJECTED",
+  "reference_54_task": {
+    "success": 37,
+    "unsafe": 9,
+    "wall_time_s": 221.2938074,
+    "tasks_per_min": 14.641168851794992,
+    "outcome_mismatch_count": 0
+  },
+  "fast_54_task": {
+    "success": 37,
+    "unsafe": 9,
+    "wall_time_s": 40.20403190000002,
+    "tasks_per_min": 80.58893217622779,
+    "outcome_mismatch_count": 0
+  },
+  "batched_54_task": {
+    "success": 32,
+    "unsafe": 11,
+    "wall_time_s": 58.49062219999996,
+    "outcome_mismatch_count": 26
+  },
+  "action_equivalence": {
+    "tolerance": 2e-06,
+    "optimized_reference_max_abs_error": 0.0,
+    "cuda_graph_max_abs_error": 0.0,
+    "cuda_graph_bit_exact": true,
+    "batched_final_action_max_abs_error": 2.384185791015625e-07,
+    "batched_epsilon_max_abs_error": 9.5367431640625e-06
+  },
+  "evaluation_workers": {
+    "benchmarked": [8, 12, 16, 20],
+    "selected": 16,
+    "selection_basis": "best measured balanced 12-task exact-reference throughput; 20 workers regressed"
+  },
+  "train_smoke": {
+    "env_steps": 8192,
+    "pure_ppo_env_steps_per_s": 1240.885580291538,
+    "historical_batched_env_steps_per_s": 506.3522670717451,
+    "reference_env_steps_per_s": 112.16984870222174,
+    "fast_env_steps_per_s": 668.3504660145418,
+    "fast_cpu_utilization_mean_percent": 55.51477272727273,
+    "fast_cpu_active_logical_processors_mean": 24.0,
+    "fast_gpu_utilization_mean_percent": 42.63636363636363,
+    "fast_gpu_memory_max_mib": 2610.0,
+    "real_checkpoint_serialization_rng_unchanged": true
+  },
+  "projected_runtime": {
+    "historical_500k_wall_time_s": 5792.2036968,
+    "projected_500k_train_only_s": 748.1104980468753,
+    "projected_11_posthoc_val_s": 442.2443509000002,
+    "projected_total_s": 1190.3548489468753,
+    "projected_total_minutes": 19.83924748244792,
+    "projected_speedup": 4.8659470761382195,
+    "projection_not_full_500k_measurement": true,
+    "recommended_planning_range_minutes": "20-30"
+  },
+  "deferred_evaluation": {
+    "checkpoint_steps": [0, 50000, 100000, 150000, 200000, 250000, 300000, 350000, 400000, 450000, 500000],
+    "training_rng_unchanged_by_serialization": true,
+    "posthoc_selection_rule_preserved": true,
+    "early_stopping": false
+  },
+  "test_partition_accessed": false,
+  "independent_verification_pass": true,
+  "regression": {
+    "passed": 82,
+    "skipped": 1,
+    "warnings": 4
+  },
+  "evidence_storage_bytes": 53206,
+  "what_was_proven": [
+    "exact eager inference removes unused host synchronizations without numerical drift",
+    "CUDA Graph fast mode is bit-exact and reproduces all 54 frozen VAL task outcomes",
+    "deferred checkpoint evaluation can preserve training RNG and post-hoc selection order",
+    "16 evaluation workers are the measured host-specific choice"
+  ],
+  "what_was_not_proven": [
+    "no full 500,000-step S6 run was executed",
+    "the 19.9-minute total is a measured-component projection, not a full-run wall time",
+    "mixed precision was not approved or adopted",
+    "batched DDIM is not scientifically equivalent",
+    "TEST and S6 multi-seed experiments were not executed"
+  ],
+  "unique_next_task": "NONE — WAIT_FOR_CONTROLLER_REVIEW"
+}

@@ -97,6 +97,15 @@ artifacts/s5/*
 !artifacts/s5/engineering_failure_01.json
 !artifacts/s5/engineering_failure_02.json
 
+!artifacts/s6p0/
+artifacts/s6p0/*
+!artifacts/s6p0/profile_baseline.json
+!artifacts/s6p0/profile_optimized.json
+!artifacts/s6p0/equivalence_audit.json
+!artifacts/s6p0/runtime_benchmark.csv
+!artifacts/s6p0/summary.json
+!artifacts/s6p0/independent_verification.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

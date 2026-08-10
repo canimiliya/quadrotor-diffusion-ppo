@@ -1,0 +1,31 @@
+{
+  "task": "S6-P0-HIGH-THROUGHPUT-EXPERIMENT-RUNTIME-OPTIMIZATION-V1",
+  "independent_verification_pass": true,
+  "checks": {
+    "hardware_cpu_24": true,
+    "hardware_rtx_5060_ti": true,
+    "frozen_n_envs_8": true,
+    "optimized_eager_bit_exact": true,
+    "cuda_graph_bit_exact": true,
+    "cuda_graph_action_tolerance": true,
+    "reference_54_identity": true,
+    "fast_54_identity": true,
+    "batched_rejected": true,
+    "test_not_accessed": true,
+    "worker_sweep_complete": true,
+    "all_train_smokes_exact_8192": true,
+    "real_checkpoint_serialization_rng_unchanged": true,
+    "fast_train_faster_than_reference": true
+  },
+  "projected_500k_train_only_s_from_8192_smoke": 748.1104980468753,
+  "projected_11_val_s_from_measured_54_task": 442.2443509000002,
+  "projected_500k_plus_11_posthoc_val_s": 1190.3548489468753,
+  "projected_end_to_end_speedup_vs_5792s": 4.8659470761382195,
+  "projection_is_not_a_full_500k_measurement": true,
+  "evidence_sha256": {
+    "profile_baseline.json": "53ec91a47659ae8f631501d2fe516509bcb8574ebfd28da27dad78a5c7164ade",
+    "profile_optimized.json": "a9e36af69c841f63a923a7711131d784e8527f51abef5a0969c62ea3c27f6bc7",
+    "equivalence_audit.json": "e5aab51f0b9572c4d900ec49a75ab0cf6183e89349259bc8f3702caa115c369a",
+    "runtime_benchmark.csv": "6a8c8d2fe151ef9f47d8bb9172bbc9bd2c15e6db8eb224fe6d3e50be6940b9a1"
+  }
+}

@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import hashlib
 from pathlib import Path
-from typing import Sequence
+from typing import Any, Sequence
 
 import numpy as np
 import torch
@@ -88,6 +88,23 @@ class FrozenDiffusionPrior:
         if self.mean.shape != (34,) or self.scale.shape != (34,):
             raise RuntimeError("BLOCKED_S5_DIFFUSION_NORMALIZATION_SHAPE")
         self.payload = payload
+        # DDIM inference is always ten steps under the frozen S3 contract.  The
+        # original sampler rebuilt these tensors and synchronized diagnostics
+        # back to the CPU for every action.  Cache execution-only tensors once;
+        # this changes no floating-point operation in the denoising recurrence.
+        schedule = torch.linspace(
+            self.schedule.steps - 1, 0, DDIM_STEPS, device=self.device
+        ).round().long()
+        self._ddim_timesteps = tuple(int(value) for value in schedule.cpu().tolist())
+        self._ddim_t_batch_one = tuple(
+            torch.full((1,), value, device=self.device, dtype=torch.long)
+            for value in self._ddim_timesteps
+        )
+        self._ddim_alpha = tuple(self.schedule.alpha_bars[value] for value in self._ddim_timesteps)
+        self._cuda_graph: torch.cuda.CUDAGraph | None = None
+        self._graph_condition: torch.Tensor | None = None
+        self._graph_initial: torch.Tensor | None = None
+        self._graph_output: torch.Tensor | None = None
 
     def _conditions(self, observations: np.ndarray) -> torch.Tensor:
         values = torch.as_tensor(observations, dtype=torch.float32, device=self.device)
@@ -101,8 +118,8 @@ class FrozenDiffusionPrior:
         return normalized
 
     @torch.inference_mode()
-    def predict_reference(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
-        """Exact S3-R2 batch-one reference path, used for audits/evaluation."""
+    def predict_original_reference(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
+        """Unmodified S3-R2 sampler retained as the audit oracle."""
         conditions = self._conditions(observations)
         if len(conditions) != len(seeds):
             raise ValueError("one seed is required per observation")
@@ -114,6 +131,105 @@ class FrozenDiffusionPrior:
             )
             actions.append(sampled[0, 0])
         return torch.stack(actions).cpu().numpy().astype(np.float32)
+
+    def _initial_noise(self, seed: int) -> torch.Tensor:
+        generator = torch.Generator(device=self.device).manual_seed(int(seed))
+        return torch.randn(
+            (1, self.model.horizon, self.model.action_dim),
+            device=self.device,
+            generator=generator,
+        )
+
+    def _ddim_from_initial(self, condition: torch.Tensor, sample: torch.Tensor,
+                           *, trace: bool = False) -> tuple[torch.Tensor, list[dict[str, torch.Tensor]]]:
+        """Run the exact bounded-x0 recurrence without unused host syncs."""
+        records: list[dict[str, torch.Tensor]] = []
+        for index, (t, t_batch, alpha_bar) in enumerate(zip(
+            self._ddim_timesteps, self._ddim_t_batch_one, self._ddim_alpha
+        )):
+            input_sample = sample
+            raw = self.model.predict_raw(input_sample, condition, t_batch)
+            x0 = unit_ball_squash(raw)
+            epsilon = (input_sample - alpha_bar.sqrt() * x0) / (1.0 - alpha_bar).sqrt()
+            if index == len(self._ddim_timesteps) - 1:
+                sample = x0
+            else:
+                alpha_next = self._ddim_alpha[index + 1]
+                sample = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * epsilon
+            if trace:
+                records.append({
+                    "timestep": torch.tensor(t),
+                    "x_t": input_sample.detach().clone(),
+                    "raw_x0": raw.detach().clone(),
+                    "bounded_x0": x0.detach().clone(),
+                    "epsilon": epsilon.detach().clone(),
+                    "next_sample": sample.detach().clone(),
+                })
+        return sample, records
+
+    @torch.inference_mode()
+    def predict_reference(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
+        """Optimized exact batch-one path, numerically audited against the oracle."""
+        conditions = self._conditions(observations)
+        if len(conditions) != len(seeds):
+            raise ValueError("one seed is required per observation")
+        actions = []
+        for condition, seed in zip(conditions, seeds):
+            sampled, _ = self._ddim_from_initial(condition.unsqueeze(0), self._initial_noise(int(seed)))
+            actions.append(sampled[0, 0])
+        return torch.stack(actions).cpu().numpy().astype(np.float32)
+
+    @torch.inference_mode()
+    def _capture_reference_graph(self) -> None:
+        if self.device.type != "cuda":
+            raise RuntimeError("CUDA Graph reference inference requires CUDA")
+        self._graph_condition = torch.empty((1, 34), dtype=torch.float32, device=self.device)
+        self._graph_initial = torch.empty(
+            (1, self.model.horizon, self.model.action_dim), dtype=torch.float32, device=self.device
+        )
+        warmup_stream = torch.cuda.Stream(device=self.device)
+        warmup_stream.wait_stream(torch.cuda.current_stream(self.device))
+        with torch.cuda.stream(warmup_stream):
+            for _ in range(3):
+                self._ddim_from_initial(self._graph_condition, self._graph_initial)
+        torch.cuda.current_stream(self.device).wait_stream(warmup_stream)
+        torch.cuda.synchronize(self.device)
+        self._cuda_graph = torch.cuda.CUDAGraph()
+        with torch.cuda.graph(self._cuda_graph):
+            self._graph_output, _ = self._ddim_from_initial(
+                self._graph_condition, self._graph_initial
+            )
+
+    @torch.inference_mode()
+    def predict_fast(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
+        """Verified fixed-shape CUDA Graph of the exact batch-one recurrence."""
+        if self.device.type != "cuda":
+            return self.predict_reference(observations, seeds)
+        conditions = self._conditions(observations)
+        if len(conditions) != len(seeds):
+            raise ValueError("one seed is required per observation")
+        if self._cuda_graph is None:
+            self._capture_reference_graph()
+        if self._graph_condition is None or self._graph_initial is None or self._graph_output is None:
+            raise RuntimeError("CUDA Graph capture did not initialize static buffers")
+        actions = []
+        for condition, seed in zip(conditions, seeds):
+            self._graph_condition.copy_(condition.unsqueeze(0))
+            self._graph_initial.copy_(self._initial_noise(int(seed)))
+            self._cuda_graph.replay()
+            actions.append(self._graph_output[0, 0].clone())
+        return torch.stack(actions).cpu().numpy().astype(np.float32)
+
+    @torch.inference_mode()
+    def trace_reference(self, observation: np.ndarray, seed: int) -> list[dict[str, np.ndarray | int]]:
+        """Expose every frozen DDIM intermediate for equivalence audits."""
+        condition = self._conditions(observation)[0].unsqueeze(0)
+        _, records = self._ddim_from_initial(condition, self._initial_noise(seed), trace=True)
+        return [
+            {key: (int(value.item()) if key == "timestep" else value.cpu().numpy())
+             for key, value in record.items()}
+            for record in records
+        ]
 
     @torch.inference_mode()
     def predict_batched(self, observations: np.ndarray, seeds: Sequence[int]) -> np.ndarray:
@@ -127,24 +243,48 @@ class FrozenDiffusionPrior:
             initial.append(torch.randn((1, self.model.horizon, self.model.action_dim),
                                        device=self.device, generator=generator))
         sample = torch.cat(initial, dim=0)
-        ddim_schedule = torch.linspace(
-            self.schedule.steps - 1, 0, DDIM_STEPS, device=self.device
-        ).round().long()
-        for index, timestep in enumerate(ddim_schedule):
-            t = int(timestep.item())
+        for index, t in enumerate(self._ddim_timesteps):
             t_batch = torch.full((len(sample),), t, device=self.device, dtype=torch.long)
             raw = self.model.predict_raw(sample, conditions, t_batch)
             x0 = unit_ball_squash(raw)
             epsilon = (
                 sample - self.schedule.alpha_bars[t].sqrt() * x0
             ) / (1.0 - self.schedule.alpha_bars[t]).sqrt()
-            if index == len(ddim_schedule) - 1:
+            if index == len(self._ddim_timesteps) - 1:
                 sample = x0
             else:
-                next_t = int(ddim_schedule[index + 1].item())
-                alpha_next = self.schedule.alpha_bars[next_t]
+                alpha_next = self._ddim_alpha[index + 1]
                 sample = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * epsilon
         return sample[:, 0].cpu().numpy().astype(np.float32)
+
+    @torch.inference_mode()
+    def trace_batched(self, observations: np.ndarray, seeds: Sequence[int]) -> list[dict[str, Any]]:
+        """Trace batched DDIM at each layer using reference-identical initial noise."""
+        conditions = self._conditions(observations)
+        if len(conditions) != len(seeds):
+            raise ValueError("one seed is required per observation")
+        sample = torch.cat([self._initial_noise(int(seed)) for seed in seeds], dim=0)
+        records: list[dict[str, Any]] = []
+        for index, (t, alpha_bar) in enumerate(zip(self._ddim_timesteps, self._ddim_alpha)):
+            input_sample = sample
+            t_batch = torch.full((len(sample),), t, device=self.device, dtype=torch.long)
+            raw = self.model.predict_raw(input_sample, conditions, t_batch)
+            x0 = unit_ball_squash(raw)
+            epsilon = (input_sample - alpha_bar.sqrt() * x0) / (1.0 - alpha_bar).sqrt()
+            if index == len(self._ddim_timesteps) - 1:
+                sample = x0
+            else:
+                alpha_next = self._ddim_alpha[index + 1]
+                sample = alpha_next.sqrt() * x0 + (1.0 - alpha_next).sqrt() * epsilon
+            records.append({
+                "timestep": t,
+                "x_t": input_sample.cpu().numpy(),
+                "raw_x0": raw.cpu().numpy(),
+                "bounded_x0": x0.cpu().numpy(),
+                "epsilon": epsilon.cpu().numpy(),
+                "next_sample": sample.cpu().numpy(),
+            })
+        return records
 
     @property
     def frozen(self) -> bool:

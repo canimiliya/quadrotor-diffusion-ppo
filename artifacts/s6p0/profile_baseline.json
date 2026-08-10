@@ -1,0 +1,59 @@
+{
+  "task": "S6-P0-HIGH-THROUGHPUT-EXPERIMENT-RUNTIME-OPTIMIZATION-V1",
+  "runtime_path": "original_reference",
+  "hardware": {
+    "platform": "Windows-10-10.0.26100-SP0",
+    "logical_processors": 24,
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "gpu_memory_bytes": 17102864384,
+    "pytorch": "2.7.1+cu128",
+    "cuda": "12.8",
+    "ppo_config_hash": "fc7efc5c1161bba62571079a55a834e9d19e980b48b307a974bcf417dcf32111",
+    "reward_contract_hash": "92afefbf338d0ccbbcc42c12a572327413ca66f46bf1f061f637e68d125ae3ec",
+    "n_envs_frozen": 8
+  },
+  "sample_count": 64,
+  "wall_time_s": 0.6592951,
+  "diffusion_actions_per_s": 97.07337427504011,
+  "wall_time_breakdown_s": {
+    "observation_preprocessing": 0.00041650000000004184,
+    "initial_noise_generation": 0.0007217999999999947,
+    "ten_step_ddim_and_transfers": 0.6581568
+  },
+  "resources": {
+    "samples": 2,
+    "cpu_total_mean_percent": 7.510416666666667,
+    "cpu_per_logical_mean_percent": [
+      45.15,
+      25.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      9.7,
+      6.95,
+      6.95,
+      11.45,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      11.1,
+      20.85,
+      8.35,
+      20.85,
+      6.95,
+      6.95
+    ],
+    "cpu_active_logical_processors_mean": 6.0,
+    "gpu_utilization_mean_percent": 9.5,
+    "gpu_utilization_max_percent": 13.0,
+    "gpu_memory_mean_mib": 2390.0,
+    "gpu_memory_max_mib": 2390.0
+  },
+  "historical_integrated_500k_wall_time_s": 5792.2036968
+}

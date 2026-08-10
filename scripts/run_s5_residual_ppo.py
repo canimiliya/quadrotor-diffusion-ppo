@@ -69,10 +69,14 @@ REFERENCE_TOLERANCE = 2.0e-6
 class DiffusionResidualVecEnv(VecEnvWrapper):
     """Interpret PPO actions as residuals and batch frozen-prior inference."""
 
-    def __init__(self, venv: VecEnv, prior: FrozenDiffusionPrior, alpha: float = RESIDUAL_SCALE):
+    def __init__(self, venv: VecEnv, prior: FrozenDiffusionPrior, alpha: float = RESIDUAL_SCALE,
+                 runtime_mode: str = "historical_batched"):
         super().__init__(venv)
         self.prior = prior
         self.alpha = float(alpha)
+        if runtime_mode not in ("historical_batched", "reference", "fast"):
+            raise ValueError("runtime_mode must be historical_batched, reference, or fast")
+        self.runtime_mode = runtime_mode
         self.current_observations: np.ndarray | None = None
         self.task_ids: list[str] = []
         self.episode_steps = np.zeros(self.num_envs, dtype=np.int64)
@@ -101,7 +105,13 @@ class DiffusionResidualVecEnv(VecEnvWrapper):
         residual = np.asarray(actions, dtype=np.float32).reshape(self.num_envs, ACTION_DIM)
         seeds = [stable_prior_seed(task_id) + int(step)
                  for task_id, step in zip(self.task_ids, self.episode_steps)]
-        prior_actions = self.prior.predict_batched(self.current_observations, seeds)
+        if self.runtime_mode == "reference":
+            prior_actions = self.prior.predict_reference(self.current_observations, seeds)
+        elif self.runtime_mode == "fast":
+            prior_actions = self.prior.predict_fast(self.current_observations, seeds)
+        else:
+            # Preserve the historical S5 execution path for reproducibility.
+            prior_actions = self.prior.predict_batched(self.current_observations, seeds)
         executed, projected = compose_residual_action(prior_actions, residual, self.alpha)
         prior_norm = np.linalg.norm(prior_actions, axis=1)
         residual_norm = np.linalg.norm(residual, axis=1)
