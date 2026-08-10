@@ -1,0 +1,62 @@
+{
+  "task": "S7-R0-MATCHED-BC-ABLATION-AND-FRESH-TOPOLOGY-GENERALIZATION-V1",
+  "final_label": "PASS_S7_PRIOR_EFFECT_AND_FRESH_GENERALIZATION_SUPPORTED_DIFFUSION_SPECIFIC_THRESHOLD_NOT_MET",
+  "classification": {
+    "online": "PRIOR_ADVANTAGE_NOT_DIFFUSION_SPECIFIC",
+    "fresh": "DIFFUSION_GENERALIZATION_ADVANTAGE_LIMITED",
+    "safety": "NOT_SUPPORTED"
+  },
+  "current_distribution": {
+    "bc_only_success": 31,
+    "diffusion_only_success": 37,
+    "success_auc_mean": {
+      "pure_ppo": 0.15925925925925924,
+      "bc_ppo": 0.41203703703703703,
+      "diffusion_ppo": 0.45679012345679015
+    },
+    "paired_diffusion_minus_bc": [
+      0.05462962962962964,
+      0.03240740740740744,
+      0.047222222222222165
+    ],
+    "paired_diffusion_minus_bc_mean": 0.044753086419753084,
+    "paired_bc_minus_pure": [
+      0.2842592592592592,
+      0.2592592592592593,
+      0.21481481481481485
+    ],
+    "paired_bc_minus_pure_mean": 0.25277777777777777,
+    "diffusion_specific_threshold": 0.05,
+    "diffusion_specific_supported": false,
+    "prior_advantage_supported": true
+  },
+  "fresh": {
+    "topology_hash": "504a08fcbac4ac5bb20a411212586b63f80d26a89724170f74bcb8d66153870d",
+    "task_manifest_hash": "4bcd49c082a1118e6fb6b8c47e2ace80675f18934772683eb63c75f5454c3ca3",
+    "diffusion_success": 10,
+    "bc_success": 4,
+    "pure_success": [
+      0,
+      0,
+      0
+    ],
+    "greedy_success": 18,
+    "diffusion_unsafe": 30,
+    "bc_unsafe": 20,
+    "generalization_supported": true,
+    "diffusion_over_bc": true,
+    "generalization_gap_success_rate": {
+      "diffusion": -0.5,
+      "bc": -0.5
+    }
+  },
+  "residual_conclusion": "online residual fine-tuning did not stably improve either prior; selected Diffusion checkpoints remain step 0 for all seeds",
+  "test_leakage": {
+    "s2_test_used_in_s7_training": false,
+    "s2_test_used_in_s7_selection": false,
+    "fresh_used_in_training_or_selection": false,
+    "s6_test_status": "development_test_already_opened_before_S7"
+  },
+  "formal_progress": "85% pending controller acceptance",
+  "unique_next_task": "NONE - WAIT_FOR_CONTROLLER_REVIEW"
+}

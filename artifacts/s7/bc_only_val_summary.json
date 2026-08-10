@@ -1,0 +1,26 @@
+{
+  "task": "S7-R0-MATCHED-BC-ABLATION-AND-FRESH-TOPOLOGY-GENERALIZATION-V1",
+  "status": "BC_ONLY_VAL_COMPLETE",
+  "checkpoint_sha256": "23c8ead92cc53851bdd295dfb32175cac62cca86b040ce0f8b3701f04c41015a",
+  "frozen": true,
+  "deployment": "H16_RECEDING_HORIZON_FIRST_ACTION",
+  "val": {
+    "tasks": 54,
+    "success": 31,
+    "success_rate": 0.5740740740740741,
+    "collision": 12,
+    "ground_contact": 0,
+    "unsafe": 12,
+    "timeout": 11,
+    "nonfinite": 0,
+    "mean_return": 13.354353314942598,
+    "mean_episode_steps": 564.5370370370371,
+    "action_clip_count": 0,
+    "action_clip_fraction": 0.0,
+    "policy_action_support_violation_count": 0,
+    "policy_action_support_violation_fraction": 0.0
+  },
+  "diffusion_reference_val_success": 37,
+  "test_accessed": false,
+  "fresh_holdout_accessed": false
+}

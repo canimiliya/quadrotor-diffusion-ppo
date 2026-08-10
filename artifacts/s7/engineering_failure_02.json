@@ -1,0 +1,7 @@
+{
+  "stage": "BC_PPO_IMPORT_PREFLIGHT",
+  "training_started": false,
+  "failure": "ImportError: VecEnvStepReturn is not exported from stable_baselines3.common.vec_env",
+  "scientific_impact": "NONE",
+  "recovery": "Remove the runtime-irrelevant return type import and annotation; preserve all scientific configuration."
+}

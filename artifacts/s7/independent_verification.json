@@ -1,0 +1,99 @@
+{
+  "status": "PASS",
+  "checks": {
+    "formal_runs_complete": true,
+    "eleven_val_points": true,
+    "bc_checkpoint_identity": true,
+    "topology_hash": true,
+    "task_hash": true,
+    "fresh_counts": true,
+    "fresh_raw_complete": true,
+    "fresh_raw_hash": true,
+    "fresh_summary_recomputed": true,
+    "paired_auc_recomputed": true,
+    "classification_recomputed": true,
+    "fresh_claim_recomputed": true,
+    "zero_residual_reuse_audited": true,
+    "leakage_contract": true,
+    "safety_conservative": true
+  },
+  "recomputed": {
+    "pure_auc": [
+      0.14629629629629629,
+      0.13796296296296295,
+      0.19351851851851853
+    ],
+    "bc_auc": [
+      0.4305555555555555,
+      0.39722222222222225,
+      0.4083333333333334
+    ],
+    "diffusion_auc": [
+      0.48518518518518516,
+      0.4296296296296297,
+      0.45555555555555555
+    ],
+    "fresh": {
+      "bc_only": {
+        "success": 4,
+        "unsafe": 20,
+        "tasks": 54
+      },
+      "bc_ppo_seed_20260812": {
+        "success": 6,
+        "unsafe": 27,
+        "tasks": 54
+      },
+      "bc_ppo_seed_20260813": {
+        "success": 6,
+        "unsafe": 24,
+        "tasks": 54
+      },
+      "bc_ppo_seed_20260814": {
+        "success": 4,
+        "unsafe": 20,
+        "tasks": 54
+      },
+      "diffusion_only": {
+        "success": 10,
+        "unsafe": 30,
+        "tasks": 54
+      },
+      "diffusion_ppo_seed_20260812": {
+        "success": 10,
+        "unsafe": 30,
+        "tasks": 54
+      },
+      "diffusion_ppo_seed_20260813": {
+        "success": 10,
+        "unsafe": 30,
+        "tasks": 54
+      },
+      "diffusion_ppo_seed_20260814": {
+        "success": 10,
+        "unsafe": 30,
+        "tasks": 54
+      },
+      "greedy_goal": {
+        "success": 18,
+        "unsafe": 36,
+        "tasks": 54
+      },
+      "pure_ppo_seed_20260812": {
+        "success": 0,
+        "unsafe": 19,
+        "tasks": 54
+      },
+      "pure_ppo_seed_20260813": {
+        "success": 0,
+        "unsafe": 3,
+        "tasks": 54
+      },
+      "pure_ppo_seed_20260814": {
+        "success": 0,
+        "unsafe": 2,
+        "tasks": 54
+      }
+    }
+  }
+}

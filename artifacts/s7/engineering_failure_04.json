@@ -1,0 +1,7 @@
+{
+  "stage": "FRESH_HOLDOUT_GENERATOR_PREFLIGHT",
+  "policy_evaluation_started": false,
+  "failure": "Python 3.10 pathlib.Path.write_text does not accept newline",
+  "scientific_impact": "NONE; no candidate planning and no policy evaluation occurred",
+  "recovery": "Remove the unsupported keyword; generated YAML content is already explicitly joined with LF."
+}

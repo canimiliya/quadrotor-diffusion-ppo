@@ -1,0 +1,239 @@
+{
+  "status": "PASS",
+  "removed_count": 33,
+  "removed_bytes": 57178920,
+  "removed": [
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_000000.zip",
+      "bytes": 629027,
+      "sha256": "d6463a72783e9ff167c690b8c5b3ca3b4382ed458f79db729c2675bc653161a5"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_050000.zip",
+      "bytes": 1843054,
+      "sha256": "01be1fbb525858e01b4188393880364ef498010be86edbc9f00fb1b35d2b140b"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_100000.zip",
+      "bytes": 1843056,
+      "sha256": "f91fd447d20f584099cca0f6b2c920e12f07fb5b3bed003bb2e09d59e812dfc1"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_150000.zip",
+      "bytes": 1843066,
+      "sha256": "333367a2fb8544be5af9f21c7f3704ef657b9a3558aae8e861b3b5946e839c20"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_200000.zip",
+      "bytes": 1843056,
+      "sha256": "f1f222d39cdd4c7affeacdf1a40d9716735f3e3d7a9a57b94429905f2867f932"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_250000.zip",
+      "bytes": 1843055,
+      "sha256": "276b2b50a283aafa6652df25fe2c0186641d28c65c4513c77151148311ce1759"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_300000.zip",
+      "bytes": 1843056,
+      "sha256": "a3dacc7e72eaff9fe413379de77de845235013c48e200be84b8d63fd5b7acafa"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_350000.zip",
+      "bytes": 1843067,
+      "sha256": "b9b4ee16f51676209ee9f2a7e2fd4e3f70747cff1d8f82bf42e93d062fd7b70b"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_400000.zip",
+      "bytes": 1843067,
+      "sha256": "5d484aacd8c03d96e174ead0cc96c0c97d9351c8123a7d48ddacf5f1080f8b8c"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_450000.zip",
+      "bytes": 1843067,
+      "sha256": "f79696ed0849d753f54685b52f3e797509ce5ec9d3de101728317f14da09d3c5"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\checkpoint_500000.zip",
+      "bytes": 1843069,
+      "sha256": "3ee54f8ca8e7d30d7955b16d828cc8d677c4dc6d59236309363b95b7a11e88c1"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_000000.zip",
+      "bytes": 629027,
+      "sha256": "4098d7550f4519374459a5f45c2eb0bf164041cb96421f68b8ad90964812bb9b"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_050000.zip",
+      "bytes": 1843054,
+      "sha256": "ad40dd5169ec1c8b7f646aeeeb494c831c99bfdef938c00bf04a8e59ceeffe3a"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_100000.zip",
+      "bytes": 1843056,
+      "sha256": "bee2d69a023de5da66a7b6161f00c48f758bbf01867bdaadf8e9ad99ddb13393"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_150000.zip",
+      "bytes": 1843066,
+      "sha256": "adb4fe195adb2dd630807f9bd0c07faf584afa1ffddd238c6bba4968db033dbb"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_200000.zip",
+      "bytes": 1843056,
+      "sha256": "7c5c9aee952e3e94c8a6243cde4ea903d475391acca4a0e1be2dc3e3bd281170"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_250000.zip",
+      "bytes": 1843055,
+      "sha256": "72f0be11bef4ecfdaf5d041bdc1848bff927fc2d680d500b2aba958d5c07265d"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_300000.zip",
+      "bytes": 1843056,
+      "sha256": "c507507322fac8baee5ee3500c04d444fa2830fce9bb4c7a78bb4a4b3efc3929"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_350000.zip",
+      "bytes": 1843067,
+      "sha256": "cb0e266712c116852c79305849680b4c9fed4d1190dd992cd81b210eb76589c2"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_400000.zip",
+      "bytes": 1843067,
+      "sha256": "ed7e4b2af1492412f69f91d57e9c1100068e7981cec45d94f9707936dc6be67e"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_450000.zip",
+      "bytes": 1843067,
+      "sha256": "b8cea637464f0e9e6e24c35568a8325768ba9abd8dafed222032a10dd654b4ea"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\checkpoint_500000.zip",
+      "bytes": 1843069,
+      "sha256": "a31e9d1dbba9b89ca23485a7cd5cd946aad242bd3a1642e42c127c97f60daa67"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_000000.zip",
+      "bytes": 629027,
+      "sha256": "025221502b86155bb7b2e6c3dbc9ae04a10d5af3673cc757f44802220ccc9499"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_050000.zip",
+      "bytes": 1843054,
+      "sha256": "7ae7b1c400a4b2b19e9a233ab573d20ba71bae97a998703f9fb99028ba6eb267"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_100000.zip",
+      "bytes": 1843056,
+      "sha256": "439b9ae67ceef85a5ff02b620b252dcf901a733baa3ab183b03e06f506579256"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_150000.zip",
+      "bytes": 1843066,
+      "sha256": "b7ee295611dcffe93939d719f5ab979d7e46f1a8353359f76db3efacc0e62980"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_200000.zip",
+      "bytes": 1843056,
+      "sha256": "0e6df372627b3310f5c362e4248833d33177c2bc2805b933f5d8912af1ed721a"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_250000.zip",
+      "bytes": 1843055,
+      "sha256": "614ddcbad39e24a5228c25833efb0fdb904439b8b1795cca799754cee73ea773"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_300000.zip",
+      "bytes": 1843056,
+      "sha256": "95e14ab516a5fc2fdd666d0e6c290c9cb18e458d3f681a8448cec9c7c05ca626"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_350000.zip",
+      "bytes": 1843067,
+      "sha256": "5e33271b4a21d4775ae4c69213e871858ae614dbc7e2286880fbd2c1e2625b29"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_400000.zip",
+      "bytes": 1843067,
+      "sha256": "2efe3256ff9738bda7559a0bbddba0712fe364bf263a9dc57332eb45826d4c3c"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_450000.zip",
+      "bytes": 1843067,
+      "sha256": "6bb45d22b4b5bfe7c1c4b3876f529c68c3a8d39a1c25e5b0cbcd7832a87f5535"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\checkpoint_500000.zip",
+      "bytes": 1843069,
+      "sha256": "2f9d5d179fd7b17155ee261e9f9c43093156eac9e52ad91be5eab49560953c3e"
+    }
+  ],
+  "retained": [
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\best_model.zip",
+      "bytes": 1843066,
+      "sha256": "333367a2fb8544be5af9f21c7f3704ef657b9a3558aae8e861b3b5946e839c20"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\last_model.zip",
+      "bytes": 1843069,
+      "sha256": "3ee54f8ca8e7d30d7955b16d828cc8d677c4dc6d59236309363b95b7a11e88c1"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\best_model.zip",
+      "bytes": 1843054,
+      "sha256": "ad40dd5169ec1c8b7f646aeeeb494c831c99bfdef938c00bf04a8e59ceeffe3a"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260813\\last_model.zip",
+      "bytes": 1843069,
+      "sha256": "a31e9d1dbba9b89ca23485a7cd5cd946aad242bd3a1642e42c127c97f60daa67"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\best_model.zip",
+      "bytes": 629027,
+      "sha256": "025221502b86155bb7b2e6c3dbc9ae04a10d5af3673cc757f44802220ccc9499"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\last_model.zip",
+      "bytes": 1843069,
+      "sha256": "2f9d5d179fd7b17155ee261e9f9c43093156eac9e52ad91be5eab49560953c3e"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc\\best.pt",
+      "bytes": 2380481,
+      "sha256": "23c8ead92cc53851bdd295dfb32175cac62cca86b040ce0f8b3701f04c41015a"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc\\last.pt",
+      "bytes": 2380801,
+      "sha256": "7e04f07a67656fc150abe4c0dd7dcddf6e66989b8863fa1d57614adf5c1a9ea5"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\failed_attempt_01_timeout_100k\\checkpoint_000000.zip",
+      "bytes": 629027,
+      "sha256": "1fcecf8ad3b7a20252129fe90be0e5ee60171449c22e758688fc443c3a1ab6ca",
+      "reason": "preserved engineering failure"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\failed_attempt_01_timeout_100k\\checkpoint_050000.zip",
+      "bytes": 1843054,
+      "sha256": "880a73c59c96e52bcecd5eea3954f2b3a61cc48b6f6e6994aaf6e41d381a0747",
+      "reason": "preserved engineering failure"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\failed_attempt_01_timeout_100k\\checkpoint_100000.zip",
+      "bytes": 1843056,
+      "sha256": "8ba2cf1926efed09120e959c0ccc82e2969996424c71d87eaad34bc9762971e5",
+      "reason": "preserved engineering failure"
+    },
+    {
+      "path": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260812\\failed_attempt_01_timeout_100k\\checkpoint_150000.zip",
+      "bytes": 1843066,
+      "sha256": "652bf49a4652e46037f71476fec6dd4ea0eda2c31d2acafd385cd9912ac84f18",
+      "reason": "preserved engineering failure"
+    }
+  ],
+  "recovery": "formal intermediate weights removed locally; hashes, best/last models, curves, and raw evidence retained; failed attempt preserved"
+}

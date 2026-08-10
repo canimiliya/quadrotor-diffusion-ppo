@@ -1,0 +1,922 @@
+{
+  "task": "S7_FRESH_TOPOLOGY_HOLDOUT_EVALUATION",
+  "frozen_topology_hash": "504a08fcbac4ac5bb20a411212586b63f80d26a89724170f74bcb8d66153870d",
+  "frozen_task_manifest_hash": "4bcd49c082a1118e6fb6b8c47e2ace80675f18934772683eb63c75f5454c3ca3",
+  "policy_evaluation_after_freeze_commit": true,
+  "used_for_training_or_selection": false,
+  "diffusion_runtime_preflight": {
+    "checkpoint_sha256": "98de9a5d765ec1aeb48648497ac44ec98a6b6a071a607a01b4e49f3e13ab76cd",
+    "checkpoint_identity": true,
+    "diffusion_frozen": true,
+    "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+    "reference_fast_max_abs_error": 0.0,
+    "reference_fast_bit_exact": true,
+    "rng_unchanged": true,
+    "historical_batched_used": false
+  },
+  "summaries": {
+    "greedy_goal": {
+      "tasks": 54,
+      "success": 18,
+      "success_rate": 0.3333333333333333,
+      "collision": 36,
+      "unsafe": 36,
+      "timeout": 0,
+      "nonfinite": 0,
+      "mean_return": -0.4155289717028482,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -16.129265331218782
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -16.883252373911375
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 9,
+          "success_rate": 1.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": 29.529812045660233
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 9,
+          "success_rate": 1.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": 34.56231822968218
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -17.305133957341095
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -16.26765244308824
+        }
+      }
+    },
+    "pure_ppo_seed_20260812": {
+      "tasks": 54,
+      "success": 0,
+      "success_rate": 0.0,
+      "collision": 19,
+      "unsafe": 19,
+      "timeout": 35,
+      "nonfinite": 0,
+      "mean_return": -5.299476903203504,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 1.9173131026939676
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -17.151534668521915
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 1.0488489861831287
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 8,
+          "nonfinite": 0,
+          "mean_return": -1.326830280030069
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -17.479075927102457
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 1.1944173675563183
+        }
+      }
+    },
+    "pure_ppo_seed_20260813": {
+      "tasks": 54,
+      "success": 0,
+      "success_rate": 0.0,
+      "collision": 3,
+      "unsafe": 3,
+      "timeout": 51,
+      "nonfinite": 0,
+      "mean_return": -0.3834893162989082,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 1.471050336829097
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 8,
+          "nonfinite": 0,
+          "mean_return": -1.2917644261919916
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.7136052799905617
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 8,
+          "nonfinite": 0,
+          "mean_return": -1.4252755734174576
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 8,
+          "nonfinite": 0,
+          "mean_return": -2.062172599251909
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.2936210842482496
+        }
+      }
+    },
+    "pure_ppo_seed_20260814": {
+      "tasks": 54,
+      "success": 0,
+      "success_rate": 0.0,
+      "collision": 2,
+      "unsafe": 2,
+      "timeout": 52,
+      "nonfinite": 0,
+      "mean_return": -0.06556328984836592,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 1.0909170375215829
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.779519320883592
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.41501335616357227
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.26252869440516235
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": -3.1638087159157293
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.22245056785162395
+        }
+      }
+    },
+    "bc_only": {
+      "tasks": 54,
+      "success": 4,
+      "success_rate": 0.07407407407407407,
+      "collision": 20,
+      "unsafe": 20,
+      "timeout": 30,
+      "nonfinite": 0,
+      "mean_return": -0.7979820635418294,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.5246589854953249
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 5,
+          "nonfinite": 0,
+          "mean_return": -1.6786089644567992
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": -1.7549643882684676
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 5,
+          "nonfinite": 0,
+          "mean_return": 10.723010151343855
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": -0.8907630906599441
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 8,
+          "unsafe": 8,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -11.711225074704947
+        }
+      }
+    },
+    "bc_ppo_seed_20260812": {
+      "tasks": 54,
+      "success": 6,
+      "success_rate": 0.1111111111111111,
+      "collision": 26,
+      "unsafe": 27,
+      "timeout": 21,
+      "nonfinite": 0,
+      "mean_return": -2.5668099498807426,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 6,
+          "unsafe": 7,
+          "timeout": 2,
+          "nonfinite": 0,
+          "mean_return": -11.883649853204581
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 5,
+          "unsafe": 5,
+          "timeout": 3,
+          "nonfinite": 0,
+          "mean_return": -2.3806124621946623
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 3,
+          "success_rate": 0.3333333333333333,
+          "collision": 3,
+          "unsafe": 3,
+          "timeout": 3,
+          "nonfinite": 0,
+          "mean_return": 5.813241173556032
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 3,
+          "unsafe": 3,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": 8.543468767084178
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 1.122757655883939
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 9,
+          "unsafe": 9,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -16.616064980409362
+        }
+      }
+    },
+    "bc_ppo_seed_20260813": {
+      "tasks": 54,
+      "success": 6,
+      "success_rate": 0.1111111111111111,
+      "collision": 24,
+      "unsafe": 24,
+      "timeout": 24,
+      "nonfinite": 0,
+      "mean_return": -0.8768150647847079,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 5,
+          "nonfinite": 0,
+          "mean_return": -6.152797917155677
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 3,
+          "unsafe": 3,
+          "timeout": 5,
+          "nonfinite": 0,
+          "mean_return": 4.712958042219636
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": -1.8314009766175303
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": 1.238366691145816
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 3,
+          "unsafe": 3,
+          "timeout": 6,
+          "nonfinite": 0,
+          "mean_return": -1.8017699801001035
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 3,
+          "success_rate": 0.3333333333333333,
+          "collision": 6,
+          "unsafe": 6,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -1.4262462482003886
+        }
+      }
+    },
+    "bc_ppo_seed_20260814": {
+      "tasks": 54,
+      "success": 4,
+      "success_rate": 0.07407407407407407,
+      "collision": 20,
+      "unsafe": 20,
+      "timeout": 30,
+      "nonfinite": 0,
+      "mean_return": -0.7979820635418294,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 0,
+          "unsafe": 0,
+          "timeout": 9,
+          "nonfinite": 0,
+          "mean_return": 0.5246589854953249
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 5,
+          "nonfinite": 0,
+          "mean_return": -1.6786089644567992
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 4,
+          "unsafe": 4,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": -1.7549643882684676
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 5,
+          "nonfinite": 0,
+          "mean_return": 10.723010151343855
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": -0.8907630906599441
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 8,
+          "unsafe": 8,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -11.711225074704947
+        }
+      }
+    },
+    "diffusion_only": {
+      "tasks": 54,
+      "success": 10,
+      "success_rate": 0.18518518518518517,
+      "collision": 25,
+      "unsafe": 30,
+      "timeout": 14,
+      "nonfinite": 0,
+      "mean_return": -0.6031112875163614,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 3,
+          "unsafe": 8,
+          "timeout": 1,
+          "nonfinite": 0,
+          "mean_return": -14.922033460686366
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 4,
+          "success_rate": 0.4444444444444444,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": 16.138289749686095
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 3,
+          "success_rate": 0.3333333333333333,
+          "collision": 6,
+          "unsafe": 6,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -0.5304996598667001
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 5,
+          "unsafe": 5,
+          "timeout": 2,
+          "nonfinite": 0,
+          "mean_return": 2.0605056414790703
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": 4.792710924828844
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 8,
+          "unsafe": 8,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -11.157640920539116
+        }
+      }
+    },
+    "diffusion_ppo_seed_20260812": {
+      "tasks": 54,
+      "success": 10,
+      "success_rate": 0.18518518518518517,
+      "collision": 25,
+      "unsafe": 30,
+      "timeout": 14,
+      "nonfinite": 0,
+      "mean_return": -0.6031112875163614,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 3,
+          "unsafe": 8,
+          "timeout": 1,
+          "nonfinite": 0,
+          "mean_return": -14.922033460686366
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 4,
+          "success_rate": 0.4444444444444444,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": 16.138289749686095
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 3,
+          "success_rate": 0.3333333333333333,
+          "collision": 6,
+          "unsafe": 6,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -0.5304996598667001
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 5,
+          "unsafe": 5,
+          "timeout": 2,
+          "nonfinite": 0,
+          "mean_return": 2.0605056414790703
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": 4.792710924828844
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 8,
+          "unsafe": 8,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -11.157640920539116
+        }
+      }
+    },
+    "diffusion_ppo_seed_20260813": {
+      "tasks": 54,
+      "success": 10,
+      "success_rate": 0.18518518518518517,
+      "collision": 25,
+      "unsafe": 30,
+      "timeout": 14,
+      "nonfinite": 0,
+      "mean_return": -0.6031112875163614,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 3,
+          "unsafe": 8,
+          "timeout": 1,
+          "nonfinite": 0,
+          "mean_return": -14.922033460686366
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 4,
+          "success_rate": 0.4444444444444444,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": 16.138289749686095
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 3,
+          "success_rate": 0.3333333333333333,
+          "collision": 6,
+          "unsafe": 6,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -0.5304996598667001
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 5,
+          "unsafe": 5,
+          "timeout": 2,
+          "nonfinite": 0,
+          "mean_return": 2.0605056414790703
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": 4.792710924828844
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 8,
+          "unsafe": 8,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -11.157640920539116
+        }
+      }
+    },
+    "diffusion_ppo_seed_20260814": {
+      "tasks": 54,
+      "success": 10,
+      "success_rate": 0.18518518518518517,
+      "collision": 25,
+      "unsafe": 30,
+      "timeout": 14,
+      "nonfinite": 0,
+      "mean_return": -0.6031112875163614,
+      "by_family": {
+        "DIAGONAL_CROSSOVER": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 3,
+          "unsafe": 8,
+          "timeout": 1,
+          "nonfinite": 0,
+          "mean_return": -14.922033460686366
+        },
+        "DOUBLE_ALTERNATING": {
+          "tasks": 9,
+          "success": 4,
+          "success_rate": 0.4444444444444444,
+          "collision": 1,
+          "unsafe": 1,
+          "timeout": 4,
+          "nonfinite": 0,
+          "mean_return": 16.138289749686095
+        },
+        "NARROW_GATE": {
+          "tasks": 9,
+          "success": 3,
+          "success_rate": 0.3333333333333333,
+          "collision": 6,
+          "unsafe": 6,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -0.5304996598667001
+        },
+        "OFFSET_TWIN_GATE": {
+          "tasks": 9,
+          "success": 2,
+          "success_rate": 0.2222222222222222,
+          "collision": 5,
+          "unsafe": 5,
+          "timeout": 2,
+          "nonfinite": 0,
+          "mean_return": 2.0605056414790703
+        },
+        "TRIPLE_CHICANE": {
+          "tasks": 9,
+          "success": 0,
+          "success_rate": 0.0,
+          "collision": 2,
+          "unsafe": 2,
+          "timeout": 7,
+          "nonfinite": 0,
+          "mean_return": 4.792710924828844
+        },
+        "WIDE_LATERAL_DETOUR": {
+          "tasks": 9,
+          "success": 1,
+          "success_rate": 0.1111111111111111,
+          "collision": 8,
+          "unsafe": 8,
+          "timeout": 0,
+          "nonfinite": 0,
+          "mean_return": -11.157640920539116
+        }
+      }
+    }
+  },
+  "equivalence_reuse": {
+    "bc_ppo_seed_20260814": {
+      "source": "bc_only",
+      "reason": "selected_step_0_exact_zero_residual",
+      "audit": {
+        "checkpoint": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s7\\bc_ppo_seed_20260814\\best_model.zip",
+        "max_abs_deterministic_residual": 0.0,
+        "exact_zero": true
+      }
+    },
+    "diffusion_ppo_seed_20260812": {
+      "source": "diffusion_only",
+      "reason": "selected_step_0_exact_zero_residual",
+      "audit": {
+        "checkpoint": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260812\\best_model.zip",
+        "max_abs_deterministic_residual": 0.0,
+        "exact_zero": true
+      }
+    },
+    "diffusion_ppo_seed_20260813": {
+      "source": "diffusion_only",
+      "reason": "selected_step_0_exact_zero_residual",
+      "audit": {
+        "checkpoint": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260813\\best_model.zip",
+        "max_abs_deterministic_residual": 0.0,
+        "exact_zero": true
+      }
+    },
+    "diffusion_ppo_seed_20260814": {
+      "source": "diffusion_only",
+      "reason": "selected_step_0_exact_zero_residual",
+      "audit": {
+        "checkpoint": "D:\\Desktop\\my_project\\quadrotor_diffusion_ppo\\checkpoints\\s6\\diffusion_ppo_seed_20260814\\best_model.zip",
+        "max_abs_deterministic_residual": 0.0,
+        "exact_zero": true
+      }
+    }
+  },
+  "raw_rollouts_sha256": "f53cca0de298123415ed2d600b1ba8b7d2cac4139262b200eef6159934a5d9e1"
+}

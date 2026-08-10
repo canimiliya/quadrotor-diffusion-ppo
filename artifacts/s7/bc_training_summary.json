@@ -1,0 +1,44 @@
+{
+  "task": "S7-R0-MATCHED-BC-ABLATION-AND-FRESH-TOPOLOGY-GENERALIZATION-V1",
+  "status": "BC_TRAINING_FROZEN",
+  "architecture_frozen_before_training": true,
+  "architecture": {
+    "observation_dim": 34,
+    "horizon": 16,
+    "action_dim": 3,
+    "observation_width": 128,
+    "width": 256,
+    "residual_blocks": 4
+  },
+  "parameter_count": 592688,
+  "diffusion_parameter_count": 621360,
+  "parameter_ratio": 0.9538560576799279,
+  "training_contract": {
+    "loss": "SmoothL1",
+    "optimizer": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 512,
+    "updates": 10000,
+    "validation_interval": 500,
+    "gradient_clip": 1.0,
+    "seed": 20260810
+  },
+  "dataset_identity": {
+    "s2_train_sha256": "701a1d36b767ff41347b1dac60868922ce5033ee8db27721daf891613125db21",
+    "s2_val_sha256": "c5687f812a958f28dce14c4a2742ae64a94bb330229747c7c64e85290134dbcc",
+    "s3r2_recovery_train_sha256": "ac87057d9363ee0557f8f02f2dcd2f1d4a27ae3bd956307800953eae2298f119",
+    "original_train_windows": 125678,
+    "recovery_train_windows": 66939,
+    "total_train_windows": 192617,
+    "val_windows": 27127,
+    "normalization_source": "S2_TRAIN_ONLY",
+    "test_accessed": false
+  },
+  "best_update": 10000,
+  "best_val_loss": 0.00018575267576751903,
+  "best_checkpoint_sha256": "23c8ead92cc53851bdd295dfb32175cac62cca86b040ce0f8b3701f04c41015a",
+  "training_wall_time_s": 46.1253464,
+  "test_accessed": false,
+  "fresh_holdout_accessed": false
+}

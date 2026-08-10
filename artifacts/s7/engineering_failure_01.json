@@ -1,0 +1,10 @@
+{
+  "stage": "BC_ONLY_VAL_EVIDENCE_AGGREGATION",
+  "model_training_complete": true,
+  "checkpoint_selection_complete": true,
+  "checkpoint_sha256": "23c8ead92cc53851bdd295dfb32175cac62cca86b040ce0f8b3701f04c41015a",
+  "failure": "KeyError: mean_return",
+  "cause": "The new raw rollout row used return while the frozen S4/S6 aggregate helper expects mean_return and a support-count field.",
+  "scientific_impact": "NONE_MODEL_OR_SELECTION; evaluation evidence was not finalized.",
+  "recovery": "Add the two evidence-schema aliases and rerun evaluation only from the frozen checkpoint; do not retrain."
+}

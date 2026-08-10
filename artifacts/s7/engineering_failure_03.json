@@ -1,0 +1,9 @@
+{
+  "stage": "BC_PPO_SEED_20260812_TRAINING",
+  "failure": "External command timeout at 120 seconds",
+  "observed_complete_checkpoints": [0, 50000, 100000],
+  "formal_training_manifest_created": false,
+  "scientific_impact": "NONE; interrupted attempt excluded from all statistics",
+  "preservation": "checkpoints/s7/bc_ppo_seed_20260812/failed_attempt_01_timeout_100k",
+  "recovery": "Restart from zero with the identical seed and scientific configuration under a sufficiently long execution timeout."
+}
