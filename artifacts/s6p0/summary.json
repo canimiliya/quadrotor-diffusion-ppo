@@ -3,8 +3,9 @@
   "final_label": "PASS_S6P0_FAST_EXACT_CUDA_GRAPH_RUNTIME",
   "branch": "agent/s6p0-runtime-optimization-v1",
   "start_head": "435e9d58ba41f627195354a333b3f5051d451b4c",
-  "end_head": null,
-  "remote_head": null,
+  "end_head": "1b58c3651609f21ab10cffbf3b4f86c2366ee267",
+  "remote_head": "1b58c3651609f21ab10cffbf3b4f86c2366ee267",
+  "head_semantics": "END_HEAD and REMOTE_HEAD identify the immutable implementation plus measured-evidence commit; the later handoff-only commit updates these metadata fields",
   "formal_progress": "70%",
   "scientific_contract_changed": false,
   "training_n_envs": 8,
@@ -82,7 +83,7 @@
     "skipped": 1,
     "warnings": 4
   },
-  "evidence_storage_bytes": 53206,
+  "evidence_storage_bytes": 53459,
   "what_was_proven": [
     "exact eager inference removes unused host synchronizations without numerical drift",
     "CUDA Graph fast mode is bit-exact and reproduces all 54 frozen VAL task outcomes",

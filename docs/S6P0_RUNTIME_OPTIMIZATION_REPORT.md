@@ -94,7 +94,7 @@ equivalence_audit.json = e5aab51f0b9572c4d900ec49a75ab0cf6183e89349259bc8f3702ca
 runtime_benchmark.csv  = 6a8c8d2fe151ef9f47d8bb9172bbc9bd2c15e6db8eb224fe6d3e50be6940b9a1
 ```
 
-六个 S6-P0 artifact 文件合计 53,206 bytes。
+六个 S6-P0 artifact 文件合计 53,459 bytes。
 
 未来 runner 可用以下显式模式做工程 smoke：
 
@@ -107,12 +107,14 @@ python scripts/run_s6p0_runtime.py --phase runtime-smoke --runtime-mode fast
 
 ```text
 START_HEAD = 435e9d58ba41f627195354a333b3f5051d451b4c
-END_HEAD = PENDING_IMPLEMENTATION_COMMIT
-REMOTE_HEAD = PENDING_PUSH
+END_HEAD = 1b58c3651609f21ab10cffbf3b4f86c2366ee267
+REMOTE_HEAD = 1b58c3651609f21ab10cffbf3b4f86c2366ee267
 BRANCH = agent/s6p0-runtime-optimization-v1
 FORMAL_PROGRESS = 70%
 UNIQUE_NEXT_TASK = NONE — WAIT_FOR_CONTROLLER_REVIEW
 ```
+
+`END_HEAD/REMOTE_HEAD` 指向包含实现、完整实测证据和本报告主体的不可变提交；其后的 handoff-only commit 只补齐上述 SHA 元数据，不改变代码、指标或科学结论。
 
 ## WHAT_WAS_PROVEN
 
