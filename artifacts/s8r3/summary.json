@@ -3,6 +3,8 @@
   "final_label": "PASS_S8R3_TRAINING_SUFFICIENCY_AUDIT_COMPLETE",
   "start_head": "a8805cf62258a86948a3496267aaebbfad486425",
   "branch": "agent/s8r3-training-sufficiency-audit-v1",
+  "end_head": "ed2beb64ce72ea181cf20c37f05b2f7c51e05f3e",
+  "remote_head": "ed2beb64ce72ea181cf20c37f05b2f7c51e05f3e",
   "dataset": {
     "train_sha256": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5",
     "val_sha256": "0fc50886504d36890444b4c09c2990962cc5be6551cb0e54c008df0d26f5246e",

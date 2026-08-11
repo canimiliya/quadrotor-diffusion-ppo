@@ -54,6 +54,7 @@ Diffusion 分类：`INCONCLUSIVE_WITHOUT_UNDERTRAINING_GATE`。它既不满足 u
 
 - START_HEAD=`a8805cf62258a86948a3496267aaebbfad486425`。
 - Branch=`agent/s8r3-training-sufficiency-audit-v1`。
+- END_HEAD/REMOTE_HEAD=`ed2beb64ce72ea181cf20c37f05b2f7c51e05f3e`。
 - TEST 保持 sealed；不提交 10K NPZ、cache 或模型 checkpoint。
 - `FORMAL_PROGRESS = 95%`。
 - `UNIQUE_NEXT_TASK = NONE — WAIT_FOR_CONTROLLER_REVIEW`。
