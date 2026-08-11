@@ -2,6 +2,9 @@
   "task": "S8-R2-10K-PROCEDURAL-GCOPTER-EXPERT-DATASET-V2",
   "final_label": "PASS_S8R2_10K_PROCEDURAL_EXPERT_DATASET",
   "start_head": "2d78357c800cb846fb16a3513f728273a91b06bb",
+  "evidence_commit": "74a6b58",
+  "end_head": "74a6b58",
+  "remote_head": "PENDING_PUSH",
   "origin_main": "2d78357c800cb846fb16a3513f728273a91b06bb",
   "branch": "agent/s8r2-10k-expert-dataset-v2",
   "map_generation_seed": 20260824,
@@ -194,7 +197,7 @@
   },
   "map_manifest_sha256": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
   "task_manifest_sha256": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
-  "dataset_summary_sha256": "bd95e8bd8662155eaf3d3b606da920abd24dbf31990c35258f19cabfc2f404bf",
+  "dataset_summary_sha256": "8cc9f3d9bea70e5df469b61b0076477c6cdb6a9f559915120ccbf8b8ad75c554",
   "dataset_bytes": {
     "train": 818927261,
     "val": 102578989,
