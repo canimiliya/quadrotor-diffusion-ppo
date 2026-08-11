@@ -50,6 +50,7 @@
 - GCOPTER 使用现有正式 `GCOPTER_PolytopeSFC::setup+optimize` pipeline；没有修改 dynamics、collision margin、speed/acceleration limits 或 trajectory quality gate。
 - acceptance 同时要求 planning success、finite rollout、goal reached、zero collision、zero ground contact、zero clipping、observation 34D、action 3D。
 - 独立 verifier 共 44 项检查全部 PASS；10 个 family 各选 1 个 map/task 重跑两次，planner coefficient SHA256 全部一致，`DETERMINISM_AUDIT=PASS`。
+- 全仓库回归：`102 passed, 1 skipped, 4 warnings`。
 - 最终 NPZ 约 1.024 GB，生成 cache 约 1.079 GB（均不提交）；三文件、map/task manifest 以及 `dataset_summary.sha256` 均有 SHA256 记录。
 
 ## Git 与阶段边界

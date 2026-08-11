@@ -198,7 +198,7 @@
   },
   "map_manifest_sha256": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
   "task_manifest_sha256": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
-  "dataset_summary_sha256": "59b6cbea3a596124f024ee87879b98580c933066b4a62c50d9c0ca14a4c87195",
+  "dataset_summary_sha256": "da741305777a698f06a39e863dda53986b295bce109c61027e239e2b7c7aa16f",
   "dataset_bytes": {
     "train": 818927261,
     "val": 102578989,
@@ -207,7 +207,7 @@
   "total_dataset_bytes": 1023806213,
   "temporary_files_bytes": 1078904688,
   "generation_wall_time_s": 993.865138053894,
-  "regression": "PENDING",
+  "regression": "PASS (102 passed, 1 skipped)",
   "independent_verification": "PASS",
   "what_was_proven": [
     "1000 unique procedural maps",
