@@ -2,8 +2,9 @@
   "task": "S8-R1A-OFFLINE-EXPERT-DATA-BUDGET-BC-VS-DIFFUSION-ABLATION-V1",
   "final_label": "PASS_S8R1A_PRIOR_DATA_ABLATION_BC_COMPETITIVE_OR_BETTER",
   "start_head": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
-  "end_head": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
-  "remote_head": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
+  "end_head": "d2d1885",
+  "remote_head": "d2d1885",
+  "canonical_main": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
   "branch": "agent/s8r1a-offline-data-ablation-v1",
   "data_budget_seed": 20260817,
   "manifest_hashes": {
@@ -1617,8 +1618,8 @@
     "path": "artifacts/s8r1a/independent_verification.json"
   },
   "storage": "18 best + 18 last checkpoints retained locally; no checkpoints/NPZ/temp logs submitted to Git",
-  "what_was_proven": "??? task-level nested TRAIN budget ??? architecture ??? 25/50/100% ? BC/Diffusion ? seed ?????? Current VAL ? S7 fresh development ????25% Diffusion ????? <10 percentage points?50% ? 100% BC ???",
-  "what_was_not_proven": "???? Diffusion ???????????????????? PPO?S2 TEST?S6 TEST?final untouched topology ????? freeze?",
+  "what_was_proven": "Completed matched three-seed BC versus Diffusion ablation at 25/50/100 percent task-level nested TRAIN budgets, with Current VAL and S7 fresh development evaluations. Diffusion was only modestly higher at 25 percent and BC was stronger at 50 and 100 percent.",
+  "what_was_not_proven": "No preregistered stable low-data Diffusion advantage was proven. PPO, S2 TEST, S6 TEST, final untouched topology, and paper freeze were not run.",
   "formal_progress": "95%",
-  "unique_next_task": "NONE ? WAIT_FOR_CONTROLLER_REVIEW"
+  "unique_next_task": "NONE — WAIT_FOR_CONTROLLER_REVIEW"
 }
