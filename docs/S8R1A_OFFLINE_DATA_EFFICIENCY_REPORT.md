@@ -39,7 +39,8 @@
 - TASK：`S8-R1A-OFFLINE-EXPERT-DATA-BUDGET-BC-VS-DIFFUSION-ABLATION-V1`
 - START_HEAD：`1b160f5e5ba2d785196ce5ee74e1a10378e6804e`
 - END_HEAD：`d2d1885`（evidence commit）
-- REMOTE_HEAD：`d2d1885`（S8R1A branch）
+- REMOTE_HEAD：`bff96cc`（S8R1A remote branch）
+- PACKAGE_COMMIT：`bff96cc`（summary/report finalization parent）
 - CANONICAL_MAIN：`1b160f5e5ba2d785196ce5ee74e1a10378e6804e`
 - BRANCH：`agent/s8r1a-offline-data-ablation-v1`
 - DATA_BUDGET_SEED：`20260817`
