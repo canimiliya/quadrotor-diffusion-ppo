@@ -1,0 +1,243 @@
+{
+  "task": "S8-R3-10K-BC-VS-MLP-DIFFUSION-TRAINING-SUFFICIENCY-AUDIT-V1",
+  "checks": [
+    {
+      "name": "train_hash",
+      "pass": true,
+      "detail": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5"
+    },
+    {
+      "name": "val_hash",
+      "pass": true,
+      "detail": "0fc50886504d36890444b4c09c2990962cc5be6551cb0e54c008df0d26f5246e"
+    },
+    {
+      "name": "test_hash",
+      "pass": true,
+      "detail": "b4eee85496acb4d1e7b02e4f4bb44715c18c355014e77a79f8499a5fffa3a74e"
+    },
+    {
+      "name": "train_windows",
+      "pass": true,
+      "detail": "4776168"
+    },
+    {
+      "name": "val_windows",
+      "pass": true,
+      "detail": "598153"
+    },
+    {
+      "name": "updates_per_pass",
+      "pass": true,
+      "detail": "9329"
+    },
+    {
+      "name": "test_sealed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "normalization_shape",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "normalization_finite",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "normalization_train_only",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "ppo_zero",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "test_run_zero",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "formal_progress",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_params",
+      "pass": true,
+      "detail": "592688"
+    },
+    {
+      "name": "bc_finite",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_completeness",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_1_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_1_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_5_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_5_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_10_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_10_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_20_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_20_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_30_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "bc_checkpoint_30_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_params",
+      "pass": true,
+      "detail": "621360"
+    },
+    {
+      "name": "diffusion_finite",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_completeness",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_1_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_1_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_5_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_5_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_10_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_10_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_20_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_20_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_30_exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "diffusion_checkpoint_30_hash",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "curve_metrics_present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "curve_finite",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "closed_loop_checkpoints",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "closed_loop_val_count",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "family_rows",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "family_coverage",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "rollout_finite",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "next_task_wait",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 47,
+  "failed": 0,
+  "final_label": "PASS_S8R3_INDEPENDENT_VERIFICATION"
+}

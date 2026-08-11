@@ -1,0 +1,29 @@
+{
+  "task": "S8-R3-10K-BC-VS-MLP-DIFFUSION-TRAINING-SUFFICIENCY-AUDIT-V1",
+  "model": {
+    "observation_dim": 34,
+    "horizon": 16,
+    "action_dim": 3,
+    "observation_width": 128,
+    "width": 256,
+    "residual_blocks": 4,
+    "time_dim": 64,
+    "bounded_output": true
+  },
+  "loss": "MSE_x0",
+  "optimizer": "AdamW",
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "batch_size": 512,
+  "gradient_clip": 1.0,
+  "prediction_target": "x0",
+  "diffusion_steps": 100,
+  "beta_schedule": "cosine",
+  "ddim_steps": 10,
+  "ddim_eta": 0.0,
+  "action_support": "unit_ball_squash",
+  "training_seed": 20260820,
+  "normalization_sha256": "e05b9a424cbb782dc1eddfcfd69fbf4e849806d3995bbab48e4a60193c76b6e0",
+  "runtime": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+  "test_accessed": false
+}

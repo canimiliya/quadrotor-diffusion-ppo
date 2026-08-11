@@ -167,6 +167,21 @@ artifacts/s8r2_10k/_work/
 artifacts/s8r2_10k/_debug_*/
 artifacts/s8r2_10k/blocked_report.json
 
+!artifacts/s8r3/
+artifacts/s8r3/*
+!artifacts/s8r3/window_statistics.json
+!artifacts/s8r3/train_obs_normalization.npz
+!artifacts/s8r3/diffusion_frozen_config.json
+!artifacts/s8r3/training_curve.csv
+!artifacts/s8r3/closed_loop_metrics.csv
+!artifacts/s8r3/family_metrics.csv
+!artifacts/s8r3/summary.json
+!artifacts/s8r3/independent_verification.json
+!artifacts/s8r3/figures/
+!artifacts/s8r3/figures/*.png
+artifacts/s8r3/*_val_rollouts.csv
+artifacts/s8r3/*.npz
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

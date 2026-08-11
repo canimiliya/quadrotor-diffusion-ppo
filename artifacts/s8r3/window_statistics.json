@@ -1,0 +1,13 @@
+{
+  "train_episodes": 8000,
+  "train_transitions": 4896168,
+  "train_h16_windows": 4776168,
+  "val_episodes": 1000,
+  "val_transitions": 613153,
+  "val_h16_windows": 598153,
+  "batch_size": 512,
+  "updates_per_effective_pass": 9329,
+  "max_effective_passes": 30,
+  "training_seed": 20260820,
+  "test_accessed": false
+}
