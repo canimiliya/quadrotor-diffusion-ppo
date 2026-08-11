@@ -1,0 +1,3 @@
+map_id,family,task_id,task_slot,candidate_attempt,failure_category,error
+DOUBLE_GATE_074,DOUBLE_GATE,DOUBLE_GATE_074_TASK_06,6,0,planner_failure,GCOPTER planner failed rc=5: w s l :   �hKm0R  l o c a l h o s t   �NtM�n�FO*g\��P0R  W S L 0N A T   !j_N�v  W S L    N/ec  l o c a l h o s t   �Nt0    
+LATERAL_DETOUR_047,LATERAL_DETOUR,LATERAL_DETOUR_047_TASK_02,2,0,planner_failure,GCOPTER planner failed rc=5: w s l :   �hKm0R  l o c a l h o s t   �NtM�n�FO*g\��P0R  W S L 0N A T   !j_N�v  W S L    N/ec  l o c a l h o s t   �Nt0    

@@ -1,0 +1,7 @@
+metric,Old S2,New S8-R2 10K
+number_of_maps_topologies,9,1000
+number_of_trajectories,360,10000
+number_of_train_trajectories,252,8000
+number_of_task_map_combinations,360,10000
+family_diversity,3,10
+transitions,184871,6120725

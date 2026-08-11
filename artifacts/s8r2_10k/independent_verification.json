@@ -1,0 +1,327 @@
+{
+  "task": "S8-R2-10K-PROCEDURAL-GCOPTER-EXPERT-DATASET-V2",
+  "checks": [
+    {
+      "name": "unique_map_count",
+      "status": "PASS",
+      "detail": "1000"
+    },
+    {
+      "name": "unique_map_ids",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "unique_geometry_hashes",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "all_families",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "family_map_balance",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "accepted_task_count",
+      "status": "PASS",
+      "detail": "10000"
+    },
+    {
+      "name": "ten_tasks_per_map",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "task_ids_unique_per_map",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "start_goal_stratification",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "trajectory_split_balance",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "map_split_balance",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "map_level_leakage",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "task_overlap_train_val",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_schema",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_episode_count",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_obs_action_shape",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_finite",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_unit_ball",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_safety_and_episode_terminal",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_episode_offsets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "train_sha256",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_schema",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_episode_count",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_obs_action_shape",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_finite",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_unit_ball",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_safety_and_episode_terminal",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_episode_offsets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "val_sha256",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_schema",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_episode_count",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_obs_action_shape",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_finite",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_unit_ball",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_safety_and_episode_terminal",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_episode_offsets",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_sha256",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "total_transition_count",
+      "status": "PASS",
+      "detail": "6120725"
+    },
+    {
+      "name": "summary_zero_safety_counters",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "test_split_sealed",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "no_test_training_or_selection_marker",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "map_manifest_sha256",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "task_manifest_sha256",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "determinism_audit",
+      "status": "PASS",
+      "detail": "{\"status\":\"PASS\",\"geometry_endpoint_identity\":[true,true,true,true,true,true,true,true,true,true],\"planner_rerun\":[{\"family\":\"SINGLE_BLOCK\",\"hashes\":[\"fe0a7640f627546cf455f0320dfa03dc08fcd272b13f08def5d4561c342f2a20\",\"fe0a7640f627546cf455f0320dfa03dc08fcd272b13f08def5d4561c342f2a20\"],\"match\":true},{\"family\":\"OFFSET_BLOCK\",\"hashes\":[\"335563051b0e49fe40627e19526334c22c1e0dcedc269858f0d203dbca796a0f\",\"335563051b0e49fe40627e19526334c22c1e0dcedc269858f0d203dbca796a0f\"],\"match\":true},{\"family\":\"DOUBLE_BLOCK\",\"hashes\":[\"a8060bfe693aa11a2917c868f87b5cd5043d98abc73b00848cbf5cfe6de3b6ad\",\"a8060bfe693aa11a2917c868f87b5cd5043d98abc73b00848cbf5cfe6de3b6ad\"],\"match\":true},{\"family\":\"ALTERNATING_BLOCKS\",\"hashes\":[\"6a4c576f112160de05d65b2ab1854f3b415e795d0b3034a62d9527e368f0998e\",\"6a4c576f112160de05d65b2ab1854f3b415e795d0b3034a62d9527e368f0998e\"],\"match\":true},{\"family\":\"SBEND_RANDOM\",\"hashes\":[\"e0487205b062353ada1f797ca564ebfaec93292903f3842ef8e79503ddb2f7cc\",\"e0487205b062353ada1f797ca564ebfaec93292903f3842ef8e79503ddb2f7cc\"],\"match\":true},{\"family\":\"CHICANE_RANDOM\",\"hashes\":[\"0b9544f22b65fa08e56f4a9374e64ffb74a964bed324e4fbe22df39568164c3e\",\"0b9544f22b65fa08e56f4a9374e64ffb74a964bed324e4fbe22df39568164c3e\"],\"match\":true},{\"family\":\"NARROW_GATE\",\"hashes\":[\"1e84ec4faa038efc82c1b3b26bf8521dc7ab30fcef6a0b1d31c867775c3eb557\",\"1e84ec4faa038efc82c1b3b26bf8521dc7ab30fcef6a0b1d31c867775c3eb557\"],\"match\":true},{\"family\":\"DOUBLE_GATE\",\"hashes\":[\"c3c48a001114c57431e05d8c4564ff7a31a9431e1e324a7160e5ed69ff6f28e6\",\"c3c48a001114c57431e05d8c4564ff7a31a9431e1e324a7160e5ed69ff6f28e6\"],\"match\":true},{\"family\":\"LATERAL_DETOUR\",\"hashes\":[\"3488d7090380054cd56e9b0505b2a918279133814ddf26e479ec15fa001aae5c\",\"3488d7090380054cd56e9b0505b2a918279133814ddf26e479ec15fa001aae5c\"],\"match\":true},{\"family\":\"MIXED_CLUTTER\",\"hashes\":[\"b2195972d424ce4cfd8db3e82f5a2c9776f95b00f3ddf65369b92a3a30039b76\",\"b2195972d424ce4cfd8db3e82f5a2c9776f95b00f3ddf65369b92a3a30039b76\"],\"match\":true}]}"
+    }
+  ],
+  "passed": 44,
+  "failed": 0,
+  "determinism": {
+    "status": "PASS",
+    "geometry_endpoint_identity": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "planner_rerun": [
+      {
+        "family": "SINGLE_BLOCK",
+        "hashes": [
+          "fe0a7640f627546cf455f0320dfa03dc08fcd272b13f08def5d4561c342f2a20",
+          "fe0a7640f627546cf455f0320dfa03dc08fcd272b13f08def5d4561c342f2a20"
+        ],
+        "match": true
+      },
+      {
+        "family": "OFFSET_BLOCK",
+        "hashes": [
+          "335563051b0e49fe40627e19526334c22c1e0dcedc269858f0d203dbca796a0f",
+          "335563051b0e49fe40627e19526334c22c1e0dcedc269858f0d203dbca796a0f"
+        ],
+        "match": true
+      },
+      {
+        "family": "DOUBLE_BLOCK",
+        "hashes": [
+          "a8060bfe693aa11a2917c868f87b5cd5043d98abc73b00848cbf5cfe6de3b6ad",
+          "a8060bfe693aa11a2917c868f87b5cd5043d98abc73b00848cbf5cfe6de3b6ad"
+        ],
+        "match": true
+      },
+      {
+        "family": "ALTERNATING_BLOCKS",
+        "hashes": [
+          "6a4c576f112160de05d65b2ab1854f3b415e795d0b3034a62d9527e368f0998e",
+          "6a4c576f112160de05d65b2ab1854f3b415e795d0b3034a62d9527e368f0998e"
+        ],
+        "match": true
+      },
+      {
+        "family": "SBEND_RANDOM",
+        "hashes": [
+          "e0487205b062353ada1f797ca564ebfaec93292903f3842ef8e79503ddb2f7cc",
+          "e0487205b062353ada1f797ca564ebfaec93292903f3842ef8e79503ddb2f7cc"
+        ],
+        "match": true
+      },
+      {
+        "family": "CHICANE_RANDOM",
+        "hashes": [
+          "0b9544f22b65fa08e56f4a9374e64ffb74a964bed324e4fbe22df39568164c3e",
+          "0b9544f22b65fa08e56f4a9374e64ffb74a964bed324e4fbe22df39568164c3e"
+        ],
+        "match": true
+      },
+      {
+        "family": "NARROW_GATE",
+        "hashes": [
+          "1e84ec4faa038efc82c1b3b26bf8521dc7ab30fcef6a0b1d31c867775c3eb557",
+          "1e84ec4faa038efc82c1b3b26bf8521dc7ab30fcef6a0b1d31c867775c3eb557"
+        ],
+        "match": true
+      },
+      {
+        "family": "DOUBLE_GATE",
+        "hashes": [
+          "c3c48a001114c57431e05d8c4564ff7a31a9431e1e324a7160e5ed69ff6f28e6",
+          "c3c48a001114c57431e05d8c4564ff7a31a9431e1e324a7160e5ed69ff6f28e6"
+        ],
+        "match": true
+      },
+      {
+        "family": "LATERAL_DETOUR",
+        "hashes": [
+          "3488d7090380054cd56e9b0505b2a918279133814ddf26e479ec15fa001aae5c",
+          "3488d7090380054cd56e9b0505b2a918279133814ddf26e479ec15fa001aae5c"
+        ],
+        "match": true
+      },
+      {
+        "family": "MIXED_CLUTTER",
+        "hashes": [
+          "b2195972d424ce4cfd8db3e82f5a2c9776f95b00f3ddf65369b92a3a30039b76",
+          "b2195972d424ce4cfd8db3e82f5a2c9776f95b00f3ddf65369b92a3a30039b76"
+        ],
+        "match": true
+      }
+    ]
+  },
+  "test_split_sealed": true,
+  "no_training": true,
+  "no_test_evaluation": true
+}

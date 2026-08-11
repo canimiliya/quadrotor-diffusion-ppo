@@ -148,6 +148,25 @@ artifacts/s8r1a/runs/*
 artifacts/s8r1a/runs/*/training_curve.csv
 artifacts/s8r1a/_evaluation_internal.json
 
+!artifacts/s8r2_10k/
+artifacts/s8r2_10k/*
+!artifacts/s8r2_10k/map_manifest.json
+!artifacts/s8r2_10k/task_manifest.csv
+!artifacts/s8r2_10k/dataset_summary.json
+!artifacts/s8r2_10k/dataset_summary.sha256
+!artifacts/s8r2_10k/independent_verification.json
+!artifacts/s8r2_10k/rejection_statistics.csv
+!artifacts/s8r2_10k/diversity_statistics.csv
+!artifacts/s8r2_10k/old_vs_new_dataset.csv
+!artifacts/s8r2_10k/generation_state.json
+!artifacts/s8r2_10k/previews/
+!artifacts/s8r2_10k/previews/*.png
+artifacts/s8r2_10k/*.npz
+artifacts/s8r2_10k/_cache/
+artifacts/s8r2_10k/_work/
+artifacts/s8r2_10k/_debug_*/
+artifacts/s8r2_10k/blocked_report.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

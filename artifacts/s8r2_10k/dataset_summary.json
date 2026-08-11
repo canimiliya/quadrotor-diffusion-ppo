@@ -1,0 +1,222 @@
+{
+  "task": "S8-R2-10K-PROCEDURAL-GCOPTER-EXPERT-DATASET-V2",
+  "final_label": "PASS_S8R2_10K_PROCEDURAL_EXPERT_DATASET",
+  "start_head": "2d78357c800cb846fb16a3513f728273a91b06bb",
+  "origin_main": "2d78357c800cb846fb16a3513f728273a91b06bb",
+  "branch": "agent/s8r2-10k-expert-dataset-v2",
+  "map_generation_seed": 20260824,
+  "task_generation_seed": 20260825,
+  "split_seed": 20260826,
+  "total_maps": 1000,
+  "total_trajectories": 10000,
+  "train_maps": 800,
+  "val_maps": 100,
+  "test_maps": 100,
+  "train_trajectories": 8000,
+  "val_trajectories": 1000,
+  "test_trajectories": 1000,
+  "family_counts": {
+    "SINGLE_BLOCK": 100,
+    "OFFSET_BLOCK": 100,
+    "DOUBLE_BLOCK": 100,
+    "ALTERNATING_BLOCKS": 100,
+    "SBEND_RANDOM": 100,
+    "CHICANE_RANDOM": 100,
+    "NARROW_GATE": 100,
+    "DOUBLE_GATE": 100,
+    "LATERAL_DETOUR": 100,
+    "MIXED_CLUTTER": 100
+  },
+  "family_trajectory_counts": {
+    "SINGLE_BLOCK": 1000,
+    "OFFSET_BLOCK": 1000,
+    "DOUBLE_BLOCK": 1000,
+    "ALTERNATING_BLOCKS": 1000,
+    "SBEND_RANDOM": 1000,
+    "CHICANE_RANDOM": 1000,
+    "NARROW_GATE": 1000,
+    "DOUBLE_GATE": 1000,
+    "LATERAL_DETOUR": 1000,
+    "MIXED_CLUTTER": 1000
+  },
+  "total_transitions": 6120725,
+  "split_stats": {
+    "train": {
+      "episodes": 8000,
+      "transitions": 4896168,
+      "bytes": 818927261
+    },
+    "val": {
+      "episodes": 1000,
+      "transitions": 613153,
+      "bytes": 102578989
+    },
+    "test": {
+      "episodes": 1000,
+      "transitions": 611404,
+      "bytes": 102299963
+    }
+  },
+  "candidates": 10002,
+  "rejections": 2,
+  "acceptance_rate": 0.9998000399920016,
+  "rejection_categories": {
+    "map_geometry_rejection": 0,
+    "planner_failure": 2,
+    "rollout_collision": 0,
+    "ground_contact": 0,
+    "goal_not_reached": 0,
+    "nonfinite": 0,
+    "action_violation": 0,
+    "environment_clipping": 0,
+    "other": 0
+  },
+  "map_overlaps": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "task_overlaps": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "collision_count": 0,
+  "ground_count": 0,
+  "nonfinite_count": 0,
+  "action_support_violation": 0,
+  "environment_clipping": 0,
+  "observation_dim": 34,
+  "action_dim": 3,
+  "action_unit_ball": true,
+  "determinism_audit": {
+    "status": "PASS",
+    "geometry_endpoint_identity": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "planner_rerun": [
+      {
+        "family": "SINGLE_BLOCK",
+        "hashes": [
+          "fe0a7640f627546cf455f0320dfa03dc08fcd272b13f08def5d4561c342f2a20",
+          "fe0a7640f627546cf455f0320dfa03dc08fcd272b13f08def5d4561c342f2a20"
+        ],
+        "match": true
+      },
+      {
+        "family": "OFFSET_BLOCK",
+        "hashes": [
+          "335563051b0e49fe40627e19526334c22c1e0dcedc269858f0d203dbca796a0f",
+          "335563051b0e49fe40627e19526334c22c1e0dcedc269858f0d203dbca796a0f"
+        ],
+        "match": true
+      },
+      {
+        "family": "DOUBLE_BLOCK",
+        "hashes": [
+          "a8060bfe693aa11a2917c868f87b5cd5043d98abc73b00848cbf5cfe6de3b6ad",
+          "a8060bfe693aa11a2917c868f87b5cd5043d98abc73b00848cbf5cfe6de3b6ad"
+        ],
+        "match": true
+      },
+      {
+        "family": "ALTERNATING_BLOCKS",
+        "hashes": [
+          "6a4c576f112160de05d65b2ab1854f3b415e795d0b3034a62d9527e368f0998e",
+          "6a4c576f112160de05d65b2ab1854f3b415e795d0b3034a62d9527e368f0998e"
+        ],
+        "match": true
+      },
+      {
+        "family": "SBEND_RANDOM",
+        "hashes": [
+          "e0487205b062353ada1f797ca564ebfaec93292903f3842ef8e79503ddb2f7cc",
+          "e0487205b062353ada1f797ca564ebfaec93292903f3842ef8e79503ddb2f7cc"
+        ],
+        "match": true
+      },
+      {
+        "family": "CHICANE_RANDOM",
+        "hashes": [
+          "0b9544f22b65fa08e56f4a9374e64ffb74a964bed324e4fbe22df39568164c3e",
+          "0b9544f22b65fa08e56f4a9374e64ffb74a964bed324e4fbe22df39568164c3e"
+        ],
+        "match": true
+      },
+      {
+        "family": "NARROW_GATE",
+        "hashes": [
+          "1e84ec4faa038efc82c1b3b26bf8521dc7ab30fcef6a0b1d31c867775c3eb557",
+          "1e84ec4faa038efc82c1b3b26bf8521dc7ab30fcef6a0b1d31c867775c3eb557"
+        ],
+        "match": true
+      },
+      {
+        "family": "DOUBLE_GATE",
+        "hashes": [
+          "c3c48a001114c57431e05d8c4564ff7a31a9431e1e324a7160e5ed69ff6f28e6",
+          "c3c48a001114c57431e05d8c4564ff7a31a9431e1e324a7160e5ed69ff6f28e6"
+        ],
+        "match": true
+      },
+      {
+        "family": "LATERAL_DETOUR",
+        "hashes": [
+          "3488d7090380054cd56e9b0505b2a918279133814ddf26e479ec15fa001aae5c",
+          "3488d7090380054cd56e9b0505b2a918279133814ddf26e479ec15fa001aae5c"
+        ],
+        "match": true
+      },
+      {
+        "family": "MIXED_CLUTTER",
+        "hashes": [
+          "b2195972d424ce4cfd8db3e82f5a2c9776f95b00f3ddf65369b92a3a30039b76",
+          "b2195972d424ce4cfd8db3e82f5a2c9776f95b00f3ddf65369b92a3a30039b76"
+        ],
+        "match": true
+      }
+    ]
+  },
+  "test_split_sealed": true,
+  "dataset_sha256": {
+    "train": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5",
+    "val": "0fc50886504d36890444b4c09c2990962cc5be6551cb0e54c008df0d26f5246e",
+    "test": "b4eee85496acb4d1e7b02e4f4bb44715c18c355014e77a79f8499a5fffa3a74e"
+  },
+  "map_manifest_sha256": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
+  "task_manifest_sha256": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
+  "dataset_summary_sha256": "bd95e8bd8662155eaf3d3b606da920abd24dbf31990c35258f19cabfc2f404bf",
+  "dataset_bytes": {
+    "train": 818927261,
+    "val": 102578989,
+    "test": 102299963
+  },
+  "total_dataset_bytes": 1023806213,
+  "temporary_files_bytes": 1078904688,
+  "generation_wall_time_s": 993.865138053894,
+  "regression": "PENDING",
+  "independent_verification": "PASS",
+  "what_was_proven": [
+    "1000 unique procedural maps",
+    "10 accepted GCOPTER trajectories per map",
+    "map-level split and frozen contracts"
+  ],
+  "what_was_not_proven": [
+    "No BC/Diffusion/PPO training was run",
+    "TEST was sealed and not used for model selection"
+  ],
+  "formal_progress": "95%",
+  "unique_next_task": "NONE — WAIT_FOR_CONTROLLER_REVIEW",
+  "cache_bytes_excluded_from_git": 1078904688,
+  "preview_figure_count": 33,
+  "dataset_summary_sha256_semantics": "SHA256 of canonical JSON with dataset_summary_sha256 field blank"
+}
