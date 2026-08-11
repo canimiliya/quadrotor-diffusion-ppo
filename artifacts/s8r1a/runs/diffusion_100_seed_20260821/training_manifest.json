@@ -1,0 +1,18 @@
+{
+  "task": "S8-R1A-OFFLINE-EXPERT-DATA-BUDGET-BC-VS-DIFFUSION-ABLATION-V1",
+  "model": "Diffusion",
+  "fraction": 100,
+  "seed": 20260821,
+  "status": "TRAINED_FROZEN",
+  "best_update": 9500,
+  "best_val_loss": 0.0003887521452270448,
+  "best_checkpoint_sha256": "8b2cc2f3464c789b9ce8a3409a28aebac0a0329a70941f994d6a44cb093d674e",
+  "last_checkpoint_sha256": "a74c6b4e603fd912a32155fe9a568d40dbe219340d2547bf12e130e6b84e9e90",
+  "training_wall_time_s": 51.89227249999999,
+  "dataset_manifest_sha256": "daefc04fdceff2c82343af74c93e5af00ffc3751cc54f69030325e9e662fb0a8",
+  "test_accessed": false,
+  "s6_test_accessed": false,
+  "config_hash": "b4630c5bce2b2fa9aa3de07d47df2019450c807199cf4375431ab3031ffb7bf8",
+  "parameter_count": 621360,
+  "runtime_contract": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE"
+}

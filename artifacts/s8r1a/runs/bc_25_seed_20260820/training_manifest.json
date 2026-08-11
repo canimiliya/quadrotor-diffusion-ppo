@@ -1,0 +1,17 @@
+{
+  "task": "S8-R1A-OFFLINE-EXPERT-DATA-BUDGET-BC-VS-DIFFUSION-ABLATION-V1",
+  "model": "BC",
+  "fraction": 25,
+  "seed": 20260820,
+  "status": "TRAINED_FROZEN",
+  "best_update": 8500,
+  "best_val_loss": 0.00025997210620496434,
+  "best_checkpoint_sha256": "f45b66611ebb898838dbf6d06b2d9990a717a852e5207d2134850641a55a7c43",
+  "last_checkpoint_sha256": "ce3d67c3e801c3dc4fd039707d586049a1f14553746abde1f857a2ca94601080",
+  "training_wall_time_s": 51.2741886,
+  "dataset_manifest_sha256": "e328ff96256f3cd753fcc1e85467c27a1d79679216bf25296a0b3a6c2fd5a8b2",
+  "test_accessed": false,
+  "s6_test_accessed": false,
+  "config_hash": "741547b64f0405ce4a2423e5d87b9d3068d82f98c6edec54118d0c8d137baa27",
+  "parameter_count": 592688
+}

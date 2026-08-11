@@ -1,0 +1,1624 @@
+{
+  "task": "S8-R1A-OFFLINE-EXPERT-DATA-BUDGET-BC-VS-DIFFUSION-ABLATION-V1",
+  "final_label": "PASS_S8R1A_PRIOR_DATA_ABLATION_BC_COMPETITIVE_OR_BETTER",
+  "start_head": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
+  "end_head": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
+  "remote_head": "1b160f5e5ba2d785196ce5ee74e1a10378e6804e",
+  "branch": "agent/s8r1a-offline-data-ablation-v1",
+  "data_budget_seed": 20260817,
+  "manifest_hashes": {
+    "25": "e328ff96256f3cd753fcc1e85467c27a1d79679216bf25296a0b3a6c2fd5a8b2",
+    "50": "841915f12f4523f30090a4286c07eff6a17aad8a33c3ecf79d925f98f305974b",
+    "100": "daefc04fdceff2c82343af74c93e5af00ffc3751cc54f69030325e9e662fb0a8"
+  },
+  "bc_config_hash": "741547b64f0405ce4a2423e5d87b9d3068d82f98c6edec54118d0c8d137baa27",
+  "diffusion_config_hash": "b4630c5bce2b2fa9aa3de07d47df2019450c807199cf4375431ab3031ffb7bf8",
+  "training_seeds": [
+    20260820,
+    20260821,
+    20260822
+  ],
+  "run_count": 18,
+  "run_status": [
+    {
+      "model": "BC",
+      "fraction": 25,
+      "seed": 20260820,
+      "current": {
+        "tasks": 54,
+        "success": 26,
+        "success_rate": 0.48148148148148145,
+        "collision": 14,
+        "ground_contact": 1,
+        "unsafe": 15,
+        "timeout": 13,
+        "mean_return": 10.763832287138136,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 16,
+            "success_rate": 0.8888888888888888
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 6,
+            "success_rate": 0.3333333333333333
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 4,
+            "success_rate": 0.2222222222222222
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 6,
+        "success_rate": 0.1111111111111111,
+        "collision": 25,
+        "ground_contact": 5,
+        "unsafe": 30,
+        "timeout": 18,
+        "mean_return": -3.5510017247511283,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "f45b66611ebb898838dbf6d06b2d9990a717a852e5207d2134850641a55a7c43",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "f45b66611ebb898838dbf6d06b2d9990a717a852e5207d2134850641a55a7c43",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "f45b66611ebb898838dbf6d06b2d9990a717a852e5207d2134850641a55a7c43"
+    },
+    {
+      "model": "BC",
+      "fraction": 25,
+      "seed": 20260821,
+      "current": {
+        "tasks": 54,
+        "success": 27,
+        "success_rate": 0.5,
+        "collision": 11,
+        "ground_contact": 0,
+        "unsafe": 11,
+        "timeout": 16,
+        "mean_return": 12.369998292726715,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 16,
+            "success_rate": 0.8888888888888888
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 4,
+            "success_rate": 0.2222222222222222
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 11,
+        "success_rate": 0.2037037037037037,
+        "collision": 31,
+        "ground_contact": 0,
+        "unsafe": 31,
+        "timeout": 12,
+        "mean_return": -3.1044975350955832,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "7f580219b899885f8d1348e9083e5d251984da4ef51d24fa2e569219c31e2e77",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "7f580219b899885f8d1348e9083e5d251984da4ef51d24fa2e569219c31e2e77",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "7f580219b899885f8d1348e9083e5d251984da4ef51d24fa2e569219c31e2e77"
+    },
+    {
+      "model": "BC",
+      "fraction": 25,
+      "seed": 20260822,
+      "current": {
+        "tasks": 54,
+        "success": 29,
+        "success_rate": 0.5370370370370371,
+        "collision": 9,
+        "ground_contact": 0,
+        "unsafe": 9,
+        "timeout": 16,
+        "mean_return": 13.625428121412424,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 15,
+            "success_rate": 0.8333333333333334
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 3,
+        "success_rate": 0.05555555555555555,
+        "collision": 28,
+        "ground_contact": 2,
+        "unsafe": 30,
+        "timeout": 21,
+        "mean_return": -6.796440829228785,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "953f345775ba19fbb0f9bdb07add858a8bd71ddfe9b61166264e86b45bce991d",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "953f345775ba19fbb0f9bdb07add858a8bd71ddfe9b61166264e86b45bce991d",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "953f345775ba19fbb0f9bdb07add858a8bd71ddfe9b61166264e86b45bce991d"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 25,
+      "seed": 20260820,
+      "current": {
+        "tasks": 54,
+        "success": 27,
+        "success_rate": 0.5,
+        "collision": 9,
+        "ground_contact": 5,
+        "unsafe": 14,
+        "timeout": 13,
+        "mean_return": 11.0861329137681,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 13,
+            "success_rate": 0.7222222222222222
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 6,
+            "success_rate": 0.3333333333333333
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 8,
+            "success_rate": 0.4444444444444444
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 1,
+        "success_rate": 0.018518518518518517,
+        "collision": 16,
+        "ground_contact": 8,
+        "unsafe": 24,
+        "timeout": 29,
+        "mean_return": -5.006271054627956,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "0c5d32b5e81a6e0861187bb54f2fe3b5df6653603982edf4e4280534151e4519",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "0c5d32b5e81a6e0861187bb54f2fe3b5df6653603982edf4e4280534151e4519",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "0c5d32b5e81a6e0861187bb54f2fe3b5df6653603982edf4e4280534151e4519"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 25,
+      "seed": 20260821,
+      "current": {
+        "tasks": 54,
+        "success": 40,
+        "success_rate": 0.7407407407407407,
+        "collision": 5,
+        "ground_contact": 0,
+        "unsafe": 5,
+        "timeout": 9,
+        "mean_return": 20.602203578893636,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 17,
+            "success_rate": 0.9444444444444444
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 13,
+            "success_rate": 0.7222222222222222
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 15,
+        "success_rate": 0.2777777777777778,
+        "collision": 25,
+        "ground_contact": 1,
+        "unsafe": 26,
+        "timeout": 13,
+        "mean_return": 1.3462660094453354,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "df7837ea086da589b8363e843e512cf56700b08e89933acf34563f9d0f34f30b",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "df7837ea086da589b8363e843e512cf56700b08e89933acf34563f9d0f34f30b",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "df7837ea086da589b8363e843e512cf56700b08e89933acf34563f9d0f34f30b"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 25,
+      "seed": 20260822,
+      "current": {
+        "tasks": 54,
+        "success": 25,
+        "success_rate": 0.46296296296296297,
+        "collision": 15,
+        "ground_contact": 0,
+        "unsafe": 15,
+        "timeout": 14,
+        "mean_return": 9.014137142008671,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 15,
+            "success_rate": 0.8333333333333334
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 6,
+            "success_rate": 0.3333333333333333
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 4,
+            "success_rate": 0.2222222222222222
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 2,
+        "success_rate": 0.037037037037037035,
+        "collision": 21,
+        "ground_contact": 0,
+        "unsafe": 21,
+        "timeout": 31,
+        "mean_return": -3.5541266972920833,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "53bd59e071dcc1d1460d61791df7e9e3b3a4b72c66c3efe3d4125ca66babb3a0",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "53bd59e071dcc1d1460d61791df7e9e3b3a4b72c66c3efe3d4125ca66babb3a0",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "53bd59e071dcc1d1460d61791df7e9e3b3a4b72c66c3efe3d4125ca66babb3a0"
+    },
+    {
+      "model": "BC",
+      "fraction": 50,
+      "seed": 20260820,
+      "current": {
+        "tasks": 54,
+        "success": 28,
+        "success_rate": 0.5185185185185185,
+        "collision": 12,
+        "ground_contact": 2,
+        "unsafe": 14,
+        "timeout": 12,
+        "mean_return": 8.861221624974158,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 14,
+            "success_rate": 0.7777777777777778
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 3,
+        "success_rate": 0.05555555555555555,
+        "collision": 33,
+        "ground_contact": 2,
+        "unsafe": 35,
+        "timeout": 16,
+        "mean_return": -8.995344504301213,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "8153b4063268038d19b15fff4b3f1338f66abb44872ce5fb87f99c841cb8a60e",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "8153b4063268038d19b15fff4b3f1338f66abb44872ce5fb87f99c841cb8a60e",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "8153b4063268038d19b15fff4b3f1338f66abb44872ce5fb87f99c841cb8a60e"
+    },
+    {
+      "model": "BC",
+      "fraction": 50,
+      "seed": 20260821,
+      "current": {
+        "tasks": 54,
+        "success": 37,
+        "success_rate": 0.6851851851851852,
+        "collision": 12,
+        "ground_contact": 0,
+        "unsafe": 12,
+        "timeout": 5,
+        "mean_return": 15.812405692771435,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 17,
+            "success_rate": 0.9444444444444444
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 1,
+        "success_rate": 0.018518518518518517,
+        "collision": 39,
+        "ground_contact": 0,
+        "unsafe": 39,
+        "timeout": 14,
+        "mean_return": -10.121079573649157,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "d2adb655f6d6d27061eb4f53c94550c065e7d3ba7da75ab4ba00580dbe2fef50",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "d2adb655f6d6d27061eb4f53c94550c065e7d3ba7da75ab4ba00580dbe2fef50",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "d2adb655f6d6d27061eb4f53c94550c065e7d3ba7da75ab4ba00580dbe2fef50"
+    },
+    {
+      "model": "BC",
+      "fraction": 50,
+      "seed": 20260822,
+      "current": {
+        "tasks": 54,
+        "success": 34,
+        "success_rate": 0.6296296296296297,
+        "collision": 11,
+        "ground_contact": 0,
+        "unsafe": 11,
+        "timeout": 9,
+        "mean_return": 15.54086529705326,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 15,
+            "success_rate": 0.8333333333333334
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 8,
+            "success_rate": 0.4444444444444444
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 11,
+            "success_rate": 0.6111111111111112
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 5,
+        "success_rate": 0.09259259259259259,
+        "collision": 30,
+        "ground_contact": 3,
+        "unsafe": 33,
+        "timeout": 16,
+        "mean_return": -4.895445217480915,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "9ae61d3f4b7444b42a86d10f54778d13b232bbf5729b3d0b4fa3c1a4f59482e7",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "9ae61d3f4b7444b42a86d10f54778d13b232bbf5729b3d0b4fa3c1a4f59482e7",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "9ae61d3f4b7444b42a86d10f54778d13b232bbf5729b3d0b4fa3c1a4f59482e7"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 50,
+      "seed": 20260820,
+      "current": {
+        "tasks": 54,
+        "success": 34,
+        "success_rate": 0.6296296296296297,
+        "collision": 10,
+        "ground_contact": 0,
+        "unsafe": 10,
+        "timeout": 10,
+        "mean_return": 15.726313195984753,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 14,
+            "success_rate": 0.7777777777777778
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 4,
+        "success_rate": 0.07407407407407407,
+        "collision": 21,
+        "ground_contact": 5,
+        "unsafe": 26,
+        "timeout": 24,
+        "mean_return": -3.317805807101085,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "4456b5031b6b9cc2a4c2253e36308ec8b1b579b4ecca6ec9ce4fd3557da172d9",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "4456b5031b6b9cc2a4c2253e36308ec8b1b579b4ecca6ec9ce4fd3557da172d9",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "4456b5031b6b9cc2a4c2253e36308ec8b1b579b4ecca6ec9ce4fd3557da172d9"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 50,
+      "seed": 20260821,
+      "current": {
+        "tasks": 54,
+        "success": 31,
+        "success_rate": 0.5740740740740741,
+        "collision": 11,
+        "ground_contact": 0,
+        "unsafe": 11,
+        "timeout": 12,
+        "mean_return": 14.327481547246249,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 12,
+            "success_rate": 0.6666666666666666
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 9,
+            "success_rate": 0.5
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 9,
+        "success_rate": 0.16666666666666666,
+        "collision": 32,
+        "ground_contact": 2,
+        "unsafe": 34,
+        "timeout": 11,
+        "mean_return": -3.748206535272442,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "0e9cd442d21f6c4dfae60e3285a55a0b5025c42e2933690a7a0287cfc63a8777",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "0e9cd442d21f6c4dfae60e3285a55a0b5025c42e2933690a7a0287cfc63a8777",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "0e9cd442d21f6c4dfae60e3285a55a0b5025c42e2933690a7a0287cfc63a8777"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 50,
+      "seed": 20260822,
+      "current": {
+        "tasks": 54,
+        "success": 26,
+        "success_rate": 0.48148148148148145,
+        "collision": 11,
+        "ground_contact": 0,
+        "unsafe": 11,
+        "timeout": 17,
+        "mean_return": 11.639337429411874,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 16,
+            "success_rate": 0.8888888888888888
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 3,
+            "success_rate": 0.16666666666666666
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 4,
+        "success_rate": 0.07407407407407407,
+        "collision": 28,
+        "ground_contact": 3,
+        "unsafe": 31,
+        "timeout": 19,
+        "mean_return": -4.789495180280293,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "139b0ce3932606e2d2b9b4f92602011346c03b71275c7afb60ddf751f2ebcf15",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "139b0ce3932606e2d2b9b4f92602011346c03b71275c7afb60ddf751f2ebcf15",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "139b0ce3932606e2d2b9b4f92602011346c03b71275c7afb60ddf751f2ebcf15"
+    },
+    {
+      "model": "BC",
+      "fraction": 100,
+      "seed": 20260820,
+      "current": {
+        "tasks": 54,
+        "success": 32,
+        "success_rate": 0.5925925925925926,
+        "collision": 11,
+        "ground_contact": 0,
+        "unsafe": 11,
+        "timeout": 11,
+        "mean_return": 14.353438013334985,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 16,
+            "success_rate": 0.8888888888888888
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 9,
+            "success_rate": 0.5
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 1,
+        "success_rate": 0.018518518518518517,
+        "collision": 37,
+        "ground_contact": 1,
+        "unsafe": 38,
+        "timeout": 15,
+        "mean_return": -8.137677081737253,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "fd02078b9eae6fa51f06e02fc0c3228bba8a5aedfe61220c290b56f928dd872d",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "fd02078b9eae6fa51f06e02fc0c3228bba8a5aedfe61220c290b56f928dd872d",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "fd02078b9eae6fa51f06e02fc0c3228bba8a5aedfe61220c290b56f928dd872d"
+    },
+    {
+      "model": "BC",
+      "fraction": 100,
+      "seed": 20260821,
+      "current": {
+        "tasks": 54,
+        "success": 40,
+        "success_rate": 0.7407407407407407,
+        "collision": 6,
+        "ground_contact": 0,
+        "unsafe": 6,
+        "timeout": 8,
+        "mean_return": 20.122234449429666,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 18,
+            "success_rate": 1.0
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 13,
+            "success_rate": 0.7222222222222222
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 9,
+            "success_rate": 0.5
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 4,
+        "success_rate": 0.07407407407407407,
+        "collision": 44,
+        "ground_contact": 0,
+        "unsafe": 44,
+        "timeout": 6,
+        "mean_return": -10.355786517447653,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "43404d5a4e065553547b74209a83aa662ae433e92e6df58016550e92ad649bcd",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "43404d5a4e065553547b74209a83aa662ae433e92e6df58016550e92ad649bcd",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "43404d5a4e065553547b74209a83aa662ae433e92e6df58016550e92ad649bcd"
+    },
+    {
+      "model": "BC",
+      "fraction": 100,
+      "seed": 20260822,
+      "current": {
+        "tasks": 54,
+        "success": 37,
+        "success_rate": 0.6851851851851852,
+        "collision": 13,
+        "ground_contact": 0,
+        "unsafe": 13,
+        "timeout": 4,
+        "mean_return": 15.9339414502143,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 18,
+            "success_rate": 1.0
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 8,
+            "success_rate": 0.4444444444444444
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 11,
+            "success_rate": 0.6111111111111112
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 4,
+        "success_rate": 0.07407407407407407,
+        "collision": 38,
+        "ground_contact": 6,
+        "unsafe": 43,
+        "timeout": 7,
+        "mean_return": -10.072749657227147,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "523d8db68ada21527e7c21439a313aa51df84f89feac77072483aca97b396845",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "BC_DETERMINISTIC",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "523d8db68ada21527e7c21439a313aa51df84f89feac77072483aca97b396845",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "523d8db68ada21527e7c21439a313aa51df84f89feac77072483aca97b396845"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 100,
+      "seed": 20260820,
+      "current": {
+        "tasks": 54,
+        "success": 27,
+        "success_rate": 0.5,
+        "collision": 10,
+        "ground_contact": 0,
+        "unsafe": 10,
+        "timeout": 17,
+        "mean_return": 11.411058422634698,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 12,
+            "success_rate": 0.6666666666666666
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 10,
+            "success_rate": 0.5555555555555556
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 5,
+            "success_rate": 0.2777777777777778
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 1,
+        "success_rate": 0.018518518518518517,
+        "collision": 23,
+        "ground_contact": 0,
+        "unsafe": 23,
+        "timeout": 30,
+        "mean_return": -4.900357761047494,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "0f31c55d0c3bba0787f6c85aca37984ad1bbcd88dd4a34215291f0b743144214",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "0f31c55d0c3bba0787f6c85aca37984ad1bbcd88dd4a34215291f0b743144214",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "0f31c55d0c3bba0787f6c85aca37984ad1bbcd88dd4a34215291f0b743144214"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 100,
+      "seed": 20260821,
+      "current": {
+        "tasks": 54,
+        "success": 28,
+        "success_rate": 0.5185185185185185,
+        "collision": 21,
+        "ground_contact": 1,
+        "unsafe": 22,
+        "timeout": 4,
+        "mean_return": 8.001426888625575,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 18,
+            "success_rate": 1.0
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 3,
+            "success_rate": 0.16666666666666666
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 2,
+        "success_rate": 0.037037037037037035,
+        "collision": 29,
+        "ground_contact": 9,
+        "unsafe": 38,
+        "timeout": 14,
+        "mean_return": -8.958068412177129,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "8b2cc2f3464c789b9ce8a3409a28aebac0a0329a70941f994d6a44cb093d674e",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "8b2cc2f3464c789b9ce8a3409a28aebac0a0329a70941f994d6a44cb093d674e",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "8b2cc2f3464c789b9ce8a3409a28aebac0a0329a70941f994d6a44cb093d674e"
+    },
+    {
+      "model": "Diffusion",
+      "fraction": 100,
+      "seed": 20260822,
+      "current": {
+        "tasks": 54,
+        "success": 23,
+        "success_rate": 0.42592592592592593,
+        "collision": 15,
+        "ground_contact": 0,
+        "unsafe": 15,
+        "timeout": 16,
+        "mean_return": 7.733138384619493,
+        "by_family": {
+          "OPEN": {
+            "tasks": 18,
+            "success": 12,
+            "success_rate": 0.6666666666666666
+          },
+          "BLOCK": {
+            "tasks": 18,
+            "success": 7,
+            "success_rate": 0.3888888888888889
+          },
+          "SBEND": {
+            "tasks": 18,
+            "success": 4,
+            "success_rate": 0.2222222222222222
+          }
+        }
+      },
+      "fresh": {
+        "tasks": 54,
+        "success": 3,
+        "success_rate": 0.05555555555555555,
+        "collision": 27,
+        "ground_contact": 4,
+        "unsafe": 31,
+        "timeout": 20,
+        "mean_return": -6.227118897005086,
+        "by_family": {
+          "OPEN": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "BLOCK": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          },
+          "SBEND": {
+            "tasks": 0,
+            "success": 0,
+            "success_rate": 0.0
+          }
+        }
+      },
+      "current_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "77fdc13029d03df7e441c1555f6cda02b55862bc429f66dba7b3981692fb7510",
+        "tasks": 54
+      },
+      "fresh_runtime": {
+        "runtime_mode": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+        "historical_batched_used": false,
+        "checkpoint_sha256": "77fdc13029d03df7e441c1555f6cda02b55862bc429f66dba7b3981692fb7510",
+        "tasks": 54
+      },
+      "checkpoint_sha256": "77fdc13029d03df7e441c1555f6cda02b55862bc429f66dba7b3981692fb7510"
+    }
+  ],
+  "current_val": [
+    {
+      "fraction": 25,
+      "model": "BC",
+      "mean": 0.5061728395061729,
+      "sample_std": 0.028287504289850905,
+      "rates": [
+        0.48148148148148145,
+        0.5,
+        0.5370370370370371
+      ],
+      "counts": [
+        26,
+        27,
+        29
+      ]
+    },
+    {
+      "fraction": 25,
+      "model": "Diffusion",
+      "mean": 0.5679012345679012,
+      "sample_std": 0.15082458917124214,
+      "rates": [
+        0.5,
+        0.7407407407407407,
+        0.46296296296296297
+      ],
+      "counts": [
+        27,
+        40,
+        25
+      ]
+    },
+    {
+      "fraction": 50,
+      "model": "BC",
+      "mean": 0.6111111111111112,
+      "sample_std": 0.08486251286955264,
+      "rates": [
+        0.5185185185185185,
+        0.6851851851851852,
+        0.6296296296296297
+      ],
+      "counts": [
+        28,
+        37,
+        34
+      ]
+    },
+    {
+      "fraction": 50,
+      "model": "Diffusion",
+      "mean": 0.5617283950617283,
+      "sample_std": 0.07484170156161818,
+      "rates": [
+        0.6296296296296297,
+        0.5740740740740741,
+        0.48148148148148145
+      ],
+      "counts": [
+        34,
+        31,
+        26
+      ]
+    },
+    {
+      "fraction": 100,
+      "model": "BC",
+      "mean": 0.6728395061728395,
+      "sample_std": 0.07484170156161815,
+      "rates": [
+        0.5925925925925926,
+        0.7407407407407407,
+        0.6851851851851852
+      ],
+      "counts": [
+        32,
+        40,
+        37
+      ]
+    },
+    {
+      "fraction": 100,
+      "model": "Diffusion",
+      "mean": 0.48148148148148157,
+      "sample_std": 0.04899539464934426,
+      "rates": [
+        0.5,
+        0.5185185185185185,
+        0.42592592592592593
+      ],
+      "counts": [
+        27,
+        28,
+        23
+      ]
+    }
+  ],
+  "s7_fresh_development": [
+    {
+      "fraction": 25,
+      "model": "BC",
+      "mean": 0.12345679012345678,
+      "sample_std": 0.07484170156161815,
+      "rates": [
+        0.1111111111111111,
+        0.2037037037037037,
+        0.05555555555555555
+      ],
+      "counts": [
+        6,
+        11,
+        3
+      ]
+    },
+    {
+      "fraction": 25,
+      "model": "Diffusion",
+      "mean": 0.1111111111111111,
+      "sample_std": 0.14463425325753065,
+      "rates": [
+        0.018518518518518517,
+        0.2777777777777778,
+        0.037037037037037035
+      ],
+      "counts": [
+        1,
+        15,
+        2
+      ]
+    },
+    {
+      "fraction": 50,
+      "model": "BC",
+      "mean": 0.05555555555555555,
+      "sample_std": 0.037037037037037035,
+      "rates": [
+        0.05555555555555555,
+        0.018518518518518517,
+        0.09259259259259259
+      ],
+      "counts": [
+        3,
+        1,
+        5
+      ]
+    },
+    {
+      "fraction": 50,
+      "model": "Diffusion",
+      "mean": 0.10493827160493825,
+      "sample_std": 0.05345835825829868,
+      "rates": [
+        0.07407407407407407,
+        0.16666666666666666,
+        0.07407407407407407
+      ],
+      "counts": [
+        4,
+        9,
+        4
+      ]
+    },
+    {
+      "fraction": 100,
+      "model": "BC",
+      "mean": 0.05555555555555555,
+      "sample_std": 0.032075014954979206,
+      "rates": [
+        0.018518518518518517,
+        0.07407407407407407,
+        0.07407407407407407
+      ],
+      "counts": [
+        1,
+        4,
+        4
+      ]
+    },
+    {
+      "fraction": 100,
+      "model": "Diffusion",
+      "mean": 0.037037037037037035,
+      "sample_std": 0.018518518518518517,
+      "rates": [
+        0.018518518518518517,
+        0.037037037037037035,
+        0.05555555555555555
+      ],
+      "counts": [
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "paired": [
+    {
+      "fraction": 25,
+      "rows": [
+        {
+          "fraction": 25,
+          "seed": 20260820,
+          "bc_rate": 0.48148148148148145,
+          "diffusion_rate": 0.5,
+          "diffusion_minus_bc": 0.018518518518518545
+        },
+        {
+          "fraction": 25,
+          "seed": 20260821,
+          "bc_rate": 0.5,
+          "diffusion_rate": 0.7407407407407407,
+          "diffusion_minus_bc": 0.2407407407407407
+        },
+        {
+          "fraction": 25,
+          "seed": 20260822,
+          "bc_rate": 0.5370370370370371,
+          "diffusion_rate": 0.46296296296296297,
+          "diffusion_minus_bc": -0.07407407407407413
+        }
+      ],
+      "mean": 0.06172839506172837,
+      "sample_std": 0.16179435088989083
+    },
+    {
+      "fraction": 50,
+      "rows": [
+        {
+          "fraction": 50,
+          "seed": 20260820,
+          "bc_rate": 0.5185185185185185,
+          "diffusion_rate": 0.6296296296296297,
+          "diffusion_minus_bc": 0.11111111111111116
+        },
+        {
+          "fraction": 50,
+          "seed": 20260821,
+          "bc_rate": 0.6851851851851852,
+          "diffusion_rate": 0.5740740740740741,
+          "diffusion_minus_bc": -0.11111111111111116
+        },
+        {
+          "fraction": 50,
+          "seed": 20260822,
+          "bc_rate": 0.6296296296296297,
+          "diffusion_rate": 0.48148148148148145,
+          "diffusion_minus_bc": -0.1481481481481482
+        }
+      ],
+      "mean": -0.049382716049382734,
+      "sample_std": 0.14021995915556237
+    },
+    {
+      "fraction": 100,
+      "rows": [
+        {
+          "fraction": 100,
+          "seed": 20260820,
+          "bc_rate": 0.5925925925925926,
+          "diffusion_rate": 0.5,
+          "diffusion_minus_bc": -0.09259259259259256
+        },
+        {
+          "fraction": 100,
+          "seed": 20260821,
+          "bc_rate": 0.7407407407407407,
+          "diffusion_rate": 0.5185185185185185,
+          "diffusion_minus_bc": -0.2222222222222222
+        },
+        {
+          "fraction": 100,
+          "seed": 20260822,
+          "bc_rate": 0.6851851851851852,
+          "diffusion_rate": 0.42592592592592593,
+          "diffusion_minus_bc": -0.2592592592592593
+        }
+      ],
+      "mean": -0.19135802469135801,
+      "sample_std": 0.08751510418986315
+    }
+  ],
+  "h_offline_low_data_classification": "PASS_S8R1A_PRIOR_DATA_ABLATION_BC_COMPETITIVE_OR_BETTER",
+  "s2_test_accessed": false,
+  "s6_development_test_accessed": false,
+  "ppo_run_count": 0,
+  "regression": {
+    "manifest_subset": true,
+    "model_contracts": true,
+    "normalization_identity": true,
+    "all_results_finite": true,
+    "historical_batched": false,
+    "closed_loop_models_frozen": true
+  },
+  "independent_verification": {
+    "passed": 24,
+    "total": 24,
+    "path": "artifacts/s8r1a/independent_verification.json"
+  },
+  "storage": "18 best + 18 last checkpoints retained locally; no checkpoints/NPZ/temp logs submitted to Git",
+  "what_was_proven": "??? task-level nested TRAIN budget ??? architecture ??? 25/50/100% ? BC/Diffusion ? seed ?????? Current VAL ? S7 fresh development ????25% Diffusion ????? <10 percentage points?50% ? 100% BC ???",
+  "what_was_not_proven": "???? Diffusion ???????????????????? PPO?S2 TEST?S6 TEST?final untouched topology ????? freeze?",
+  "formal_progress": "95%",
+  "unique_next_task": "NONE ? WAIT_FOR_CONTROLLER_REVIEW"
+}

@@ -1,0 +1,43 @@
+{
+  "task": "S8-R1A",
+  "checks": {
+    "manifest_files_exist": true,
+    "manifest_hashes": true,
+    "task_counts_7_14_28": true,
+    "scene_balance": true,
+    "subset_nesting": true,
+    "task_level_split": true,
+    "no_s2_test_task_ids": true,
+    "selected_ids_are_train": true,
+    "recovery_follows_task_id": true,
+    "source_hashes": true,
+    "all_18_runs_present": true,
+    "all_18_frozen": true,
+    "bc_config_identity": true,
+    "diffusion_config_identity": true,
+    "training_seeds": true,
+    "no_ppo_runs": true,
+    "s2_test_accessed_false": true,
+    "all_current_evals_complete": true,
+    "all_fresh_evals_complete": true,
+    "all_results_finite": true,
+    "diffusion_fast_runtime": true,
+    "no_historical_batched": true,
+    "plots_exist": true,
+    "preregistered_classification": true
+  },
+  "passed": 24,
+  "total": 24,
+  "paired_mean_advantage": {
+    "25": 0.06172839506172837,
+    "50": -0.049382716049382734,
+    "100": -0.19135802469135801
+  },
+  "classification": "PASS_S8R1A_PRIOR_DATA_ABLATION_BC_COMPETITIVE_OR_BETTER",
+  "s2_test_accessed": false,
+  "s6_development_test_accessed": false,
+  "ppo_run_count": 0,
+  "runtime": "FAST_CUDA_GRAPH_EXACT_BATCH_ONE",
+  "formal_progress": "95%",
+  "unique_next_task": "NONE — WAIT_FOR_CONTROLLER_REVIEW"
+}
