@@ -1,0 +1,136 @@
+{
+  "task": "S8-R5B-RENDERED-EXPERT-TRAJECTORY-MAPS-FOR-ADVISOR-V1",
+  "test_payload_accessed": false,
+  "model_training_run_count": 0,
+  "scientific_contract_changed": false,
+  "source_payloads_opened": [
+    "artifacts/s8r2_10k/train.npz"
+  ],
+  "source_hashes": {
+    "map_manifest.json": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
+    "task_manifest.csv": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
+    "train.npz": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5"
+  },
+  "figures": [
+    {
+      "figure_name": "render_double_gate_hero",
+      "family": "DOUBLE_GATE",
+      "map_id": "DOUBLE_GATE_075",
+      "task_id": "DOUBLE_GATE_075_TASK_08",
+      "split": "train",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "selection_reason": "固定 TRAIN 双门地图；轨迹展示横向与高度变化并穿过两组门结构，适合作为主视觉，但不声称最难或最优。",
+      "rendering_tool": "Matplotlib 3D Poly3DCollection + Line3DCollection",
+      "output_resolution": [
+        2560,
+        1440
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "dbe05d8de0d040359f53b7751ca25663c4ee8c0612dbbd02f3e6aec23b2d3b14"
+    },
+    {
+      "figure_name": "render_sbend_hero",
+      "family": "SBEND_RANDOM",
+      "map_id": "SBEND_RANDOM_023",
+      "task_id": "SBEND_RANDOM_023_TASK_05",
+      "split": "train",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "selection_reason": "沿用冻结 TRAIN family 代表样本；三段交替障碍形成清晰 S 型横向绕障展示。",
+      "rendering_tool": "Matplotlib 3D Poly3DCollection + Line3DCollection",
+      "output_resolution": [
+        2560,
+        1440
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "45805bd2f03eab059134dfcfaf3191f105de1227365f8ae655421e23b9e0a27a"
+    },
+    {
+      "figure_name": "render_chicane_or_detour_hero",
+      "family": "CHICANE_RANDOM",
+      "map_id": "CHICANE_RANDOM_090",
+      "task_id": "CHICANE_RANDOM_090_TASK_02",
+      "split": "train",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "selection_reason": "采用冻结 TRAIN 的 CHICANE_RANDOM 代表样本；连续左右偏置让多次路线调整在空间视角下清晰可见。",
+      "rendering_tool": "Matplotlib 3D Poly3DCollection + Line3DCollection",
+      "output_resolution": [
+        2560,
+        1440
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "b258ef1eb5577bce19f14114361d23dc9266091e63035c86f4971f413239979e"
+    },
+    {
+      "figure_name": "render_clutter_or_gate_hero",
+      "family": "MIXED_CLUTTER",
+      "map_id": "MIXED_CLUTTER_078",
+      "task_id": "MIXED_CLUTTER_078_TASK_04",
+      "split": "train",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "selection_reason": "采用冻结 TRAIN 的 MIXED_CLUTTER 代表样本；障碍数量更多、交替排列更复杂，适合研究问题背景页。",
+      "rendering_tool": "Matplotlib 3D Poly3DCollection + Line3DCollection",
+      "output_resolution": [
+        2560,
+        1440
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "da5e70bf93f6ea42f313414f4f0d621c06ca906d30e2b05da0c74a3e02acc0da"
+    },
+    {
+      "figure_name": "render_same_map_multi_trajectories",
+      "family": "DOUBLE_GATE",
+      "map_id": "DOUBLE_GATE_075",
+      "task_id": "DOUBLE_GATE_075_TASK_00; DOUBLE_GATE_075_TASK_01; DOUBLE_GATE_075_TASK_02; DOUBLE_GATE_075_TASK_03; DOUBLE_GATE_075_TASK_04; DOUBLE_GATE_075_TASK_05; DOUBLE_GATE_075_TASK_06; DOUBLE_GATE_075_TASK_07; DOUBLE_GATE_075_TASK_08; DOUBLE_GATE_075_TASK_09",
+      "split": "train",
+      "accent": "#35C9D8",
+      "selection_reason": "固定同一张 TRAIN 双门地图，叠加该地图上的 10 条真实 TRAIN 专家轨迹，展示 start-goal 多样性。",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "rendering_tool": "Matplotlib 3D Poly3DCollection + Line3DCollection",
+      "output_resolution": [
+        2560,
+        1440
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "36617ebf5fb8806883f99e5b4f1beeece765c2ebf914244b872a03fb04e955b7"
+    },
+    {
+      "figure_name": "render_single_scene_with_drone_marker",
+      "family": "MIXED_CLUTTER",
+      "map_id": "MIXED_CLUTTER_078",
+      "task_id": "MIXED_CLUTTER_078_TASK_04",
+      "split": "train",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "selection_reason": "在 MIXED_CLUTTER TRAIN 主场景中加入位于真实轨迹上的简洁无人机标识，仅做视觉提示。",
+      "rendering_tool": "Matplotlib 3D Poly3DCollection + Line3DCollection",
+      "output_resolution": [
+        2560,
+        1440
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "f9b631757ee798aaf510fd87053c70e26406311e17be300aede62e14c3036fd5"
+    },
+    {
+      "figure_name": "rendered_expert_map_overview",
+      "family": "DOUBLE_GATE; SBEND_RANDOM; CHICANE_RANDOM; MIXED_CLUTTER",
+      "map_id": "MULTI_SCENE_OVERVIEW",
+      "task_id": "DOUBLE_GATE_075_TASK_08; SBEND_RANDOM_023_TASK_05; CHICANE_RANDOM_090_TASK_02; MIXED_CLUTTER_078_TASK_04",
+      "split": "train",
+      "source_dataset": "S8-R2 10K procedural GCOPTER expert dataset",
+      "selection_reason": "将四张已生成的 TRAIN 场景主图按 2×2 拼接，供 PPT 快速总览。",
+      "rendering_tool": "PIL composition of four TRAIN-derived rendered figures",
+      "output_resolution": [
+        3840,
+        2160
+      ],
+      "based_on_real_trajectory": true,
+      "file_sha256": "e74b2807a8bbf0bb30857624d10f230e4dea1852eb944dffe07958cd715bd4c6"
+    }
+  ],
+  "selection_policy": "deterministic fixed TRAIN map/task IDs; no random selection; no TEST payload access",
+  "rendering_notes": [
+    "Obstacle centers and sizes are read directly from map_manifest.json.",
+    "Trajectory polyline vertices are read directly from train.npz positions.",
+    "Ground plane, materials, lighting-like face shading, glow underlay, labels, and drone marker are non-data visual layers.",
+    "No trajectory smoothing, hand-drawn route, obstacle relocation, simulator screenshot, or model output is used."
+  ]
+}

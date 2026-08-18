@@ -1,0 +1,120 @@
+{
+  "task": "S8-R5B-RENDERED-EXPERT-TRAJECTORY-MAPS-FOR-ADVISOR-V1",
+  "final_label": "PASS_S8R5B_RENDERED_EXPERT_MAPS_READY",
+  "passed": true,
+  "checks": [
+    {
+      "name": "seven_figures_listed",
+      "passed": true,
+      "detail": "['render_double_gate_hero', 'render_sbend_hero', 'render_chicane_or_detour_hero', 'render_clutter_or_gate_hero', 'render_same_map_multi_trajectories', 'render_single_scene_with_drone_marker', 'rendered_expert_map_overview']"
+    },
+    {
+      "name": "test_payload_unopened",
+      "passed": true,
+      "detail": "manifest records false"
+    },
+    {
+      "name": "training_not_run",
+      "passed": true,
+      "detail": "model_training_run_count=0"
+    },
+    {
+      "name": "scientific_contract_unchanged",
+      "passed": true,
+      "detail": "manifest records false"
+    },
+    {
+      "name": "train_payload_only",
+      "passed": true,
+      "detail": "['artifacts/s8r2_10k/train.npz']"
+    },
+    {
+      "name": "train_episode_index",
+      "passed": true,
+      "detail": "unique TRAIN episodes=8000"
+    },
+    {
+      "name": "artifact_render_double_gate_hero",
+      "passed": true,
+      "detail": "exists=True, size=(2560, 1440), variance=646.77"
+    },
+    {
+      "name": "provenance_render_double_gate_hero",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "artifact_render_sbend_hero",
+      "passed": true,
+      "detail": "exists=True, size=(2560, 1440), variance=625.57"
+    },
+    {
+      "name": "provenance_render_sbend_hero",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "artifact_render_chicane_or_detour_hero",
+      "passed": true,
+      "detail": "exists=True, size=(2560, 1440), variance=535.89"
+    },
+    {
+      "name": "provenance_render_chicane_or_detour_hero",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "artifact_render_clutter_or_gate_hero",
+      "passed": true,
+      "detail": "exists=True, size=(2560, 1440), variance=523.32"
+    },
+    {
+      "name": "provenance_render_clutter_or_gate_hero",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "artifact_render_same_map_multi_trajectories",
+      "passed": true,
+      "detail": "exists=True, size=(2560, 1440), variance=751.74"
+    },
+    {
+      "name": "provenance_render_same_map_multi_trajectories",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "artifact_render_single_scene_with_drone_marker",
+      "passed": true,
+      "detail": "exists=True, size=(2560, 1440), variance=549.87"
+    },
+    {
+      "name": "provenance_render_single_scene_with_drone_marker",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "artifact_rendered_expert_map_overview",
+      "passed": true,
+      "detail": "exists=True, size=(3840, 2160), variance=584.44"
+    },
+    {
+      "name": "provenance_rendered_expert_map_overview",
+      "passed": true,
+      "detail": "map_ok=True, task_ok=True"
+    },
+    {
+      "name": "all_artifacts_pass",
+      "passed": true,
+      "detail": "all PNGs are nonblank, hashed, and resolution-checked"
+    },
+    {
+      "name": "all_provenance_pass",
+      "passed": true,
+      "detail": "all records identify TRAIN-backed map/task sources"
+    }
+  ],
+  "test_payload_accessed": false,
+  "model_training_run_count": 0,
+  "scientific_contract_changed": false
+}
