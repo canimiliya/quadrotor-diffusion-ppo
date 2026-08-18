@@ -1,0 +1,72 @@
+{
+  "dataset_scale": {
+    "maps": 1000,
+    "trajectories": 10000,
+    "transitions": 6120725,
+    "families": 10,
+    "train_trajectories": 8000,
+    "train_transitions": 4896168,
+    "train_h16_windows": 4776168
+  },
+  "quality": {
+    "collision_count": 0,
+    "ground_count": 0,
+    "nonfinite_count": 0,
+    "action_support_violation": 0,
+    "environment_clipping": 0,
+    "map_overlaps": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "action_violation_count_recomputed_on_train": 0
+  },
+  "dataset_metadata_distributions": {
+    "trajectory_steps": {
+      "min": 534.0,
+      "q25": 593.0,
+      "median": 612.0,
+      "q75": 633.0,
+      "q95": 656.0,
+      "max": 688.0
+    },
+    "start_goal_distance_m": {
+      "min": 5.218638214476335,
+      "q25": 5.928472069393941,
+      "median": 6.158287043816058,
+      "q75": 6.394574846799463,
+      "q95": 6.666041593862686,
+      "max": 6.963334373076811
+    },
+    "path_straight_ratio": {
+      "min": 0.9890115351462222,
+      "q25": 1.0368008896518628,
+      "median": 1.0409735644300733,
+      "q75": 1.0432353086176094,
+      "q95": 1.0469643099215378,
+      "max": 1.0732455269723828
+    }
+  },
+  "train_transition_action_norm_quantiles": {
+    "min": 0.0,
+    "q25": 0.14268763735890388,
+    "median": 0.8711128234863281,
+    "q75": 0.9893351793289185,
+    "q95": 0.9984838366508484,
+    "q99": 0.9999212622642517,
+    "max": 1.0
+  },
+  "action_norm_note": "TRAIN transition distribution includes zero-action initialization/settle periods.",
+  "family_trajectory_counts": {
+    "SINGLE_BLOCK": 1000,
+    "OFFSET_BLOCK": 1000,
+    "DOUBLE_BLOCK": 1000,
+    "ALTERNATING_BLOCKS": 1000,
+    "SBEND_RANDOM": 1000,
+    "CHICANE_RANDOM": 1000,
+    "NARROW_GATE": 1000,
+    "DOUBLE_GATE": 1000,
+    "LATERAL_DETOUR": 1000,
+    "MIXED_CLUTTER": 1000
+  }
+}

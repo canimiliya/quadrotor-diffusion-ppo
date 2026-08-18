@@ -182,6 +182,14 @@ artifacts/s8r3/*
 artifacts/s8r3/*_val_rollouts.csv
 artifacts/s8r3/*.npz
 
+!artifacts/s8r5_visualization/
+artifacts/s8r5_visualization/*
+!artifacts/s8r5_visualization/figures/
+!artifacts/s8r5_visualization/figures/*.png
+!artifacts/s8r5_visualization/figures/*.svg
+!artifacts/s8r5_visualization/metadata/
+!artifacts/s8r5_visualization/metadata/*.json
+
 !checkpoints/s3r2/
 checkpoints/s3r2/*
 !checkpoints/s4r1/

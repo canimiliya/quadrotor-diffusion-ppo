@@ -1,0 +1,217 @@
+{
+  "task": "S8-R5-EXPERT-DATA-VISUALIZATION-FOR-ADVISOR-BRIEFING-V1",
+  "verified_at_utc": "2026-08-18T09:24:36.443234+00:00",
+  "final_label": "PASS_S8R5_EXPERT_DATA_VISUALIZATION_READY",
+  "passed": true,
+  "checks": [
+    {
+      "name": "task_identity",
+      "passed": true,
+      "detail": "S8-R5-EXPERT-DATA-VISUALIZATION-FOR-ADVISOR-BRIEFING-V1"
+    },
+    {
+      "name": "test_payload_unopened",
+      "passed": true,
+      "detail": "both manifests record false"
+    },
+    {
+      "name": "training_not_run",
+      "passed": true,
+      "detail": "no training or model evaluation"
+    },
+    {
+      "name": "scientific_contract_unchanged",
+      "passed": true,
+      "detail": "producer records no scientific contract modification"
+    },
+    {
+      "name": "only_train_payload_opened",
+      "passed": true,
+      "detail": "['artifacts/s8r2_10k/train.npz']"
+    },
+    {
+      "name": "ten_family_representatives",
+      "passed": true,
+      "detail": "count=10"
+    },
+    {
+      "name": "family_representatives_train",
+      "passed": true,
+      "detail": "all representative trajectories are TRAIN"
+    },
+    {
+      "name": "same_map_train",
+      "passed": true,
+      "detail": "DOUBLE_GATE_075"
+    },
+    {
+      "name": "same_map_ten_tasks",
+      "passed": true,
+      "detail": "ten distinct task IDs"
+    },
+    {
+      "name": "hero_train",
+      "passed": true,
+      "detail": "DOUBLE_GATE_075_TASK_08"
+    },
+    {
+      "name": "observation_sample_train",
+      "passed": true,
+      "detail": "DOUBLE_GATE_075_TASK_09"
+    },
+    {
+      "name": "sample_has_h16_room",
+      "passed": true,
+      "detail": "step=295, length=636"
+    },
+    {
+      "name": "eight_exact_figure_names",
+      "passed": true,
+      "detail": "['expert_family_overview', 'ten_tasks_same_map', 'single_expert_trajectory_3d', 'expert_trajectory_timeseries', 'expert_sample_format', 'expert_dataset_statistics', 'observation_ray_visualization', 'expert_to_learning_pipeline']"
+    },
+    {
+      "name": "artifact_integrity",
+      "passed": true,
+      "detail": "PNG/SVG exist, hashes match, 16:9 high-resolution PNG, editable SVG text"
+    },
+    {
+      "name": "frozen_source_hashes",
+      "passed": true,
+      "detail": "metadata plus TRAIN archive match producer provenance"
+    },
+    {
+      "name": "generator_has_no_test_archive_literal",
+      "passed": true,
+      "detail": "static source scan"
+    },
+    {
+      "name": "statistics_contract",
+      "passed": true,
+      "detail": "H=16 TRAIN windows and action-support check"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "expert_family_overview",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "57b9aff40c8bb4fef1b432562d7d9c67ae12a7838415422fe351582a0e82d0c5",
+      "svg_sha256": "3bbbd009df38a549d6fef719202b30b133653aff48d7fe70dc19f4dc7be1a11b",
+      "editable_svg_text": true
+    },
+    {
+      "name": "ten_tasks_same_map",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "ed895eac992e70e2a109fc9830e20ed2e6011dd9b8c3ac100e46c663499b4a32",
+      "svg_sha256": "acff9f54c9e2a0308ebdd12dbc1eabd1482dcaf9347aa2849dd968f9c1f798a9",
+      "editable_svg_text": true
+    },
+    {
+      "name": "single_expert_trajectory_3d",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "ef392c32033977cd99a6895d41e81d879e45b858c792ee618c0eba0aa2f9f594",
+      "svg_sha256": "bc778c579ec62d0589eb326e8914d96ebf611e0d2ab5d6d94f1956d8b4e0c80b",
+      "editable_svg_text": true
+    },
+    {
+      "name": "expert_trajectory_timeseries",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "ea63cdd42bf9464626d7c460c92263f268b7a20b05fce73467d8792806c67504",
+      "svg_sha256": "786b7811a3344e0a1dc0ef3295d1c18c5352ea7e4a97bfaf642ddd72c6a940f0",
+      "editable_svg_text": true
+    },
+    {
+      "name": "expert_sample_format",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "887c31727bfe95e216410317abda92e045d412627d0a9034004919e23f054401",
+      "svg_sha256": "0cc4b3a4b1b51be0e092d3ba76f439a83dfa64c8b3af45dfc2fb72f8bdf98fda",
+      "editable_svg_text": true
+    },
+    {
+      "name": "expert_dataset_statistics",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "63d2827cc6f214df3d6a60a598afff45aa4f9485ce98b1c0635491e6878884ea",
+      "svg_sha256": "6ab288671ed58ef5b9a3c5a4a449a2759264daf2489fb5d26aff76062592fad5",
+      "editable_svg_text": true
+    },
+    {
+      "name": "observation_ray_visualization",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "556437af5a694ae8125624c821c2ec5ed0c2b3e435f587778ded4faa876134b8",
+      "svg_sha256": "e7f83f7bbeaaf99f0daa8cc9d7ab492c176cf8be8475efd63b0168c4f50b0a7a",
+      "editable_svg_text": true
+    },
+    {
+      "name": "expert_to_learning_pipeline",
+      "passed": true,
+      "pixel_size": [
+        3999,
+        2250
+      ],
+      "png_sha256": "5cfd4ed05fb7fda868ec6ad9a2637b5763650b3cca3b167f26bf49c761e9cebe",
+      "svg_sha256": "2e332360407ccc02e6c7dac5493e559f0a63dfeaf0e6b8be4bcca9c9912a94b1",
+      "editable_svg_text": true
+    }
+  ],
+  "sources": {
+    "dataset_summary.json": {
+      "path": "artifacts/s8r2_10k/dataset_summary.json",
+      "actual_sha256": "91d72552d958238898ba970b1c02a0af0a4a42a23e946b0ed9ee150911d4f9db",
+      "expected_sha256": "91d72552d958238898ba970b1c02a0af0a4a42a23e946b0ed9ee150911d4f9db",
+      "passed": true
+    },
+    "map_manifest.json": {
+      "path": "artifacts/s8r2_10k/map_manifest.json",
+      "actual_sha256": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
+      "expected_sha256": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
+      "passed": true
+    },
+    "task_manifest.csv": {
+      "path": "artifacts/s8r2_10k/task_manifest.csv",
+      "actual_sha256": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
+      "expected_sha256": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
+      "passed": true
+    },
+    "diversity_statistics.csv": {
+      "path": "artifacts/s8r2_10k/diversity_statistics.csv",
+      "actual_sha256": "a489aadb1ce2a256cb9f5b0a4ccb0d8f41b7cbcae608dfde192079bb0e6c67b2",
+      "expected_sha256": "a489aadb1ce2a256cb9f5b0a4ccb0d8f41b7cbcae608dfde192079bb0e6c67b2",
+      "passed": true
+    },
+    "train.npz": {
+      "path": "artifacts/s8r2_10k/train.npz",
+      "actual_sha256": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5",
+      "expected_sha256": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5",
+      "passed": true
+    }
+  },
+  "test_payload_accessed": false,
+  "training_or_model_evaluation_run": false
+}

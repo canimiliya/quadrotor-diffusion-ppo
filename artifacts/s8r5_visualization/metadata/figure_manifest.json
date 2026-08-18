@@ -1,0 +1,140 @@
+{
+  "task": "S8-R5-EXPERT-DATA-VISUALIZATION-FOR-ADVISOR-BRIEFING-V1",
+  "status": "PENDING_INDEPENDENT_VERIFICATION",
+  "backend": "Python / Matplotlib only",
+  "core_conclusion": "The frozen S8-R2 corpus contains diverse, traceable GCOPTER expert rollouts and real 34D-to-3D/H16 samples that document the data foundation for later learning; these are not model-result figures.",
+  "figure_archetypes": {
+    "expert_family_overview": "light image plate + trajectory evidence",
+    "ten_tasks_same_map": "single hero map plate",
+    "single_expert_trajectory_3d": "3D image plate",
+    "expert_trajectory_timeseries": "quantitative grid",
+    "expert_sample_format": "schematic-led composite",
+    "expert_dataset_statistics": "asymmetric quantitative composite",
+    "observation_ray_visualization": "3D schematic-led evidence",
+    "expert_to_learning_pipeline": "schematic-led process"
+  },
+  "export_contract": {
+    "primary": "editable SVG",
+    "ppt_preview": "300 dpi PNG",
+    "canvas_inches": [
+      13.333,
+      7.5
+    ]
+  },
+  "source_hashes": {
+    "dataset_summary.json": "91d72552d958238898ba970b1c02a0af0a4a42a23e946b0ed9ee150911d4f9db",
+    "map_manifest.json": "33816de2319c73476ce5be1202eddf2a22823b8b5cf6830759c1f7d33da49311",
+    "task_manifest.csv": "ca37d79ee6577b5467e793e42c22e1b9203060f5a6c7552089d45ac2a1902aa2",
+    "diversity_statistics.csv": "a489aadb1ce2a256cb9f5b0a4ccb0d8f41b7cbcae608dfde192079bb0e6c67b2",
+    "train.npz": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5"
+  },
+  "source_payloads_opened": [
+    "artifacts/s8r2_10k/train.npz"
+  ],
+  "metadata_inputs": [
+    "artifacts/s8r2_10k/dataset_summary.json",
+    "artifacts/s8r2_10k/map_manifest.json",
+    "artifacts/s8r2_10k/task_manifest.csv",
+    "artifacts/s8r2_10k/diversity_statistics.csv"
+  ],
+  "test_payload_accessed": false,
+  "training_or_model_evaluation_run": false,
+  "scientific_contract_modified": false,
+  "figures": [
+    {
+      "name": "expert_family_overview",
+      "png": "artifacts/s8r5_visualization/figures/expert_family_overview.png",
+      "svg": "artifacts/s8r5_visualization/figures/expert_family_overview.svg",
+      "png_sha256": "57b9aff40c8bb4fef1b432562d7d9c67ae12a7838415422fe351582a0e82d0c5",
+      "svg_sha256": "3bbbd009df38a549d6fef719202b30b133653aff48d7fe70dc19f4dc7be1a11b",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "ten_tasks_same_map",
+      "png": "artifacts/s8r5_visualization/figures/ten_tasks_same_map.png",
+      "svg": "artifacts/s8r5_visualization/figures/ten_tasks_same_map.svg",
+      "png_sha256": "ed895eac992e70e2a109fc9830e20ed2e6011dd9b8c3ac100e46c663499b4a32",
+      "svg_sha256": "acff9f54c9e2a0308ebdd12dbc1eabd1482dcaf9347aa2849dd968f9c1f798a9",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "single_expert_trajectory_3d",
+      "png": "artifacts/s8r5_visualization/figures/single_expert_trajectory_3d.png",
+      "svg": "artifacts/s8r5_visualization/figures/single_expert_trajectory_3d.svg",
+      "png_sha256": "ef392c32033977cd99a6895d41e81d879e45b858c792ee618c0eba0aa2f9f594",
+      "svg_sha256": "bc778c579ec62d0589eb326e8914d96ebf611e0d2ab5d6d94f1956d8b4e0c80b",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "expert_trajectory_timeseries",
+      "png": "artifacts/s8r5_visualization/figures/expert_trajectory_timeseries.png",
+      "svg": "artifacts/s8r5_visualization/figures/expert_trajectory_timeseries.svg",
+      "png_sha256": "ea63cdd42bf9464626d7c460c92263f268b7a20b05fce73467d8792806c67504",
+      "svg_sha256": "786b7811a3344e0a1dc0ef3295d1c18c5352ea7e4a97bfaf642ddd72c6a940f0",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "expert_sample_format",
+      "png": "artifacts/s8r5_visualization/figures/expert_sample_format.png",
+      "svg": "artifacts/s8r5_visualization/figures/expert_sample_format.svg",
+      "png_sha256": "887c31727bfe95e216410317abda92e045d412627d0a9034004919e23f054401",
+      "svg_sha256": "0cc4b3a4b1b51be0e092d3ba76f439a83dfa64c8b3af45dfc2fb72f8bdf98fda",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "expert_dataset_statistics",
+      "png": "artifacts/s8r5_visualization/figures/expert_dataset_statistics.png",
+      "svg": "artifacts/s8r5_visualization/figures/expert_dataset_statistics.svg",
+      "png_sha256": "63d2827cc6f214df3d6a60a598afff45aa4f9485ce98b1c0635491e6878884ea",
+      "svg_sha256": "6ab288671ed58ef5b9a3c5a4a449a2759264daf2489fb5d26aff76062592fad5",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "observation_ray_visualization",
+      "png": "artifacts/s8r5_visualization/figures/observation_ray_visualization.png",
+      "svg": "artifacts/s8r5_visualization/figures/observation_ray_visualization.svg",
+      "png_sha256": "556437af5a694ae8125624c821c2ec5ed0c2b3e435f587778ded4faa876134b8",
+      "svg_sha256": "e7f83f7bbeaaf99f0daa8cc9d7ab492c176cf8be8475efd63b0168c4f50b0a7a",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    },
+    {
+      "name": "expert_to_learning_pipeline",
+      "png": "artifacts/s8r5_visualization/figures/expert_to_learning_pipeline.png",
+      "svg": "artifacts/s8r5_visualization/figures/expert_to_learning_pipeline.svg",
+      "png_sha256": "5cfd4ed05fb7fda868ec6ad9a2637b5763650b3cca3b167f26bf49c761e9cebe",
+      "svg_sha256": "2e332360407ccc02e6c7dac5493e559f0a63dfeaf0e6b8be4bcca9c9912a94b1",
+      "pixel_size": [
+        3999,
+        2250
+      ]
+    }
+  ],
+  "review_risks_addressed": [
+    "All trajectory panels assert TRAIN split before loading arrays.",
+    "Exact manifest goals are drawn separately from rollout endpoints.",
+    "Dataset-wide metadata and TRAIN-only raw action statistics are labelled separately.",
+    "Obstacle rays are described as local sensing while absolute position remains part of the observation.",
+    "No model outcome or causal performance claim is shown."
+  ]
+}
