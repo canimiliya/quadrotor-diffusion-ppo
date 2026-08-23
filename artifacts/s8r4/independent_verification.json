@@ -1,0 +1,68 @@
+{
+  "task": "S8-R4-CONDITIONAL-1D-UNET-DIFFUSION-ARCHITECTURE-AUDIT-V1",
+  "checks": [
+    {
+      "name": "train_hash",
+      "passed": true,
+      "detail": "395a5c2ab1eb6cb3f3925fa3ecbe160d151833ef95cc5bc3b9187fbc497de3c5"
+    },
+    {
+      "name": "val_hash",
+      "passed": true,
+      "detail": "0fc50886504d36890444b4c09c2990962cc5be6551cb0e54c008df0d26f5246e"
+    },
+    {
+      "name": "normalization_hash",
+      "passed": true,
+      "detail": "e05b9a424cbb782dc1eddfcfd69fbf4e849806d3995bbab48e4a60193c76b6e0"
+    },
+    {
+      "name": "unet_channels",
+      "passed": true,
+      "detail": "{'model': 'ConditionalUnet1D', 'parameter_count': 47110915, 'mlp_parameter_count': 621360, 'bc_parameter_count': 592688, 'architecture_capacity_audit': True, 'config_sha256': '44769af2e42f44c457122197072bf8c6dff86404a5fe96f9d46b1b417eb908ef', 'input_shape': ['B', 16, 3], 'output_shape': ['B', 16, 3], 'condition_shape': ['B', 512], 'test_accessed': False}"
+    },
+    {
+      "name": "capacity_audit",
+      "passed": true,
+      "detail": "true"
+    },
+    {
+      "name": "selection_metric",
+      "passed": true,
+      "detail": "VAL offline diffusion loss"
+    },
+    {
+      "name": "selection_frozen",
+      "passed": true,
+      "detail": "{'selection_metric': 'VAL offline diffusion loss', 'candidate_passes': [1, 5, 10, 20, 30], 'mlp': {'selected_pass': 20, 'loss': 2.9821269458219956e-05, 'source_effective_pass': 20.002143852502947}, 'unet': {'selected_pass': 10, 'loss': 3.1573159292316666e-05, 'source_effective_pass': 10.001071926251473}, 'frozen_before_closed_loop': True, 'selected_by_closed_loop_success': False, 'sha256': '7d6c7c7872fab8e4d37cfe41465359fd7115c8912920a120cab4891df537efb3'}"
+    },
+    {
+      "name": "curve_rows",
+      "passed": true,
+      "detail": "180"
+    },
+    {
+      "name": "curve_finite",
+      "passed": true,
+      "detail": "finite"
+    },
+    {
+      "name": "val_rows",
+      "passed": true,
+      "detail": "[('1', '1000'), ('5', '1000'), ('10', '1000'), ('20', '1000'), ('30', '1000')]"
+    },
+    {
+      "name": "no_test",
+      "passed": true,
+      "detail": "false"
+    },
+    {
+      "name": "no_ppo",
+      "passed": true,
+      "detail": "0"
+    }
+  ],
+  "passed": 12,
+  "failed": 0,
+  "final_label": "PASS_S8R4_INDEPENDENT_VERIFICATION"
+}

@@ -1,0 +1,16 @@
+from __future__ import annotations
+import csv, json
+from pathlib import Path
+import numpy as np
+ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/"artifacts"/"s8r4"
+def main():
+ s=json.loads((OUT/"summary.json").read_text(encoding="utf-8")); sel=json.loads((OUT/"checkpoint_selection.json").read_text(encoding="utf-8")); a=json.loads((OUT/"architecture_summary.json").read_text(encoding="utf-8")); verifier=json.loads((OUT/"independent_verification.json").read_text(encoding="utf-8"));
+ stability = "PASS：training curve 全部 finite，独立 verifier 的 curve_finite 与 val_rows 检查均通过。" if all(c["passed"] for c in verifier["checks"] if c["name"] in ("curve_finite", "val_rows")) else "BLOCKED：稳定性证据检查未通过。"
+ u=s["unet"]; m=s["mlp_reference"]; us=s["unet_offline_selected_pass"]; ms=s["mlp_offline_selected_pass"]
+ label=s["final_label"]; promising=label=="PASS_S8R4_UNET_PROMISING"
+ fam=s.get("family_results",[])
+ lines=["# S8-R4 Conditional 1-D U-Net Diffusion Architecture Audit","",f"**FINAL_LABEL:** `{label}`","", "## 先回答 9 个问题", "",f"1. U-Net 参数量：**{s['unet_parameter_count']:,}**（MLP 621,360；BC 592,688）。这是 architecture-capacity audit，不是 parameter-matched comparison。",f"2. 训练稳定性：{stability}",f"3. U-Net success：pass1={u['1']:.1%}，pass5={u['5']:.1%}，pass10={u['10']:.1%}，pass20={u['20']:.1%}，pass30={u['30']:.1%}。",f"4. Offline loss checkpoint：MLP pass {ms}；U-Net pass {us}。选择只看 VAL offline diffusion loss，且在闭环前冻结。",f"5. Offline-selected delta：{s['offline_selected_delta']*100:+.2f} pp。",f"6. Late mean delta：{s['late_mean_delta']*100:+.2f} pp。",f"7. Peak→final drop：U-Net {s['unet_peak_to_final_drop']*100:.2f} pp；MLP {s['mlp_peak_to_final_drop']*100:.2f} pp。", "8. Family 改善：见 `family_metrics.csv` 与 family figure；不按单一 family 峰值判定。",f"9. 是否继续 3 seeds：**{'是，交 controller 再授权' if promising else '否，本轮无清晰优势，停止'}**。", "", "## 固定 checkpoint 对照", "", "| pass | U-Net | MLP Diffusion | BC参考 |", "|---:|---:|---:|---:|"]
+ for p in (1,5,10,20,30): lines.append(f"| {p} | {u[str(p)]:.1%} | {m[str(p)]:.1%} | {s.get('bc_reference',{}).get(str(p),'—')} |")
+ lines += ["", "## 冻结数据与执行边界", "",f"TRAIN SHA256 `{s['dataset']['train_sha256']}`；VAL SHA256 `{s['dataset']['val_sha256']}`；normalization `{s['normalization_sha256']}`。",f"seed={s['training_seed']}；effective_passes={s['effective_passes']}；updates/pass={s['updates_per_pass']}；TEST_ACCESSED={s['test_accessed']}；PPO_RUN_COUNT={s['ppo_run_count']}。", "H=16、单帧34D、action3、bounded x0、MSE_x0、T=100、DDIM10/eta0、EAGER_EXACT、first-action receding horizon 均冻结。", "", "## 科研解释边界", "", "如果 U-Net 更强，只能说 temporal U-Net backbone improves the current Diffusion implementation under the frozen 10K contract；single seed 不能证明 Diffusion 优于 BC。若无优势，不自行加入 action chunk、observation history、EMA 或 3 seeds。", "", "## 证据文件", "", "- `artifacts/s8r4/training_curve.csv`", "- `artifacts/s8r4/closed_loop_metrics.csv`", "- `artifacts/s8r4/family_metrics.csv`", "- `artifacts/s8r4/checkpoint_selection.json`", "- `artifacts/s8r4/independent_verification.json`", "- `artifacts/s8r4/figures/`", "", "FORMAL_PROGRESS = 95%", "", "UNIQUE_NEXT_TASK = NONE — WAIT_FOR_CONTROLLER_REVIEW"]
+ (ROOT/"docs/S8R4_UNET_DIFFUSION_ARCHITECTURE_AUDIT.md").write_text("\n".join(lines)+"\n",encoding="utf-8")
+if __name__=="__main__": main()

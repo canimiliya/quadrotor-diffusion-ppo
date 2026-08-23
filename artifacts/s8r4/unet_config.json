@@ -1,0 +1,22 @@
+{
+  "task": "S8-R4-CONDITIONAL-1D-UNET-DIFFUSION-ARCHITECTURE-AUDIT-V1",
+  "model": {
+    "observation_dim": 34,
+    "horizon": 16,
+    "action_dim": 3,
+    "condition_dim": 256,
+    "bounded_output": true
+  },
+  "channels": [
+    256,
+    512,
+    1024
+  ],
+  "global_condition_dim": 512,
+  "groups": 8,
+  "kernel_size": 5,
+  "normalization_sha256": "e05b9a424cbb782dc1eddfcfd69fbf4e849806d3995bbab48e4a60193c76b6e0",
+  "training_seed": 20260820,
+  "runtime": "UNET_RUNTIME=EAGER_EXACT",
+  "ema": false
+}

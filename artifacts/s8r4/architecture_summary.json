@@ -1,0 +1,23 @@
+{
+  "model": "ConditionalUnet1D",
+  "parameter_count": 47110915,
+  "mlp_parameter_count": 621360,
+  "bc_parameter_count": 592688,
+  "architecture_capacity_audit": true,
+  "config_sha256": "44769af2e42f44c457122197072bf8c6dff86404a5fe96f9d46b1b417eb908ef",
+  "input_shape": [
+    "B",
+    16,
+    3
+  ],
+  "output_shape": [
+    "B",
+    16,
+    3
+  ],
+  "condition_shape": [
+    "B",
+    512
+  ],
+  "test_accessed": false
+}

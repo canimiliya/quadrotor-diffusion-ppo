@@ -1,0 +1,23 @@
+{
+  "selection_metric": "VAL offline diffusion loss",
+  "candidate_passes": [
+    1,
+    5,
+    10,
+    20,
+    30
+  ],
+  "mlp": {
+    "selected_pass": 20,
+    "loss": 2.9821269458219956e-05,
+    "source_effective_pass": 20.002143852502947
+  },
+  "unet": {
+    "selected_pass": 10,
+    "loss": 3.1573159292316666e-05,
+    "source_effective_pass": 10.001071926251473
+  },
+  "frozen_before_closed_loop": true,
+  "selected_by_closed_loop_success": false,
+  "sha256": "7d6c7c7872fab8e4d37cfe41465359fd7115c8912920a120cab4891df537efb3"
+}
