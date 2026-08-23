@@ -39,7 +39,7 @@
     {
       "name": "curve_rows",
       "passed": true,
-      "detail": "180"
+      "detail": "120"
     },
     {
       "name": "curve_finite",
