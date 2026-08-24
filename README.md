@@ -73,6 +73,27 @@ $env:GCOPTER_YAML_SCENE_PLANNER = "<path-to-gcopter_yaml_scene_planner>"
 
 大小、SHA256、重建性和长期保存建议见 `docs/DATA_AND_CHECKPOINT_MANIFEST.md`。未经 controller 同意，不删除或移动这些文件。未来建议迁移到项目外的 `quadrotor_diffusion_ppo_data/`，再用环境变量或符号链接接入；本任务不执行迁移。
 
+完整 pytest 的 frozen-asset 恢复
+
+`python -m pytest -q` 会验证历史 S2/S3-R2 合同，因此除了代码和第三方源码，还需要从受控归档恢复以下外部输入；它们故意不进入 Git：
+
+- `.deps/gcopter_reference/OPEN_00/reference_coefficients.csv`
+- `artifacts/s2/dataset/{train,val,test}.npz`
+- `checkpoints/s3r2/best.pt`
+
+把归档中的同名文件复制到上述相对路径（不要移动正式源文件），然后按 manifest 中的 SHA256 校验。例如：
+
+```powershell
+$archive = "<path-to-frozen-asset-archive>"
+Copy-Item "$archive\gcopter_reference\OPEN_00\reference_coefficients.csv" ".deps\gcopter_reference\OPEN_00\"
+Copy-Item "$archive\s2\dataset\*.npz" "artifacts\s2\dataset\"
+Copy-Item "$archive\s3r2\best.pt" "checkpoints\s3r2\"
+Get-FileHash .deps\gcopter_reference\OPEN_00\reference_coefficients.csv -Algorithm SHA256
+Get-FileHash artifacts\s2\dataset\train.npz,artifacts\s2\dataset\val.npz,artifacts\s2\dataset\test.npz,checkpoints\s3r2\best.pt -Algorithm SHA256
+```
+
+没有这些 optional external assets 时，`verify_installation.py` 仍应通过，但依赖历史数据/checkpoint 的测试会明确失败；不得删除或跳过这些测试来伪造完整 pytest 通过。
+
 ## 验证、测试和运行
 
 ```powershell
