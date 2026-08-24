@@ -20,6 +20,15 @@ artifacts/                     可提交的小型证据；大型数据和日志�
 checkpoints/                   本机科研 checkpoint，默认不进入 Git
 ```
 
+## Neural Network Implementations
+
+- MLP Diffusion：`src/quadrotor_diffusion_ppo/diffusion/model.py`
+- Temporal 1-D U-Net：`src/quadrotor_diffusion_ppo/diffusion/unet1d.py`
+- Behavioral Cloning：`src/quadrotor_diffusion_ppo/bc/model.py`
+- PPO components：`src/quadrotor_diffusion_ppo/ppo/`
+
+模型类、输入输出和科研用途见 `docs/NETWORK_ARCHITECTURE_INDEX.md`。
+
 ## 从零安装 Windows
 
 推荐 Python 3.10（Python 3.9 也可运行历史 S8-R4 环境，但新环境使用 3.10）。先准备 PowerShell、Git 和一个可用的 Python/conda 环境，然后在仓库根目录执行：
