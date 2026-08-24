@@ -10,6 +10,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -294,8 +295,9 @@ def render_multi_route(item: dict[str, Any], map_record: dict[str, Any], routes:
 def make_overview(paths: list[tuple[str, Path]], output: Path) -> None:
     canvas = Image.new("RGB", (WIDTH_PX * 3 // 2, HEIGHT_PX * 3 // 2), "#06111D")
     draw = ImageDraw.Draw(canvas)
+    font_path = os.environ.get("QUADROTOR_FONT_PATH")
     try:
-        font = ImageFont.truetype("C:/Windows/Fonts/seguisb.ttf", 32)
+        font = ImageFont.truetype(font_path, 32) if font_path else ImageFont.load_default()
     except OSError:
         font = ImageFont.load_default()
     tile_w = canvas.width // 2

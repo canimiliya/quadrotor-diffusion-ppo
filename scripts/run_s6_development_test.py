@@ -8,9 +8,8 @@ import time
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src")); sys.path.insert(0, str(ROOT))
-EXTERNAL = Path(r"D:\Desktop\research_progress_management\single_quad_ppo_diffusion\third_party\gym-pybullet-drones")
-if EXTERNAL.exists():
-    sys.path.insert(0, str(EXTERNAL))
+from quadrotor_diffusion_ppo.paths import configure_external_imports
+configure_external_imports()
 
 import torch
 from stable_baselines3 import PPO

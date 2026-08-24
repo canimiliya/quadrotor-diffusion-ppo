@@ -21,8 +21,9 @@ os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
 
 ROOT = Path(__file__).resolve().parents[1]
 import sys
-EXTERNAL = Path(r"D:\Desktop\research_progress_management\single_quad_ppo_diffusion\third_party\gym-pybullet-drones")
-sys.path[:0] = [str(ROOT / "src"), str(ROOT)] + ([str(EXTERNAL)] if EXTERNAL.exists() else [])
+sys.path[:0] = [str(ROOT / "src"), str(ROOT)]
+from quadrotor_diffusion_ppo.paths import configure_external_imports
+configure_external_imports()
 
 import numpy as np
 import torch

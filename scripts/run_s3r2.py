@@ -19,6 +19,7 @@ import re
 import shlex
 import subprocess
 import sys
+import tempfile
 import time
 
 # Required by deterministic CUDA GEMM on CUDA >= 10.2.  Set before importing
@@ -73,7 +74,7 @@ RECOVERY_ROOT = PROJECT_ROOT / "artifacts" / "s3r2" / "recovery_dataset"
 S3R2_ROOT = PROJECT_ROOT / "artifacts" / "s3r2"
 CHECKPOINT_ROOT = PROJECT_ROOT / "checkpoints" / "s3r2"
 RECOVERY_DATASET = RECOVERY_ROOT / "recovery_train.npz"
-TRAIN_ROLLOUT_CACHE = Path("C:/Users/Administrator/AppData/Local/Temp/s3r2-train-rollouts.pkl")
+TRAIN_ROLLOUT_CACHE = Path(tempfile.gettempdir()) / "s3r2-train-rollouts.pkl"
 
 
 def json_safe(value):

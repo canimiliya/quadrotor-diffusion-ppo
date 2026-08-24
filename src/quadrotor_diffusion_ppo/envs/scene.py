@@ -7,8 +7,10 @@ import os
 from pathlib import Path
 import numpy as np
 
+from quadrotor_diffusion_ppo.paths import clean_reproduction_root as configured_clean_root
+
 SCENE_IDS = ("OPEN_00", "OPEN_01", "OPEN_02", "BLOCK_00", "BLOCK_01", "BLOCK_02", "SBEND_00", "SBEND_01", "SBEND_02")
-DEFAULT_CLEAN_ROOT = Path("D:/Desktop/my_project/paper_reproduction/Geometrically_Constrained_Trajectory_Optimization_for_Multicopters/GCOPTER-Clean-Reproduction")
+DEFAULT_CLEAN_ROOT = configured_clean_root()
 
 
 @dataclass(frozen=True)
@@ -29,7 +31,7 @@ class SceneSpec:
 
 
 def clean_reproduction_root() -> Path:
-    return Path(os.environ.get("GCOPTER_CLEAN_REPRODUCTION", str(DEFAULT_CLEAN_ROOT)))
+    return configured_clean_root()
 
 
 def _value(text: str):

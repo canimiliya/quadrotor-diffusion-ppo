@@ -16,6 +16,7 @@ import pickle
 import random
 import subprocess
 import sys
+import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
@@ -37,7 +38,7 @@ from scripts.run_s3_diffusion import (
 
 S3R1_ROOT = PROJECT_ROOT / "artifacts" / "s3r1"
 S3D0_ROOT = PROJECT_ROOT / "artifacts" / "s3d0"
-TEMP_ROLLOUT_CACHE = Path("C:/Users/Administrator/AppData/Local/Temp/s3d0-rollouts.pkl")
+TEMP_ROLLOUT_CACHE = Path(tempfile.gettempdir()) / "s3d0-rollouts.pkl"
 CHECKPOINT = PROJECT_ROOT / "checkpoints" / "s3r1" / "best.pt"
 EXPECTED_START_HEAD = "e2f4e19f02e1b07de48617b607ceeb32340a5095"
 EXPECTED_CHECKPOINT_SHA256 = "8afa677d7c8a34179c60f067209b6924170fc7854445048d7a7e9b55bbbc5fc8"

@@ -1,0 +1,9 @@
+name: quadrotor-repro-test
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  # Run scripts/bootstrap_windows.ps1 from the repository root after creating
+  # this environment. It selects the correct PyTorch wheel before installing
+  # the pinned base/dev requirements and the editable project.

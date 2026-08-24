@@ -1,5 +1,5 @@
 param([int]$ValPid = 5832)
-$root = 'D:\Desktop\my_project\quadrotor_diffusion_ppo'
+$root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $log = Join-Path $root 'artifacts\s8r4\post_after_val.log'
 Set-Location $root
 $env:PYTHONPATH = "$root;$root\src"

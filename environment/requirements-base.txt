@@ -1,0 +1,13 @@
+# Minimal runtime stack used by src/, scripts/, and tests.
+# PyTorch is installed separately so a CUDA wheel can be selected explicitly.
+setuptools==80.9.0
+numpy==1.24.1
+scipy==1.10.1
+pybullet==3.2.7
+gymnasium==1.1.1
+stable-baselines3==2.6.0
+matplotlib==3.7.5
+PyYAML==6.0.2
+Pillow==10.2.0
+psutil==7.0.0
+transforms3d==0.4.2

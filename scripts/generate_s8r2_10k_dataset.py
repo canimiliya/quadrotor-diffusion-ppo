@@ -31,6 +31,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from quadrotor_diffusion_ppo.expert.s2_dataset import TaskSpec, _task_scene, rollout_task
 from quadrotor_diffusion_ppo.expert.trajectory import GcopterTrajectory
 from quadrotor_diffusion_ppo.envs.scene import SceneSpec
+from quadrotor_diffusion_ppo.paths import clean_reproduction_root
 
 
 FAMILIES = (
@@ -280,7 +281,7 @@ def run_planner(scene: SceneSpec, work_dir: Path) -> tuple[GcopterTrajectory, di
     write_task_yaml(scene, yaml_path)
     out_dir.mkdir(parents=True, exist_ok=True)
     planner = ROOT / ".deps" / "gcopter_reference" / "gcopter_yaml_scene_planner"
-    repo_root = Path(os.environ.get("GCOPTER_CLEAN_REPRODUCTION", "D:/Desktop/my_project/paper_reproduction/Geometrically_Constrained_Trajectory_Optimization_for_Multicopters/GCOPTER-Clean-Reproduction"))
+    repo_root = clean_reproduction_root()
     command = " ".join([_wsl_path(planner), _wsl_path(yaml_path), _wsl_path(out_dir), _wsl_path(repo_root)])
     done = subprocess.run(["wsl.exe", "-e", "bash", "-lc", command], capture_output=True, timeout=180, check=False)
     if done.returncode != 0:

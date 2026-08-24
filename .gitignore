@@ -9,6 +9,12 @@ dist/
 .deps/
 .cache/
 
+# Keep the small, human-readable reproducibility record; ignore only the
+# machine-generated full freeze if a user creates additional local copies.
+!artifacts/reproducibility/
+!artifacts/reproducibility/current_environment.json
+!artifacts/reproducibility/pip_freeze_s8r4_smd-blackwell.txt
+
 artifacts/*
 !artifacts/m0/
 artifacts/m0/*
@@ -210,3 +216,12 @@ checkpoints/s3/*
 results/
 logs/
 recording_*/
+
+# Reproducibility metadata is intentionally versionable even though the rest
+# of artifacts/ is ignored.
+!artifacts/reproducibility/
+!artifacts/reproducibility/current_environment.json
+!artifacts/reproducibility/pip_freeze_s8r4_smd-blackwell.txt
+
+# Editable-install metadata is a generated build product.
+*.egg-info/

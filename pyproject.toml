@@ -4,10 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "quadrotor-diffusion-ppo"
-version = "0.0.1"
-description = "M0 GCOPTER velocity bridge and obstacle-aware CF2X sanity evaluation"
-requires-python = ">=3.10"
-dependencies = ["numpy", "pybullet", "gymnasium"]
+version = "0.1.0"
+description = "Planning-guided diffusion, behavioral cloning, and PPO components for reproducible quadrotor navigation research"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "numpy>=1.24,<3",
+    "scipy>=1.10,<2",
+    "torch>=2.7,<2.8",
+    "gymnasium>=1.1,<2",
+    "pybullet>=3.2.7,<4",
+    "stable-baselines3>=2.6,<3",
+    "matplotlib>=3.7,<4",
+    "PyYAML>=6,<7",
+    "Pillow>=10,<12",
+    "psutil>=5,<8",
+    "transforms3d>=0.4,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -15,4 +30,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
-

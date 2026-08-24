@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Continue"
 $python = "D:\anaconda\envs\smd-blackwell\python.exe"
-$root = "D:\Desktop\my_project\quadrotor_diffusion_ppo"
+$root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $runs = @(
     @("pure_ppo", "20260812"),
     @("pure_ppo", "20260813"),

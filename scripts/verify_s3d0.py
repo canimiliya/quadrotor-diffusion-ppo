@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -52,7 +53,7 @@ def main() -> None:
         "regression": summary.get("regression", {}).get("pytest_returncode") == 0 and summary.get("tests", {}).get("failed") == 0,
         "large_files_not_present": not any(path.suffix.lower() in {".mp4", ".gif", ".npz", ".pt", ".pth", ".ckpt"} for path in S3D0.rglob("*")),
     }
-    pytest_result = subprocess.run(["D:\\anaconda\\envs\\dp_quad_py310\\python.exe", "-m", "pytest", "-q"], cwd=ROOT, capture_output=True, text=True)
+    pytest_result = subprocess.run([sys.executable, "-m", "pytest", "-q"], cwd=ROOT, capture_output=True, text=True)
     checks["pytest_live"] = pytest_result.returncode == 0
     result = {"audit_pass": all(checks.values()), "checks": checks, "outcomes": outcomes,
               "failure_types": failure_types, "pytest_returncode": pytest_result.returncode}

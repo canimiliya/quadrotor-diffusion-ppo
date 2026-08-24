@@ -1,5 +1,5 @@
 param([int]$TrainingPid = 38444)
-$root = 'D:\Desktop\my_project\quadrotor_diffusion_ppo'
+$root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $log = Join-Path $root 'artifacts\s8r4\post_pipeline.log'
 Add-Content $log ((Get-Date).ToString('s') + ' waiting for training pid=' + $TrainingPid)
 Wait-Process -Id $TrainingPid -ErrorAction SilentlyContinue

@@ -1,0 +1,28 @@
+{
+  "captured_at": "2026-08-24",
+  "basis": "most recent formal S8-R4 run from artifacts/s8r4 logs",
+  "formal_environment_name": "smd-blackwell",
+  "python_executable": "D:/anaconda/envs/smd-blackwell/python.exe",
+  "python_version": "3.9.25",
+  "torch_version": "2.7.1+cu128",
+  "cuda_runtime": "12.8",
+  "cuda_available": true,
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "gpu_driver": "581.29",
+  "gpu_memory_mib": 16311,
+  "numpy": "1.24.1",
+  "scipy": "1.10.1",
+  "pybullet": "3.2.7",
+  "gymnasium": "1.1.1",
+  "stable_baselines3": "2.6.0",
+  "gym_pybullet_drones": {
+    "source": "external read-only snapshot",
+    "declared_commit": "e712698a05a80728b06572819dcf044596707754"
+  },
+  "formal_scope": {
+    "test_accessed": false,
+    "ppo_run_count": 0,
+    "training_route": "S8-R4 conditional temporal U-Net audit"
+  },
+  "pip_freeze_file": "artifacts/reproducibility/pip_freeze_s8r4_smd-blackwell.txt"
+}
