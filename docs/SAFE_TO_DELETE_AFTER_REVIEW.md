@@ -1,33 +1,44 @@
-# Safe to delete after review
+# Local cleanup disposition
 
-This file is a recommendation only. No item below was deleted by this task.
+Updated on 2026-08-24 after explicit owner approval. No virtual environment,
+dataset, sealed TEST asset, canonical repository, or selected checkpoint was
+deleted or moved.
 
-## SAFE_TO_DELETE
+## CLEANED_AFTER_APPROVAL
 
-- `__pycache__/` directories under the repository, after closing Python
-  processes. They are interpreter-generated and recreated automatically.
-- `.pytest_cache/`, after confirming no test run is currently being diagnosed.
+- duplicate reproducibility fresh clones and the disposable GCOPTER probe clone;
+- four S8-R4 Git worktrees, removed with `git worktree remove` while preserving
+  their branch refs and commits in the canonical repository;
+- historical checkpoints except `checkpoints/s8r4/unet/pass_10.pt`;
+- `artifacts/s8r2_10k/_cache/`, `.pytest_cache/`, `.deps/s2_probe/`, temporary
+  logs, duplicate validation rollout CSVs, RViz helper outputs/scripts, and
+  local orchestration notes after their relevant conclusions were consolidated.
 
-## LIKELY_SAFE
+These filesystem items were sent to the Windows Recycle Bin where applicable.
+They are not part of the active project tree, but physical disk space is not
+fully reclaimed until the owner empties the Recycle Bin. Do not empty the
+whole Recycle Bin automatically because it may contain unrelated files.
 
-- `artifacts/s8r2_10k/_cache/` (approximately 1.08 GB): derived planner cache;
-  retain until an independent S8-R2 rebuild has been accepted.
-- `artifacts/s7/fresh_holdout/*/` directories named as failed or preflight
-  work: historical diagnostic evidence; inspect before removal.
-- `logs/` and ignored S8-R4 console logs: potentially reproducible runtime
-  output, but preserve while the S8-R4 audit remains under review.
-- `.deps/s2_probe/`: probe output only if its provenance is no longer needed.
+## RETAIN
 
-## DO_NOT_DELETE
+- all datasets listed in `docs/DATA_AND_CHECKPOINT_MANIFEST.md`, including S2,
+  S3-R2 recovery, S7 fresh holdout, and S8-R2 10K splits;
+- `artifacts/s8r3/train_obs_normalization.npz`;
+- `checkpoints/s8r4/unet/pass_10.pt` with SHA256
+  `8ab962ea18e818d9fe6ef481f4f0f3162b39a30ba75fa87c3aacdeb27f66545d`;
+- `.deps/gcopter_reference/` and required third-party inputs;
+- the active Python/Conda environments;
+- Git-tracked stage reports, manifests, summaries, and small scientific
+  evidence files;
+- S7 failed/preflight holdout directories, because they are inside the retained
+  dataset boundary and their unique data purpose has not been disproved.
 
-- `artifacts/s2/dataset/`, `artifacts/s3r2/recovery_dataset/`, and
-  `artifacts/s8r2_10k/{train,val,test}.npz`;
-- all `checkpoints/` required by the S3-R2, S8-R3 and S8-R4 evidence chains;
-- `.deps/gcopter_reference/` and the external GCOPTER scene checkout until a
-  fresh bootstrap has been independently verified;
-- the active `smd-blackwell` environment and any environment not yet classified
-  by its owner;
-- interrupted/failed run artifacts, sealed TEST data, and historical logs.
+## FUTURE_REVIEW_ONLY
 
-Deletion requires controller confirmation, a hash/archive decision, and a
-post-delete Git/status audit.
+- generated `__pycache__/` directories may be cleaned after Python processes
+  close;
+- the retained S7 failed/preflight data may be reconsidered only after a
+  separate file-level manifest proves which content is reproducible and not
+  needed for the frozen holdout evidence;
+- no environment, dataset, or selected checkpoint may be deleted without a new
+  explicit owner decision.

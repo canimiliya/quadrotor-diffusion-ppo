@@ -4,7 +4,7 @@
 
 ## 当前状态
 
-最近正式科研证据是 S8-R4 Conditional 1-D U-Net 架构审计。它是单 seed、TRAIN/VAL-only 的架构审计，记录为 `PASS_S8R4_UNET_PROMISING`；它不证明三 seed 优势、参数量匹配优势、BC 优势，也没有启动 PPO。历史失败、恢复运行、数据和 checkpoint 均保留在本机但不提交 Git。
+最近正式科研证据是 S8-R4 Conditional 1-D U-Net 架构审计。它是单 seed、TRAIN/VAL-only 的架构审计，记录为 `PASS_S8R4_UNET_PROMISING`；它不证明三 seed 优势、参数量匹配优势、BC 优势，也没有启动 PPO。全部正式数据集继续保留；模型权重只长期保留冻结 VAL 规则选中的 S8-R4 U-Net `pass_10.pt`。历史实验过程、负结果和发展方向见 `docs/RESEARCH_HISTORY_AND_NEXT_DIRECTIONS.md`。
 
 ## 目录
 
@@ -68,10 +68,11 @@ $env:GCOPTER_YAML_SCENE_PLANNER = "<path-to-gcopter_yaml_scene_planner>"
 - S2：`artifacts/s2/dataset/{train,val,test}.npz`
 - S3-R2 recovery：`artifacts/s3r2/recovery_dataset/`
 - S8-R2 10K：`artifacts/s8r2_10k/{train,val,test}.npz`
-- S8-R3：`checkpoints/s8r3/`
-- S8-R4 U-Net：`checkpoints/s8r4/unet/`
+- S7 fresh-topology holdout：`artifacts/s7/fresh_holdout/`
+- S8-R3 TRAIN normalization：`artifacts/s8r3/train_obs_normalization.npz`
+- 唯一长期保留权重：`checkpoints/s8r4/unet/pass_10.pt`
 
-大小、SHA256、重建性和长期保存建议见 `docs/DATA_AND_CHECKPOINT_MANIFEST.md`。未经 controller 同意，不删除或移动这些文件。未来建议迁移到项目外的 `quadrotor_diffusion_ppo_data/`，再用环境变量或符号链接接入；本任务不执行迁移。
+大小、SHA256、重建性和清理状态见 `docs/DATA_AND_CHECKPOINT_MANIFEST.md`。数据仍按科研阶段留在规范相对路径中，避免引入个人绝对路径或破坏脚本；本机 `process` 目录中的管理索引不复制大型数据，也不是运行依赖。
 
 完整 pytest 的 frozen-asset 恢复
 
@@ -92,7 +93,7 @@ Get-FileHash .deps\gcopter_reference\OPEN_00\reference_coefficients.csv -Algorit
 Get-FileHash artifacts\s2\dataset\train.npz,artifacts\s2\dataset\val.npz,artifacts\s2\dataset\test.npz,checkpoints\s3r2\best.pt -Algorithm SHA256
 ```
 
-没有这些 optional external assets 时，`verify_installation.py` 仍应通过，但依赖历史数据/checkpoint 的测试会明确失败；不得删除或跳过这些测试来伪造完整 pytest 通过。
+S3-R2 历史 checkpoint 已按所有者批准完成本地清理，只保留上表清单中的原始 SHA256 和实验结论。没有该 optional external asset 时，`verify_installation.py` 仍应通过，但依赖该历史 checkpoint 的测试会明确失败；如需复核该旧合同，必须从独立归档按 SHA256 恢复或按冻结流程重建，不得删除或跳过测试来伪造完整 pytest 通过。
 
 ## 验证、测试和运行
 
@@ -116,7 +117,7 @@ python scripts/run_s7_fresh_evaluation.py
 
 ## 为什么大文件不进 Git
 
-NPZ 数据、训练 checkpoint、PyBullet 日志、缓存和 planner build products 体积大、变化频繁，并且很多是可由冻结输入重建的派生物。Git 只保存代码、合同、摘要、hash 和可审计的小型证据；本机正式数据和 checkpoint 由清单登记并长期保存，恢复/迁移前先核对 SHA256。
+NPZ 数据、训练 checkpoint、PyBullet 日志、缓存和 planner build products 体积大、变化频繁，并且很多是可由冻结输入重建的派生物。Git 只保存代码、合同、摘要、hash 和可审计的小型证据；本机保留全部正式数据集和唯一选定的 S8-R4 U-Net 权重，恢复/迁移前先核对 SHA256。
 
 ## 研究边界
 
